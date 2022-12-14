@@ -1,0 +1,1894 @@
+,repo,commit,commit_message,message
+0,profiles,07b3ef55d7ce1445b0b523b861dc442079581b50,Set ordering,Set ordering
+1,profiles,72df64c51fea549fe559977ca8713613138706a9,remove version parameter,remove version parameter
+2,profiles,c9a683d3586083a4aedf723bec72e9f21a3ad1e1,Initial commit,Initial commit
+3,roles,5b94f457643cce0d6d2bee70deabfa18bfe229fa,"Revert ""debug sudo""
+
+This reverts commit e015defa639aaaaeda428c47e3381cd350985a6e.","Revert ""debug sudo""
+
+This reverts commit e015defa639aaaaeda428c47e3381cd350985a6e."
+4,roles,e015defa639aaaaeda428c47e3381cd350985a6e,debug sudo,debug sudo
+5,roles,4c24a1c0a934dd5a8e49def49ff64288e6c5f4bb,"Revert ""Remove unnecessary/unconfigured modules for pmlc""
+
+This reverts commit 18c59dabd7fe721ab70bf155f22d1b417f37ef96.","Revert ""Remove unnecessary/unconfigured modules for pmlc""
+
+This reverts commit 18c59dabd7fe721ab70bf155f22d1b417f37ef96."
+6,roles,18c59dabd7fe721ab70bf155f22d1b417f37ef96,Remove unnecessary/unconfigured modules for pmlc,Remove unnecessary/unconfigured modules for pmlc
+7,roles,7db117f776dcb2ed941c02d2fac24dff6fc25612,Add roles for pmlc versions of openstack boxen,Add roles for pmlc versions of openstack boxen
+8,roles,331724b73830f8c5d2472b71de34d6483e73c87a,Change cicd firewall profile name to deploy.,Change cicd firewall profile name to deploy.
+9,roles,e01ed9c154bbd9c5e71ad429cadab0b02d8880d2,Initial commit,Initial commit
+10,pmlc_nova,3b1157bb68707b1c9092e61cb58824312d5fb5fd,Move live migration and image type out of parameter and into selector based on whether ceph is used or not,Move live migration and image type out of parameter and into selector based on whether ceph is used or not
+11,pmlc_nova,fa6b7bf53ee3d591cf98725c60f6646c932dab39,"This is a bit backwards, but default to true on use_ceph and inherit that in the params class to use with a selector for values.","This is a bit backwards, but default to true on use_ceph and inherit that in the params class to use with a selector for values."
+12,pmlc_nova,d47e457b3baf8d0333dce4d055af6d9231e6f504,"This is a bit backwards, but default to true on use_ceph and inherit that in the params class to use with a selector for values.","This is a bit backwards, but default to true on use_ceph and inherit that in the params class to use with a selector for values."
+13,pmlc_nova,8c1c74254797f2c0101af811374a4f512543e76b,Fix typo in selector,Fix typo in selector
+14,pmlc_nova,2cbe257aec1cd23237c583b602611dcfa55a9df1,set use_ceph to true by default. fix typo,set use_ceph to true by default. fix typo
+15,pmlc_nova,9637a53947b416fc2bd7f61588a595718c3ca44b,Add toggle for whether to use ceph or not,Add toggle for whether to use ceph or not
+16,pmlc_nova,92a099896e72a90f7a80668ed8476b16acacd83e,Initial commit,Initial commit
+17,fuel-plugin-celebrer,6cc9a394128c2e067ddea2165cbd20952d42a2b3,Add dashboard,Add dashboard
+18,fuel-plugin-celebrer,14fde2371056c44542eb43c690969a62266f51e6,Integrate python client,Integrate python client
+19,fuel-plugin-celebrer,3ec066f90b0cbb534f7e32ac2018d677907639c7,Update server.pp,Update server.pp
+20,fuel-plugin-celebrer,cc7d29a1dcd8d425867d3dbb5edb174001b3f106,Update ha.pp,Update ha.pp
+21,fuel-plugin-celebrer,2a3084ec282ece2c61c0586f33d3e9f0be2bd7b5,Update ha.pp,Update ha.pp
+22,fuel-plugin-celebrer,0cd055c21b3c7f08ce7cb92dcec35a2bd2c4213a,Update ha.pp,Update ha.pp
+23,fuel-plugin-celebrer,9f1079f9f6ab56e6a00bfd193fd9d434ed82d448,Update auth.pp,Update auth.pp
+24,fuel-plugin-celebrer,f85a0043c0af160d08e01372ad1dabec117cfa34,Update keystone.pp,Update keystone.pp
+25,fuel-plugin-celebrer,fc2f76d3ef4e44a6ad13da9fc61d9a574cba67d8,"Fix, change credentials to glance","Fix, change credentials to glance"
+26,fuel-plugin-celebrer,bc44920e63f3d75cc0aaaf9fbe1f27df92583da6,Update ha.pp,Update ha.pp
+27,fuel-plugin-celebrer,b000cf9efae10134258fd519d87f9e8f324eaa91,Merge branch 'master' of github.com:Mirantis/fuel-plugin-celebrer,Merge branch 'master' of github.com:Mirantis/fuel-plugin-celebrer
+28,fuel-plugin-celebrer,7e379e17313b266d281b58317410e8280180e593,Adding HA-proxy supports.,Adding HA-proxy supports.
+29,fuel-plugin-celebrer,29ec0475d322c8189a594a7c04b2217745349fd0,Create auth.pp,Create auth.pp
+30,fuel-plugin-celebrer,412024a20ff4b3c19d9babf69c172293952a6397,Adding keystone supports.,Adding keystone supports.
+31,fuel-plugin-celebrer,e0741b1e7bb432160d3475140db88ca1f34a0e6a,Update params.pp,Update params.pp
+32,fuel-plugin-celebrer,379d534e0ee9557ef559535974d5fba0cc9dcf93,Update server.pp,Update server.pp
+33,fuel-plugin-celebrer,96d848b438916edf2501a1b9afdb0f5d467339b9,Update init.pp,Update init.pp
+34,fuel-plugin-celebrer,d4ccf8ffad5205a5c0f349d0755d03081f465e5b,Update db.pp,Update db.pp
+35,fuel-plugin-celebrer,a3cfcaafd644a8339ec58e7a54f341a5f3c4b139,Update server.pp,Update server.pp
+36,fuel-plugin-celebrer,bd3846717ba76e390570850d66a2ae55169db5ea,Update agent.pp,Update agent.pp
+37,fuel-plugin-celebrer,399591e67206504d7c53e2088a767ee36ef2ef6a,"Merge pull request #1 from degorenko/patch-1
+
+Update server.pp","Merge pull request #1 from degorenko/patch-1
+
+Update server.ppUpdate server.pp"
+38,fuel-plugin-celebrer,99a9c8e0dfa2de0d434bd70e341f454d2c75d5c2,Update server.pp,Update server.pp
+39,fuel-plugin-celebrer,6fc81818783666215c86c716b82d6da5083201db,Update server.pp,Update server.pp
+40,fuel-plugin-celebrer,390efb95c65cd98ddfd077c76a8fd591513eda47,Update server.pp,Update server.pp
+41,fuel-plugin-celebrer,0c901506e273f1032134a022fa6a6bad132ff895,Migrate to v2.0.0 FuelPlugin package version,Migrate to v2.0.0 FuelPlugin package version
+42,fuel-plugin-celebrer,69cd8b7d3fd168db86a1747ea9caea5c919df2d4,Initial version,Initial version
+43,pmlc_neutron,35b31d83f1428fd5e78209c47601fe5874962bf3,Fix typo in admin password setting,Fix typo in admin password setting
+44,pmlc_neutron,94c7334eeb3efbb1cf27372352aae74f2d37f2ac,Add certificate based authentication to APIC driver. Add agent poll interval of 60s rather than default 2s.,Add certificate based authentication to APIC driver. Add agent poll interval of 60s rather than default 2s.
+45,pmlc_neutron,3bec102682dabfc5547f4bc00786ba2ab0fe5a69,Refactor module to use ini_setting rather than file_lines,Refactor module to use ini_setting rather than file_lines
+46,pmlc_neutron,1b4eac9c1ee16ccd4d27532d93612e60047ec142,Initial commit,Initial commit
+47,fuel-plugin-standalone-ceph,e4c9e3d7e1221c28802facd7c622aa42b71c4441,"Merge pull request #7 from noskovao/master
+
+add ssl part2","Merge pull request #7 from noskovao/master
+
+add ssl part2add ssl part2"
+48,fuel-plugin-standalone-ceph,c9e0c2ddc3a4d24b4b51dd75ecc81fb973374b97,add ssl part2,add ssl part2
+49,fuel-plugin-standalone-ceph,9a04177de5bcd7944ed95ba0b088c35d4e9d0d66,"Merge pull request #6 from achekunov/SSL
+
+add ssl part1","Merge pull request #6 from achekunov/SSL
+
+add ssl part1add ssl part1"
+50,fuel-plugin-standalone-ceph,14b8305f54588485f04777674ff28663042ee352,add ssl part1,add ssl part1
+51,fuel-plugin-standalone-ceph,167732c6c2dac07fae9b3322486899213a9b2149,"Plugin refactored to support MOS 9.0
+
+Change-Id: If4bdf9868fd7a3e9a7fc3797ca454912877be179","Plugin refactored to support MOS 9.0
+
+Change-Id: If4bdf9868fd7a3e9a7fc3797ca454912877be179"
+52,fuel-plugin-standalone-ceph,956894594478ee00d99f8d5de60bd098709fa78a,"Merge pull request #2 from dnikishov/8.0-fixes
+
+Fixes for radosgw and haproxy stats","Merge pull request #2 from dnikishov/8.0-fixes
+
+Fixes for radosgw and haproxy statsFixes for radosgw and haproxy stats"
+53,fuel-plugin-standalone-ceph,547dac9c2e9397fccc9ce2ae99f4f67144a4267c,"Fixes for radosgw and haproxy stats
+
+- radosgw manifest should enable mod_proxy
+  before attempting to start apache
+- Open port 10000 on controllers so that
+  haproxy_backend_status resources can operate
+  from ceph-mon role
+
+Change-Id: I09c2ad1c6d00702f855dd04d0b9be82fc887b7b8","Fixes for radosgw and haproxy stats
+
+- radosgw manifest should enable mod_proxy
+  before attempting to start apache
+- Open port 10000 on controllers so that
+  haproxy_backend_status resources can operate
+  from ceph-mon role
+
+Change-Id: I09c2ad1c6d00702f855dd04d0b9be82fc887b7b8"
+54,fuel-plugin-standalone-ceph,eb3e1c3ce3dd4c9dfe8dc5786da4935984a5f6e7,"Merge pull request #1 from gleb108/master
+
+bugfixes for 8.0","Merge pull request #1 from gleb108/master
+
+bugfixes for 8.0bugfixes for 8.0"
+55,fuel-plugin-standalone-ceph,76ca7d8d96e5e85655700d1edd0bf33c5c1e4587,SSL path error is fixed,SSL path error is fixed
+56,fuel-plugin-standalone-ceph,0c515b7e46907d8a0bd1cf9c9a8bdd657ebe7b74,Change keystone URL in openrc,Change keystone URL in openrc
+57,fuel-plugin-standalone-ceph,d3237e04da42b010480f57654b7a392e10529ec3,"Modify deployment tasks according Fuel 8 roles
+
+Syntax of deplyment_tasks.yaml was corrected
+Primary Ceph tasks were skipped.
+Task standalone-ceph-rados-pki is temporarily disabled.","Modify deployment tasks according Fuel 8 roles
+
+Syntax of deplyment_tasks.yaml was corrected
+Primary Ceph tasks were skipped.
+Task standalone-ceph-rados-pki is temporarily disabled."
+58,fuel-plugin-standalone-ceph,47ba315c8cb88715972ea87cfa6ca5d3048ff5ea,"Set of imprevements
+
+* PKI task should not be executed for UUID
+* Added custom region name support
+* keystone-swift task should be skipped
+
+Change-Id: Ie6355f4bfb5a4d905bc6c8daff6060009c5b9f2d","Set of imprevements
+
+* PKI task should not be executed for UUID
+* Added custom region name support
+* keystone-swift task should be skipped
+
+Change-Id: Ie6355f4bfb5a4d905bc6c8daff6060009c5b9f2d"
+59,fuel-plugin-standalone-ceph,abc3dada786b5008b02dcb5a6ef7764dfb96c828,"Cosmetic changes
+
+  - Fulfill coding guidelines for plugins
+
+Change-Id: Ifc57e21e25c0dd456860e430285641fcd14244b6","Cosmetic changes
+
+  - Fulfill coding guidelines for plugins
+
+Change-Id: Ifc57e21e25c0dd456860e430285641fcd14244b6"
+60,fuel-plugin-standalone-ceph,20c592d7a43b5a6dd81019295c6a9cb7ba15d7ed,"Removed Ceph module from plugin.
+
+- Ceph init.pp and conf.pp are copied from
+  original ceph module and extended with support
+  of standalone Ceph mon
+
+Change-Id: I7d6c88a48408fe609f368e1ee4de642916916720","Removed Ceph module from plugin.
+
+- Ceph init.pp and conf.pp are copied from
+  original ceph module and extended with support
+  of standalone Ceph mon
+
+Change-Id: I7d6c88a48408fe609f368e1ee4de642916916720"
+61,fuel-plugin-standalone-ceph,27007b323048146a54296547a4d83a356607d9a5,"Fix for ceph deploy package order
+
+Change-Id: I09c56cf514865ea4fcd98445b947df978e48b588","Fix for ceph deploy package order
+
+Change-Id: I09c56cf514865ea4fcd98445b947df978e48b588"
+62,fuel-plugin-standalone-ceph,d6b800ab595a7319188623a967e973ef90a49d94,"Added Ceph keys generation for keystone revocation
+
+Change-Id: If9848be5669e01ce71fcc1398baf8a84a0711c87","Added Ceph keys generation for keystone revocation
+
+Change-Id: If9848be5669e01ce71fcc1398baf8a84a0711c87"
+63,fuel-plugin-standalone-ceph,edc4e9cfc394eb3254b60c42c572b11d8017341d,"Fixes for deployment stability
+
+  * Do not merge ceph_monitor_nodes to avoid putting controllers into
+    list of minitors
+  * Deploy monitors after all controllers ready
+  * Added ceilometer task depemdency
+
+Change-Id: I1e8d31982b05830b033d8abd5bcb25f6007615bf","Fixes for deployment stability
+
+  * Do not merge ceph_monitor_nodes to avoid putting controllers into
+    list of minitors
+  * Deploy monitors after all controllers ready
+  * Added ceilometer task depemdency
+
+Change-Id: I1e8d31982b05830b033d8abd5bcb25f6007615bf"
+64,fuel-plugin-standalone-ceph,9841df2d1a112081ff0b2a8eb7e29a54c3fe55c0,"Added rados gw on ceph mons
+
+Change-Id: Ie0f828a7304ff867562daf986e88ce2a23cab805","Added rados gw on ceph mons
+
+Change-Id: Ie0f828a7304ff867562daf986e88ce2a23cab805"
+65,fuel-plugin-standalone-ceph,8ac6dd8ae97e9356d3cf526b4a7dd56fc0d0c323,"Development snapshot
+
+  * Change name to standalone-ceph
+  * Deployment groups and their order are correct.
+  * Some issue with ceph/init.pp (hardcoded role name)","Development snapshot
+
+  * Change name to standalone-ceph
+  * Deployment groups and their order are correct.
+  * Some issue with ceph/init.pp (hardcoded role name)"
+66,fuel-plugin-external-ceph,c2e4ca9f2c237352f3f537243f09d64b7d6c07b7,"Cleanup of plugin repo
+
+- Removed unused files
+- Made an adjustment for graph to not to start nova-compute
+  before enable_nova_compute_service task","Cleanup of plugin repo
+
+- Removed unused files
+- Made an adjustment for graph to not to start nova-compute
+  before enable_nova_compute_service task"
+67,fuel-plugin-external-ceph,250052299a76d4e075b15a7ea2d9c7656b8b975f,"Removed the dedicated user for nova
+
+Libvirt allows to configure only one user
+for RBD access. This means that there should be a
+single user for block volumes and ephemeral volumes.","Removed the dedicated user for nova
+
+Libvirt allows to configure only one user
+for RBD access. This means that there should be a
+single user for block volumes and ephemeral volumes."
+68,fuel-plugin-external-ceph,9d1b97ef48b81fc9111de5087d65b444e5605cae,9.0 Port,9.0 Port
+69,fuel-plugin-external-ceph,9626f88f483c7eb03eba299398326b1f67bf6652,"Added README
+
+Change-Id: I0795f14fc1d98d33252eb9be368747b3e666f8e7","Added README
+
+Change-Id: I0795f14fc1d98d33252eb9be368747b3e666f8e7"
+70,fuel-plugin-external-ceph,8e24239ef4cdd55f7632bf20d624c4d974e98548,"Made cinder integration multibackend-aware
+
+Change-Id: I3636642678dc4cb388fa64aac92af3051599826a","Made cinder integration multibackend-aware
+
+Change-Id: I3636642678dc4cb388fa64aac92af3051599826a"
+71,fuel-plugin-external-ceph,4af62802f6eb8193f72e4a4c0f1ee9bc7fcfebc7,"Refactored UX
+
+Change-Id: I4da0d46a48bebd8fccee123bda12fafc858cc0a0","Refactored UX
+
+Change-Id: I4da0d46a48bebd8fccee123bda12fafc858cc0a0"
+72,fuel-plugin-external-ceph,15feadfb1de3f21b8f7d46d8570a2045c9be3518,"Implemented radosgw deployment
+
+Change-Id: Ia1d9678479ec6b606d4a6fb0d1188541f7875da7","Implemented radosgw deployment
+
+Change-Id: Ia1d9678479ec6b606d4a6fb0d1188541f7875da7"
+73,fuel-plugin-external-ceph,cfc1f430c3f26e5d819a5101bdd1a9215a612c45,"Indroduced conditions for tasks
+
+Change-Id: I058ad64ae20a0056cd61de8ea52850a0717d8e5a","Indroduced conditions for tasks
+
+Change-Id: I058ad64ae20a0056cd61de8ea52850a0717d8e5a"
+74,fuel-plugin-external-ceph,9591e338c9c1989db09e9c4dcb5d08bba302a7c6,"Added integration with external glance
+
+Change-Id: I4fb1693f25dd01d5108eb70d2f40b9a31ac5b049","Added integration with external glance
+
+Change-Id: I4fb1693f25dd01d5108eb70d2f40b9a31ac5b049"
+75,fuel-plugin-external-ceph,fb4a9a821a5e234e22edb5f494c85336d083ac37,"Fixed Volumes and Ephemeral storage integration
+
+Change-Id: I0f63059a81fea5145d6235adfc634051056ca00e","Fixed Volumes and Ephemeral storage integration
+
+Change-Id: I0f63059a81fea5145d6235adfc634051056ca00e"
+76,fuel-plugin-external-ceph,0587980f1c5f7bdd07c10850bd214ae90bcbe595,"Basic integration with cinder, ephemeral
+
+Change-Id: Id3c65aa62d575c7ba698b20ba729a7b3b0303ec0","Basic integration with cinder, ephemeral
+
+Change-Id: Id3c65aa62d575c7ba698b20ba729a7b3b0303ec0"
+77,fuel-plugin-external-ceph,9ea895260cc33ca4ab08ced752dfc522e0a09496,"Initial version
+
+Change-Id: I894a961d5f622f50eaddb7710692f053ab081efa","Initial version
+
+Change-Id: I894a961d5f622f50eaddb7710692f053ab081efa"
+78,pmlc_cinder,eb00248bb45b2bc66262ab97911cdf6b9596f6ed,Initial commit,Initial commit
+79,pmlc_keystone,1503555c4dfd380e432e7b18cc6b1830953d0663,Add SSL options for admin and public endpoint,Add SSL options for admin and public endpoint
+80,pmlc_keystone,43efd9d2ca2d64a0a1bf5de59b7bfdd2f5e1d5dc,Initial commit,Initial commit
+81,puppet-deployapp,eef02846a4cb19733bf2b2a5e9311b2b90919ac4,Initial Commit,Initial Commit
+82,puppet-foreman_proxy,f2927cef2de8269b699b71f54f5ac25a94cdc5df,initial commit,initial commit
+83,fuel-plugin-openldap,15688553dbb78061451e03b0dab7611e8b63af60,"Merge pull request #2 from alekseychuprin/7.0
+
+Fix ordering issue","Merge pull request #2 from alekseychuprin/7.0
+
+Fix ordering issueFix ordering issue"
+84,fuel-plugin-openldap,8ca8f7cedc66e3cae33c8ce5f9d9707b0c3c6030,Fix ordering issue,Fix ordering issue
+85,fuel-plugin-openldap,aabc91f68d987ea006b5c50142d9a78f84ec91e0,"Merge pull request #1 from alekseychuprin/7.0
+
+Fix autostart openldap issue.","Merge pull request #1 from alekseychuprin/7.0
+
+Fix autostart openldap issue.Fix autostart openldap issue."
+86,fuel-plugin-openldap,66b91aeabf010b65fbd2b8e3030020a606f2ede6,"Fix autostart openldap issue.
+
+Openldap cannot be started after reboot node
+because of /var/run/slapd directory does not exist","Fix autostart openldap issue.
+
+Openldap cannot be started after reboot node
+because of /var/run/slapd directory does not exist"
+87,fuel-plugin-openldap,a3c7f80b4e40ef04fbca16bc189397168689fb6a,"Added LDAP chaching proxy mode
+
+Change-Id: I89aad387cfad7540aedcea7f408e537446b253ea","Added LDAP chaching proxy mode
+
+Change-Id: I89aad387cfad7540aedcea7f408e537446b253ea"
+88,fuel-plugin-openldap,91b8535bbe14b4cfa4fc82b43df135d96f6ec9d3,"Deleted duplicated openldap module.
+
+Change-Id: Ia4d3cb4e76a09ed9ff2863bf4bb0241d9ce18ebd","Deleted duplicated openldap module.
+
+Change-Id: Ia4d3cb4e76a09ed9ff2863bf4bb0241d9ce18ebd"
+89,fuel-plugin-openldap,4330a7833b0fd80781c198c938a2b6c3e79dfc3c,"Plugin refactoring
+
+* Plugin conveted to package versiom 3.0.0
+* Removed ubuntu LDAP packeges
+* Keystone configuration is implemented but not apllied due to possibele
+  issue with LDAP updateref parameter support
+
+Change-Id: Id918ad82ede5bfa5db0e6028760b4333d5c7a5c5","Plugin refactoring
+
+* Plugin conveted to package versiom 3.0.0
+* Removed ubuntu LDAP packeges
+* Keystone configuration is implemented but not apllied due to possibele
+  issue with LDAP updateref parameter support
+
+Change-Id: Id918ad82ede5bfa5db0e6028760b4333d5c7a5c5"
+90,fuel-plugin-openldap,858e1965bb431cce49c8ec10f5b7dc2061c8f8a7,keystone_ldap_user -> keystone_user change,keystone_ldap_user -> keystone_user change
+91,fuel-plugin-openldap,7887b2a9f33f8a77304295a04d5188f2f3995b0e,syntax fix,syntax fix
+92,fuel-plugin-openldap,7fe6b129b714f35805724d26d0f7383a3be52f1d,remove prefix plugin_sscc_ from module-name,remove prefix plugin_sscc_ from module-name
+93,fuel-plugin-openldap,c76cd4b529640d1fd2db375659c5cf1b53ed2c27,First glance changes and fancy changes,First glance changes and fancy changes
+94,fuel-plugin-openldap,61e91699bbe0b236fc2ceed22f24342b84271901,unneeded modules removed,unneeded modules removed
+95,fuel-plugin-openldap,26bcc163c7567acf3df008f84ac684fb577f54e5,Initial commit,Initial commit
+96,fuel-plugin-lcm,997c7a21686afc7051ab6987293a601dd15cbcdf,Initial data,Initial data
+97,fuel-plugin-swift,6065d9162299ba8ad1cc45ff7b610d892ce2c6d3,"Add rebalance script and cron job
+
+  - $swift_nodes are only storage nodes now
+  - Haproxy on controller nodes has standalone swift as backend so standalone swift works out of box now
+  - Add configuration options to Fuel UI
+
+Change-Id: I30f2f4889b06f92d0b5ed4101beb6b794700d3d0","Add rebalance script and cron job
+
+  - $swift_nodes are only storage nodes now
+  - Haproxy on controller nodes has standalone swift as backend so standalone swift works out of box now
+  - Add configuration options to Fuel UI
+
+Change-Id: I30f2f4889b06f92d0b5ed4101beb6b794700d3d0"
+98,fuel-plugin-swift,48bc93d904474e1c711e83de1b74f5f7259df3db,"Merge branch 'experimental'
+
+Change-Id: I603e41c745e3ade5af9e206302932a1ec3d49a1e","Merge branch 'experimental'
+
+Change-Id: I603e41c745e3ade5af9e206302932a1ec3d49a1e"
+99,fuel-plugin-swift,0d7ff2b7b2fe01236c398203ffd1c310fd3c6e82,"Configure swift draft site.pp
+
+  - So far does not work, installation relies on keystone configuration.
+  - Need to add swift, keystone puppet modules to the pugin.
+
+Add standalone_swift puppet module
+Improving init.pp
+
+  - Add filter_nodes_nonstrict function
+  - Move code from site.pp to init.pp in puppet module
+  - Fix problems in init.pp
+
+Change-Id: I32592477aa6a5466fd1e2b5e11dd214ba8a58f41","Configure swift draft site.pp
+
+  - So far does not work, installation relies on keystone configuration.
+  - Need to add swift, keystone puppet modules to the pugin.
+
+Add standalone_swift puppet module
+Improving init.pp
+
+  - Add filter_nodes_nonstrict function
+  - Move code from site.pp to init.pp in puppet module
+  - Fix problems in init.pp
+
+Change-Id: I32592477aa6a5466fd1e2b5e11dd214ba8a58f41"
+100,fuel-plugin-swift,ffe35459068ef40e745b6c655930514a5bb83b26,Remove duplication,Remove duplication
+101,fuel-plugin-swift,d3590bb4fc027854719712aa35dd18521ce2a1dc,Add rebalance_cronjob.pp,Add rebalance_cronjob.pp
+102,fuel-plugin-swift,bacc911d2dfd37d22ac790b5a086fa4fe1b11e19,Initial site.pp,Initial site.pp
+103,fuel-plugin-swift,cdb863325251eeb90078b4d0d976a4a7818f36e3,Update tasks.yaml,Update tasks.yaml
+104,puppet-sudo,dbe88b6cd0211a8a1777a6e2245220867787c51a,Initial commit.,Initial commit.
+105,fuel-plugin-backup,ee09f33152974944bde824d6437fe6bf09301236,Changed backup scripts,Changed backup scripts
+106,fuel-plugin-backup,aba01451fa7a3b4722cd928c92eb22812391d806,Some fixes,Some fixes
+107,fuel-plugin-backup,048d225f9845864f2460ede69cb1ede12ad4025e,"Added backup mysql, etc, fuel modules","Added backup mysql, etc, fuel modules"
+108,fuel-plugin-backup,ff55906cfad756c39cf38d736d984e7dc2aa1b6e,"Backup moved to post-deployment
+
+Removed Custom role
+Made changes to run backup_ceph.sh on primary_controller node","Backup moved to post-deployment
+
+Removed Custom role
+Made changes to run backup_ceph.sh on primary_controller node"
+109,fuel-plugin-backup,551b039a2249d422114b3e9c64f8cbb53931c09a,Added mysql-backup tasks and plugin structure,Added mysql-backup tasks and plugin structure
+110,solar-resources,1b28b8f3c4b5ad4b74d6a11d44319d2d8a036b44,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76","Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+111,solar-resources,9e0786cb7dd50cb0a28ad96ab7131bff890adacb,Merge remote-tracking branch 'upstream/master',Merge remote-tracking branch 'upstream/master'
+112,solar-resources,097c4b793e2f2ecabc8e46a587647ba48503bdbc,"Merge pull request #287 from Mirantis/new_db
+
+new db backend","Merge pull request #287 from Mirantis/new_db
+
+new db backend"
+113,solar-resources,0a566cb35237accd0cb7a94f51573dd0a3909e12,"Merge pull request #309 from loles/os
+
+Make puppet run on the new_db","Merge pull request #309 from loles/os
+
+Make puppet run on the new_db"
+114,solar-resources,ceb2e70d89ebd13e2cffc0593fd676b9dde2cae6,Make puppet run on the new_db,Make puppet run on the new_db
+115,solar-resources,3f40804a2660239fbeac7596607c8ac90ae075c1,"Merge pull request #277 from pigmej/pigmej-fix-158
+
+Added update action to nova_compute_libvirt_puppet","Merge pull request #277 from pigmej/pigmej-fix-158
+
+Added update action to nova_compute_libvirt_puppet"
+116,solar-resources,c85457a2864b5606b2562dca9276fa8b2b751794,"Merge pull request #270 from loles/librarian
+
+change db_port","Merge pull request #270 from loles/librarian
+
+change db_port"
+117,solar-resources,7278f92ac235bc25bf0385c7fe0f45e8ada88a40,Added update action to nova_compute_libvirt_puppet,Added update action to nova_compute_libvirt_puppet
+118,solar-resources,4e034b41fe04cd640657d9eed105e5d2083ab933,Add update action for nova_compute,Add update action for nova_compute
+119,solar-resources,c596ce670457a3dafe6426dde1b6bdd7e56f2f0f,Run and remove are the same,Run and remove are the same
+120,solar-resources,a37e71128d9399c35dc4713b1ffccc4865ffceb6,Run and remove are the same,Run and remove are the same
+121,solar-resources,4eb19f80802a27376515af3945851af41566fd13,Do not use hardcoded db port,Do not use hardcoded db port
+122,solar-resources,427dbd1100698a395b876c39b755d81bcc68dfbb,Add and fix update actions. changing db_port should work now,Add and fix update actions. changing db_port should work now
+123,solar-resources,bf80423ab7ea22b9198c3bc8a9f884cdb2646912,"Merge pull request #254 from loles/librarian
+
+Move to Librarian","Merge pull request #254 from loles/librarian
+
+Move to Librarian"
+124,solar-resources,75ea9e7b20c2eead271b3f0987ea94a64e0673de,"Merge branch 'master' into librarian
+
+Conflicts:
+	examples/openstack/openstack.py","Merge branch 'master' into librarian
+
+Conflicts:
+	examples/openstack/openstack.py"
+125,solar-resources,2463212a99be61ae1dd7238f096e1bd6dba8e661,Copy action run to update,Copy action run to update
+126,solar-resources,3c13783921cd116c9b9f94914a261bebe181644a,Use default token backend. KVS seems to be broken,Use default token backend. KVS seems to be broken
+127,solar-resources,cf07fa04a151eb1eb43a09b4c636555b802f75d1,"Merge pull request #244 from bogdando/node_network_puppet
+
+Node network puppet","Merge pull request #244 from bogdando/node_network_puppet
+
+Node network puppet"
+128,solar-resources,b24e2a33cdaaffafbbc922e54b0d6eee3e25e3b5,"Merge pull request #236 from dshulyak/library_poc
+
+Ceph-mon installation using fuel-library","Merge pull request #236 from dshulyak/library_poc
+
+Ceph-mon installation using fuel-library"
+129,solar-resources,8dfc414bc37155b049fbbd68274badeac0c00fb5,Add ceph_mon resource and example,Add ceph_mon resource and example
+130,solar-resources,0cb4b088082c954277191fb0bc28d7ad2ef160a3,"Workaround l23network module issue
+
+* W/a https://github.com/xenolog/l23network/issues/105
+* Set use_ovs to true
+* Use kind of a ""stable"" commit of l23network module
+  as there is no yet any tags exist
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Workaround l23network module issue
+
+* W/a https://github.com/xenolog/l23network/issues/105
+* Set use_ovs to true
+* Use kind of a ""stable"" commit of l23network module
+  as there is no yet any tags exist
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+131,solar-resources,dd654eac1d9069e55b0bdc678c70faa10d468d65,"Update node_network resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Update node_network resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+132,solar-resources,cd1dfdad501fb0c96521ffa72efe68f15a698005,"Add node_network puppet resource
+
+WIP
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Add node_network puppet resource
+
+WIP
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+133,solar-resources,c39cfa156703f98bb7ae3c1eede11fe79e39ad8d,"Bring back 'value' in input data, fix ansible_template .value
+
+'value' is artificial here, but it's easier to do than change all
+Puppet run.pp/remove.pp files.","Bring back 'value' in input data, fix ansible_template .value
+
+'value' is artificial here, but it's easier to do than change all
+Puppet run.pp/remove.pp files."
+134,solar-resources,48752c9816aa15ddb53d1d80df2308da21365596,Graph DB: upload hiera yaml configs for puppet,Graph DB: upload hiera yaml configs for puppet
+135,solar-resources,4ec8b86a175fea276454619c928103eb2e640dbd,Merge branch 'master' into cgenie/graph-db,Merge branch 'master' into cgenie/graph-db
+136,solar-resources,cbd84474d8b7b9fc5feb3f5734e0d23a1a5864bc,Merge branch 'master' into jnowak/pluggable_transports,Merge branch 'master' into jnowak/pluggable_transports
+137,solar-resources,f7506eb1e498a76f0f683a5fcd65a72572edbe99,Merge branch 'master' into bogdando/rabbitmq,Merge branch 'master' into bogdando/rabbitmq
+138,solar-resources,f5f95389a6ad38eb6f003d5922e3fbfffc470f8d,"Merge pull request #73 from Mirantis/bogdando/nova
+
+Bogdando/nova","Merge pull request #73 from Mirantis/bogdando/nova
+
+Bogdando/nova"
+139,solar-resources,de26a6162f1de56865a4e15e175d5121b606f0f6,Merge branch 'master' into jnowak/sol_103,Merge branch 'master' into jnowak/sol_103
+140,solar-resources,50d780c1a398a8593b88dfaddffdd022f5cc7b3c,"Fix nova_generic_service resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Fix nova_generic_service resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+141,solar-resources,7814a8bba5543a776669df2178c651b8a420517c,"Add nova generic service resource
+
+* The generic service resource may be used
+to deploy multiple nova services like vncproxy,
+scheduler, consoleauth etc.
+* Add composition layer for the scheduler service
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Add nova generic service resource
+
+* The generic service resource may be used
+to deploy multiple nova services like vncproxy,
+scheduler, consoleauth etc.
+* Add composition layer for the scheduler service
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+142,solar-resources,efd2620c8d34808ee054a20436dffdd664f46447,"Merge pull request #78 from Mirantis/jnowak/events_riak1
+
+Complete event based riak example","Merge pull request #78 from Mirantis/jnowak/events_riak1
+
+Complete event based riak example"
+143,solar-resources,2e4c17ebb0e93db206f1be577185caf303a28c29,Merge branch 'master' into jnowak/events_riak1,Merge branch 'master' into jnowak/events_riak1
+144,solar-resources,894182349af1ff024630a1e0d05e5da9e190fd02,"Merge pull request #81 from Mirantis/bogdando/neutron
+
+Bogdando/neutron","Merge pull request #81 from Mirantis/bogdando/neutron
+
+Bogdando/neutron"
+145,solar-resources,3b31e7557ae99b3edd1b2c9e6411ea4484b4c144,Merge branch 'pretty' into jnowak/events_riak1,Merge branch 'pretty' into jnowak/events_riak1
+146,solar-resources,6d54c0360b488dcc9702b713a142037cf0f85cfa,"Del duplicated puppet parameter
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Del duplicated puppet parameter
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+147,solar-resources,6650ef8e12c1a6c1468126c7af4c276e086b7a9a,"Fix ml2 agent resource and compostion
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Fix ml2 agent resource and compostion
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+148,solar-resources,aacb5bbe25bdf62256776eff63c4c8a510cc3f00,"W/a LP1490438 for ml2 plugin resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","W/a LP1490438 for ml2 plugin resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+149,solar-resources,e6d8a8ba11a420706f491bfc6ed3b5e88fa0e22b,"Remove ovs plugin and agent
+
+Those aren't exist since Juno
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Remove ovs plugin and agent
+
+Those aren't exist since Juno
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+150,solar-resources,585ec95d26aadeb528a6311732a7d1f9d15e59db,"Add neutron agent ovs with ml2 plugin resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Add neutron agent ovs with ml2 plugin resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+151,solar-resources,0b46904f779383cb5a3876e661d5fa5e71de39ea,"Add neutron ml2 plugin resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Add neutron ml2 plugin resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+152,solar-resources,edf51035c68de228f1e7b2e3c4bb560fc800f887,Merge branch 'master' into cgenie/graph-db,Merge branch 'master' into cgenie/graph-db
+153,solar-resources,dccb6b5ed61ead46973d7847ecde04d01d09f324,"Merge pull request #53 from Mirantis/bogdando/apache_puppet
+
+Add apache puppet resource","Merge pull request #53 from Mirantis/bogdando/apache_puppet
+
+Add apache puppet resource"
+154,solar-resources,348d0059415ff1c4f6a545892aa8a264d14ea9da,"Merge pull request #60 from Mirantis/bogdando/neutron
+
+Bogdando/neutron","Merge pull request #60 from Mirantis/bogdando/neutron
+
+Bogdando/neutron"
+155,solar-resources,bb80096ed35477c54eb20200f92cb87420131bf1,"Fix neutron conf for compute and nova_neutron resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Fix neutron conf for compute and nova_neutron resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+156,solar-resources,aedc1b5be6d8289c5cd0d8dd20889e538d8110ca,"Fix neutron db stamp head
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Fix neutron db stamp head
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+157,solar-resources,34bbdc774040215a2c2c15ef57d7cde2b1690635,"Add neutron metadata agent resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Add neutron metadata agent resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+158,solar-resources,f3414701573e4d882d9cc8bf860b618bab11aa13,"Add neutron L3 agent resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Add neutron L3 agent resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+159,solar-resources,5934f203338c6c7e5c57219a1478fa9e6f74c294,"Add neutron DHCP agent resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Add neutron DHCP agent resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+160,solar-resources,b3c68cd47ffb7b77fadf8e5d35d0fe1fd657f111,"Fix neutron stamp/upgrade head
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Fix neutron stamp/upgrade head
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+161,solar-resources,c746ecbb7aa89466250d5f6881983d0dec5494f1,"Fix core plugin, remove external class ref for neutron
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Fix core plugin, remove external class ref for neutron
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+162,solar-resources,b9045e09939fba302ccc49142f3bfd91372a9434,"Fix removed sql_con
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Fix removed sql_con
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+163,solar-resources,bd8cf685ff5d2dcd82b2655c9e8edada4261176d,"Add composition for OVS plugin/agent
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Add composition for OVS plugin/agent
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+164,solar-resources,71605ea6353cfded3af479d540c67ec5f238b6b6,"Remove deprecated/unused sql conn inputs
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Remove deprecated/unused sql conn inputs
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+165,solar-resources,487126310c985da78218b8d9c2226e5f7e0cce43,"Add neutron OVS agent resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Add neutron OVS agent resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+166,solar-resources,52ba02e5eb5a78d10be9e31c4adfcb5db1efbecd,"Add neutron ovs plugin resource
+
+* Add compostion layer for OVS plugin with GRE
+* Fix neutron tags, use_ssl input
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Add neutron ovs plugin resource
+
+* Add compostion layer for OVS plugin with GRE
+* Fix neutron tags, use_ssl input
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+167,solar-resources,ea6354b134a4e99f64b48eb24323fad20bedafe3,"Remove external class ref for neutron server resource
+
+* Fix rabbit inputs for neutron
+* Decouple service neutron-server from neutron class
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Remove external class ref for neutron server resource
+
+* Fix rabbit inputs for neutron
+* Decouple service neutron-server from neutron class
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+168,solar-resources,2841ba046af549243c0dc4256191c5a010d04a9f,"Decouple neutron resource
+
+* Use neutron base and API(server) resources
+* Add db and db user for neutron composition layer
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Decouple neutron resource
+
+* Use neutron base and API(server) resources
+* Add db and db user for neutron composition layer
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+169,solar-resources,dc400bf9d9815f2117a2d213fb86092ad4eb2c25,"Add apache puppet resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Add apache puppet resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+170,solar-resources,5093679938d1dc04d1a294abb2d047948f8162b1,Merge branch 'master' into dry-run,Merge branch 'master' into dry-run
+171,solar-resources,bb29eb31b77cc233d7587b8f67d2c325991cddd9,"Merge pull request #61 from Mirantis/example-refactor
+
+Refactor example-puppet.py actions","Merge pull request #61 from Mirantis/example-refactor
+
+Refactor example-puppet.py actions"
+172,solar-resources,6e5f7895ec4844cb9ccd34068d873e812d4f53f7,Refactor example-puppet.py actions,Refactor example-puppet.py actions
+173,solar-resources,262b4f5d958535fad1f00498849fe7406c008dfa,"Merge pull request #59 from Mirantis/bogdando/cinder
+
+Add cinder_glance resource","Merge pull request #59 from Mirantis/bogdando/cinder
+
+Add cinder_glance resource"
+174,solar-resources,4b3f883c4c64f1105845b1ae618a351cef1db620,"Decompose glance_api_servicers input
+
+Because of existing limitations for resource inputs
+connections, the glance_api_servicers upstream parameter
+was decomposed to host and port.
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Decompose glance_api_servicers input
+
+Because of existing limitations for resource inputs
+connections, the glance_api_servicers upstream parameter
+was decomposed to host and port.
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+175,solar-resources,5d5960190badf35ba8232863fae75b5f4509c402,"Add cinder volume ISCSI resource
+
+Add ISCSI backend as enabled default for the
+cinder_volume resource. Note, cannot be decoupled
+as a separate resource because of the external
+puppet class reference hardcoded upstream.
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Add cinder volume ISCSI resource
+
+Add ISCSI backend as enabled default for the
+cinder_volume resource. Note, cannot be decoupled
+as a separate resource because of the external
+puppet class reference hardcoded upstream.
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+176,solar-resources,6c7e34679ce49fa29dc809d256790f61e94fee2a,"Add cinder_glance resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Add cinder_glance resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+177,solar-resources,c5d2836efcc922d61daa4c4f6dcd98f05f996f55,"Merge pull request #58 from Mirantis/bogdando/nova
+
+Bogdando/nova","Merge pull request #58 from Mirantis/bogdando/nova
+
+Bogdando/nova"
+178,solar-resources,a2ad4c1f15d7b8ea28e175d2264cc9249472ccef,"Fix glance api servers for nova compute
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Fix glance api servers for nova compute
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+179,solar-resources,087b2b7c62d46692526f4c437a21c19539631c6f,"Add nova_neutron resource.
+
+Includes configuration only classes for nova compute:
+nova::network::neutron and nova::compute::neutron
+Combined into the single resource as the latter one
+is too small (it has only 2 conf params)
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Add nova_neutron resource.
+
+Includes configuration only classes for nova compute:
+nova::network::neutron and nova::compute::neutron
+Combined into the single resource as the latter one
+is too small (it has only 2 conf params)
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+180,solar-resources,09b3bd147b0e3ca53bb5882f0a7f91874fdd20f3,"Add nova comp libvirt resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Add nova comp libvirt resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+181,solar-resources,c02055cc20900879400570d0db703f23cfe2c8bd,"Add exec post config and network refresh to n-compute
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Add exec post config and network refresh to n-compute
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+182,solar-resources,4c8e99ff8bb4e6b651ff23756d8f9b65508265a3,"Add nova compute resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Add nova compute resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+183,solar-resources,6ca7a3e62109f8efc821ac98e1c54f5dd31f3f4c,"Add nova conductor resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Add nova conductor resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+184,solar-resources,ce6db69711cf9f1e8c6f37c4a914717af90e29bc,"Fix remove nova api resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Fix remove nova api resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+185,solar-resources,8ed672a8eec21e95df71547017a4e9781de280c3,"Fix schema and db-sync condition
+
+Db sync should always be run once we
+decoupled nova api from nova, unless we
+have a proper notification system
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Fix schema and db-sync condition
+
+Db sync should always be run once we
+decoupled nova api from nova, unless we
+have a proper notification system
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+186,solar-resources,ec4515efd39d7ff53b2f461dc4a9c2c91a2648d6,"Add missing post-config and nova-common
+
+Required for decoupling usage of nova and
+nova api classes in separate catalog runs
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Add missing post-config and nova-common
+
+Required for decoupling usage of nova and
+nova api classes in separate catalog runs
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+187,solar-resources,962ab6f58e8fe61c7cadf39de7b96a900edfe23d,"Add missed admin_password for nova api resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Add missed admin_password for nova api resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+188,solar-resources,f785ac25bf55bff168a3bf7db5babb989b94b137,"Fix typo
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Fix typo
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+189,solar-resources,840074ab40dc6023d7749101c2cac703422d45c1,"Add nova api puppet resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Add nova api puppet resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+190,solar-resources,ec00e04af36b59714c02cbe3a89bd768719c8b23,"Del nova_api after moved to nova_puppet resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Del nova_api after moved to nova_puppet resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+191,solar-resources,c61536c1c41c7ba63000a4774ce18d4a60206b3f,"Fix schema for nova puppet
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Fix schema for nova puppet
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+192,solar-resources,f80698281b99ba6eceff3209e8c546c8e24c4b9a,"Create nova base puppet resource
+
+Also align composition layer:
+- rename nova_api to nova_puppet
+- adjust connections
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Create nova base puppet resource
+
+Also align composition layer:
+- rename nova_api to nova_puppet
+- adjust connections
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+193,solar-resources,899aff62b6d61756fa3c0e98982330035d16ac94,"Merge pull request #32 from Mirantis/glance-puppet
+
+Glance puppet","Merge pull request #32 from Mirantis/glance-puppet
+
+Glance puppet"
+194,solar-resources,ba2ee11785aec050b721e567bf9e7e364b9da044,"Fix remove actions for glance puppet resources
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Fix remove actions for glance puppet resources
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+195,solar-resources,aefc796760a83a7aa4664f90364c4de48075da39,"Add glance registry puppet resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Add glance registry puppet resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+196,solar-resources,1985565edf7df125470992a2be9f2d6ca2d2c292,"Fix glance puppet classes dependencies
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Fix glance puppet classes dependencies
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+197,solar-resources,bebf6e2856f7d5760dc42e358bcda30f9c74c769,"Align glance_puppet with cinder_puppet and upstream
+
+Install glance base and API as the base class
+does nothing but glance packages install.
+Remove registry to be implemented as separate resource.
+Update parameters to match upstream ones.
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Align glance_puppet with cinder_puppet and upstream
+
+Install glance base and API as the base class
+does nothing but glance packages install.
+Remove registry to be implemented as separate resource.
+Update parameters to match upstream ones.
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+198,solar-resources,dff1ada9e92084ce0db40101b00e53972fba7d6a,"Glance-puppet, not fully working yet","Glance-puppet, not fully working yet"
+199,solar-resources,00154765a934c82573b9ac187fd2ba02fd4ab2ac,Merge branch 'master' into dry-run,Merge branch 'master' into dry-run
+200,solar-resources,36858a921822c62fa79f6e2f0f864977161db072,"Merge pull request #27 from Mirantis/nova-api
+
+nova-api resource","Merge pull request #27 from Mirantis/nova-api
+
+nova-api resource"
+201,solar-resources,dc21bd3f7b7682d9ccc495d6e5fc49f046c45796,"Merge branch 'master' into nova-api
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>
+
+Conflicts:
+	example-puppet.py","Merge branch 'master' into nova-api
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>
+
+Conflicts:
+	example-puppet.py"
+202,solar-resources,e91c1524b495ebce83b3852cb73d56fcc4698014,"Merge pull request #47 from Mirantis/bogdando/cinder_volume_puppet
+
+Bogdando/cinder volume puppet","Merge pull request #47 from Mirantis/bogdando/cinder_volume_puppet
+
+Bogdando/cinder volume puppet"
+203,solar-resources,41f8e9c409d1208e41c13d718c25b17a87803340,"Add compostion layer for c-volume puppet
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Add compostion layer for c-volume puppet
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+204,solar-resources,25df204e56da86d77fc29f74e5b82700b4adc11c,"Remove enabled and manage_services params for c-volume
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Remove enabled and manage_services params for c-volume
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+205,solar-resources,44d58478b7b76d1e48c3ed3f9a62136e5bf3c250,"Add cinder volume puppet resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Add cinder volume puppet resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+206,solar-resources,bdd489cb9c85b52d8e87bb2bb3f99c5c36f7722d,"Merge pull request #45 from Mirantis/bogdando/cinder_scheduler_puppet
+
+Bogdando/cinder scheduler puppet","Merge pull request #45 from Mirantis/bogdando/cinder_scheduler_puppet
+
+Bogdando/cinder scheduler puppet"
+207,solar-resources,f35d1e2569e110739af8d1103effcaa0bd3b3b4a,"Remove enabled and manage_service for c-scheduler
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Remove enabled and manage_service for c-scheduler
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+208,solar-resources,6bcda5125b87bb7c2f85f6991641a43c7dfa03c6,"Fix cinder scheduler puppet params
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Fix cinder scheduler puppet params
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+209,solar-resources,6616bccec5a7235273b4d9a593b8c3ce13b88fbe,"Add cinder scheduler puppet resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Add cinder scheduler puppet resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+210,solar-resources,9485f0bc0e177c9446e2574aa1806a2ee42332f9,"Merge pull request #42 from Mirantis/bogdando/cinder_api_puppet
+
+Bogdando/cinder api puppet","Merge pull request #42 from Mirantis/bogdando/cinder_api_puppet
+
+Bogdando/cinder api puppet"
+211,solar-resources,00427f9aedd749d82feb6db15d78b4345ad90e5f,"Remove enabled and manage_service for c-api
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Remove enabled and manage_service for c-api
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+212,solar-resources,4555c6b3a851a5e0e449f569b83e6bd2500a01a6,"Fix undeploy and resource_name ref at cinder api
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Fix undeploy and resource_name ref at cinder api
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+213,solar-resources,3ba0930aa06d05e3da2d64af30a18f9b9c9dea5e,"Fix package cinder dependency for cinder api
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Fix package cinder dependency for cinder api
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+214,solar-resources,2e3f784f814e67c0c43fe872cdca7a1c1af97f77,"Fix indentation and parameters
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Fix indentation and parameters
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+215,solar-resources,157c975d72a89fb1bb4d20e923655bd639d0b8a3,"Add cinder api puppet resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Add cinder api puppet resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+216,solar-resources,e89af4f7f92fe693180db25717a9f2fc5324761c,"Merge pull request #39 from Mirantis/bogdando/cinder_puppet
+
+Bogdando/cinder puppet","Merge pull request #39 from Mirantis/bogdando/cinder_puppet
+
+Bogdando/cinder puppet"
+217,solar-resources,e4838e9b5526d0dafd56d282903b6fd0ea85edb2,"Merge pull request #44 from Mirantis/tpl
+
+Update virtual resource for current branch","Merge pull request #44 from Mirantis/tpl
+
+Update virtual resource for current branch"
+218,solar-resources,d658be3b05493451ed4229d50156e1e1e8758bdb,Update virtual resource for current branch,Update virtual resource for current branch
+219,solar-resources,02a32c12b6198ef7bf7c6dbe18c09e5c31d46488,"Fix remove and resource name ref for cinder
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Fix remove and resource name ref for cinder
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+220,solar-resources,55419610dee3a00fc9caff5993eded2abe9ada8a,"Merge pull request #40 from Mirantis/rabbitmq_fix
+
+Use default nodename when removing","Merge pull request #40 from Mirantis/rabbitmq_fix
+
+Use default nodename when removing"
+221,solar-resources,570fa437eef09c33b63ce8c4c0e41033e5e20331,"Merge pull request #41 from Mirantis/neutron_fixes
+
+Neutron fixes","Merge pull request #41 from Mirantis/neutron_fixes
+
+Neutron fixes"
+222,solar-resources,03f955d8897823d1fb9c7dea58ada1cf1a6cd52f,"Neutron fixes
+
+- use correct role name
+- use correct rabbitmq user/password
+- set vhost name","Neutron fixes
+
+- use correct role name
+- use correct rabbitmq user/password
+- set vhost name"
+223,solar-resources,5d2cdb25c1fda4b4bb829cfb1906c8a8c5062555,Use default nodename when removing,Use default nodename when removing
+224,solar-resources,c3b8ed0d038a713012da5d6e8ad82c919f95ca4b,Remove nodename,Remove nodename
+225,solar-resources,768eaf0d455d998cc713f99b53638bd19ad82df2,change path,change path
+226,solar-resources,a05e49b1d21d3ab107341428a35a391056f92b77,nova-api resource,nova-api resource
+227,solar-resources,6f7338e914aa67d30d6bffd3b1e4a6853a49ce72,"Fix undef db conneciton for cinder
+
+Do not pass deprecated param for cinder
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Fix undef db conneciton for cinder
+
+Do not pass deprecated param for cinder
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+228,solar-resources,58bd845f907c44abab12cec57d545c481ec873f8,"Add cinder puppet resource
+
+Populate from autogenerated parameters
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Add cinder puppet resource
+
+Populate from autogenerated parameters
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+229,solar-resources,21104fe5abc9f13f475680baf0881ca7fdcf7a93,Merge branch 'master' into dry-run,Merge branch 'master' into dry-run
+230,solar-resources,9c216b936dd765f0ee8c49913b2ccea66bbe39bc,Merge branch 'master' into various-fixes,Merge branch 'master' into various-fixes
+231,solar-resources,13210c89e35e3f20bc8f2cb40748216ccc4ff92c,"Merge pull request #29 from Mirantis/rabbitmq_fix
+
+Rabbitmq startup fix","Merge pull request #29 from Mirantis/rabbitmq_fix
+
+Rabbitmq startup fix"
+232,solar-resources,7564788f7bd180401d0394886c7c5262ac4dc025,"Fix rabbitmq startup
+
+Rabbitmq start with the default node name. Puppet tries to change nodename.
+After this start stop status stops to work","Fix rabbitmq startup
+
+Rabbitmq start with the default node name. Puppet tries to change nodename.
+After this start stop status stops to work"
+233,solar-resources,20c83228c52bbac8b7ca3c2e646596b38ce424e8,Merge branch 'master' into dry-run,Merge branch 'master' into dry-run
+234,solar-resources,de55b32759ed5f2aed2a1953eaed9b57cb52e35f,Merge branch 'master' into various-fixes,Merge branch 'master' into various-fixes
+235,solar-resources,f1a46923ec546d10a7313b650c8ea3964f81ef87,"Merge pull request #18 from Mirantis/rabbitmq_puppet
+
+Rabbitmq puppet","Merge pull request #18 from Mirantis/rabbitmq_puppet
+
+Rabbitmq puppetWait 1 second between retries"
+236,solar-resources,e4f734665f88d13c314b9343daca884ba942f44d,Rabbitmq remove action and fixes,Rabbitmq remove action and fixes
+237,solar-resources,0faf63559c7473fbc35d8de869996357cf887883,Rabbimtq service from puppet,Rabbimtq service from puppet
+238,solar-resources,89aed85e951ece8251ba82d2104196ed0eda5239,"Merge pull request #21 from Mirantis/bogdando/dev
+
+Bogdando/dev","Merge pull request #21 from Mirantis/bogdando/dev
+
+Bogdando/dev"
+239,solar-resources,2db3e8126a27490bb9d4934cccb98aa5db30192e,"Fix bools in puppet manifests
+
+Capitalized bools ending up in wrong config values,
+like 'fooparam=True[]'. Use the lower case instead.
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Fix bools in puppet manifests
+
+Capitalized bools ending up in wrong config values,
+like 'fooparam=True[]'. Use the lower case instead.
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+240,solar-resources,125577cb241d147baf21b504d1bb688f0e97978f,Merge branch 'master' into resource-compiler,Merge branch 'master' into resource-compiler
+241,solar-resources,0ab0825734621fb5dc0e3cf14f3b888a23c5084c,"Merge pull request #10 from Mirantis/puppet-tests
+
+Puppet handler & example-puppet.py","Merge pull request #10 from Mirantis/puppet-tests
+
+Puppet handler & example-puppet.pyRemoved global solar ansible library"
+242,solar-resources,df62d2a07a036d0eb4d6d0dca8c89b2de7b5b2d9,Merge branch 'puppet-tests' into dry-run,Merge branch 'puppet-tests' into dry-run
+243,solar-resources,ef7a0002a716dc236f7eecbae72daa31a1ec259f,"Use FACTER_resource_name in shell variables
+
+Also, use_sudo added to _scp_command.","Use FACTER_resource_name in shell variables
+
+Also, use_sudo added to _scp_command."
+244,solar-resources,224b3229ff6b9a97a13fab5d6817451a33cad659,"Merge pull request #16 from Mirantis/puppet-tests-fix
+
+Puppet tests fix","Merge pull request #16 from Mirantis/puppet-tests-fix
+
+Puppet tests fixDo not create nodes in test"
+245,solar-resources,072f42b34b88dc7b5071f2c90b8e70d7c1ad71a5,Fix remove,Fix remove
+246,solar-resources,c592016be77e47ca51714fc369564a988687a651,neutron_puppet works now with upstream openstack manifests,neutron_puppet works now with upstream openstack manifests
+247,solar-resources,ccaadaf5f7638013ff01a17c943a44d7be10ef93,"Puppet: lots of fixes & improvements
+
+- resource_provider became a general provider for git/zip/whatever data
+- library-puppet is used to install & manage all dependencies
+- keystone_puppet resource is added, with manifests from openstack git","Puppet: lots of fixes & improvements
+
+- resource_provider became a general provider for git/zip/whatever data
+- library-puppet is used to install & manage all dependencies
+- keystone_puppet resource is added, with manifests from openstack git"
+248,solar-resources,eec8bc18fefa9d8e6eba3ddd12f2966d789cedaa,Move Puppet resources to outside repos,Move Puppet resources to outside repos
+249,solar-resources,9ebb1ac9122c002d764e423afcc1ad4e77d09fda,"hiera-redis added, single-master redis cluster","hiera-redis added, single-master redis cluster"
+250,solar-resources,2d5264305bc7e772c7bd5f98d39c471519085066,Hiera storage showoff,Hiera storage showoff
+251,solar-resources,5c70cd66351a766f069d401c691779a498bcc8fd,Puppet: Keystone remove action is working now,Puppet: Keystone remove action is working now
+252,solar-resources,70032fe11b0894c4e0067bfc5b9a3fdf30eecdad,Puppet: added port to keystone,Puppet: added port to keystone
+253,solar-resources,93d156e49e5006fc3b86af38a082277a07b75488,Keystone can now be deployed using Puppet,Keystone can now be deployed using Puppet
+254,puppet-savanna,d7eb65ff8bd70f3e6e5c2af921844c86e49d49ee,manifest v 0.1 based on nova manifests from puppetlabs,manifest v 0.1 based on nova manifests from puppetlabs
+255,puppet-savanna,61df4b0b1f55c813a8b7b6dc9efc4c1023862e83,Use command 'echo' instead of 'sed',Use command 'echo' instead of 'sed'
+256,puppet-savanna,b9312dbdf8595a5879ea74129a33bfb2ff6ddb60,Edit scripts as it needs for Fuel,Edit scripts as it needs for Fuel
+257,puppet-savanna,8d6026533b81f8788ab34b485036dc0475259bdd,Edit command 'sed' for database config,Edit command 'sed' for database config
+258,puppet-savanna,bc8b766e3c1ceeb1499a6095d76245a9869451eb,"Basic structure, preparing environment, Savanna installation, database","Basic structure, preparing environment, Savanna installation, database"
+259,fuel-plugin-etckeeper,98936c686c3b906ff3a72bd2d9c50416c24627de,"Add userguide and fix commit task
+
+This change adds the userguide to the plugin. Additionally this change
+fixes deployment failures due to no pendinding changes when the commit
+task is run.","Add userguide and fix commit task
+
+This change adds the userguide to the plugin. Additionally this change
+fixes deployment failures due to no pendinding changes when the commit
+task is run."
+260,fuel-plugin-etckeeper,d0f70097fcb56a268de60cefeec8273d639b2fa9,"Create etckeeper plugin
+
+This plugin can be used to add etckeeper to a Fuel deployment.  When
+enabled, etckeeper will be installed, configured and set to track
+changes in the /etc folder on a given deployed node.","Create etckeeper plugin
+
+This plugin can be used to add etckeeper to a Fuel deployment.  When
+enabled, etckeeper will be installed, configured and set to track
+changes in the /etc folder on a given deployed node."
+261,fuel-plugin-vxlan-vlan-7,886291c0ed78744f3d92a48d75da9dc1bf9dc96b,"Merge pull request #9 from mitroko/master
+
+Fix for bug in selector. Default setting should not be quoted.","Merge pull request #9 from mitroko/master
+
+Fix for bug in selector. Default setting should not be quoted.Fix for bug in selector. Default setting should not be quoted."
+262,fuel-plugin-vxlan-vlan-7,291ed2da1424f11c398cc1a89de61a9df88f0f31,"Fix for bug in selector. Default setting should not be quoted.
+
+Two manifests contains faulty selectors. This patch fixes selectors.
+
+Type: fix
+Task: MOSS-331","Fix for bug in selector. Default setting should not be quoted.
+
+Two manifests contains faulty selectors. This patch fixes selectors.
+
+Type: fix
+Task: MOSS-331"
+263,fuel-plugin-vxlan-vlan-7,6c19cb349df58709af5a8ffefbbbe578bcf37d42,"Merge pull request #8 from mitroko/master
+
+Updating README.md. MOS9 supported now.","Merge pull request #8 from mitroko/master
+
+Updating README.md. MOS9 supported now.Updating README.md. MOS9 supported now."
+264,fuel-plugin-vxlan-vlan-7,7474e01e4c9bbb06e4395d0da8ef1d8b102961e4,Fixing ml2 plugin ini path for liberty-8.0,Fixing ml2 plugin ini path for liberty-8.0
+265,fuel-plugin-vxlan-vlan-7,05aedf5402bc7a9a85eb503ef35748d0d9a3b303,"Merge pull request #7 from mitroko/ml2_conf_path_fix
+
+Ml2 conf path fix","Merge pull request #7 from mitroko/ml2_conf_path_fix
+
+Ml2 conf path fixMl2 conf path fix"
+266,fuel-plugin-vxlan-vlan-7,c8116ea1078c3cca87963cd007ea3d2519ad48a1,"Merge pull request #6 from mitroko/MOS9_template
+
+Mos9 template","Merge pull request #6 from mitroko/MOS9_template
+
+Mos9 templateMos9 template"
+267,fuel-plugin-vxlan-vlan-7,b752855af29deadbbb27265c350ec6ead7398b60,"Merge pull request #4 from mitroko/lint_fix
+
+Puppet lint checks","Merge pull request #4 from mitroko/lint_fix
+
+Puppet lint checksPuppet lint checks"
+268,fuel-plugin-vxlan-vlan-7,3fa2cbe4236843e0ad1c892fc10afa81fb0d9b84,"Fixing path for ini_subsetting resource
+
+Due to path change in mitaka, plugin configures wrong file.
+This patchset fixes this issue.
+
+Type: fix
+Task: MOSS-331","Fixing path for ini_subsetting resource
+
+Due to path change in mitaka, plugin configures wrong file.
+This patchset fixes this issue.
+
+Type: fix
+Task: MOSS-331"
+269,fuel-plugin-vxlan-vlan-7,02a6e31edbc122eb52590750e1d4708cbd0ab13d,"Services names fix.
+
+Each release could use different names for openvswitch and neutron
+services.
+That names are already stored in ::neutron::params
+This patchset fixes names collisions between MOS8 and MOS9
+
+Type: fix
+Task: MOSS-331","Services names fix.
+
+Each release could use different names for openvswitch and neutron
+services.
+That names are already stored in ::neutron::params
+This patchset fixes names collisions between MOS8 and MOS9
+
+Type: fix
+Task: MOSS-331"
+270,fuel-plugin-vxlan-vlan-7,8a8a318d5316dd52b0d774e0ed4fd6cc98a1b9fb,"Puppet lint checks
+
+Type: style
+Task: MOSS-331","Puppet lint checks
+
+Type: style
+Task: MOSS-331"
+271,fuel-plugin-vxlan-vlan-7,8063d35cf75035113809b93ad901ec77103977ee,"Merge pull request #2 from mitroko/fix_metadata
+
+Metadata extraction fix","Merge pull request #2 from mitroko/fix_metadata
+
+Metadata extraction fixMetadata extraction fix"
+272,fuel-plugin-vxlan-vlan-7,3a958d45ad9023e21478bb505d2b38d83c35d4e8,"Metadata extraction fix
+
+Type: fix
+Task: MOSS-331","Metadata extraction fix
+
+Type: fix
+Task: MOSS-331"
+273,fuel-plugin-vxlan-vlan-7,dc5a700a93e40bcf7b8d512f0ffa057ee6aa14e4,"Merge pull request #1 from mitroko/refactoring_1
+
+Refactoring 1","Merge pull request #1 from mitroko/refactoring_1
+
+Refactoring 1Refactoring 1"
+274,fuel-plugin-vxlan-vlan-7,7745a7227499b6190ffc30962652aa3c02936d36,"Refactoring #1
+
+1) Cosmetic metadata changes
+2) Functional fixes for puppet manifests.
+
+This refactoring step provides minimal changes from original version.
+Right way to change values in ml2_conf.ini is to make hiera override.
+This step will be proposed later.
+
+Type: refactor
+Task: MOSS-331","Refactoring #1
+
+1) Cosmetic metadata changes
+2) Functional fixes for puppet manifests.
+
+This refactoring step provides minimal changes from original version.
+Right way to change values in ml2_conf.ini is to make hiera override.
+This step will be proposed later.
+
+Type: refactor
+Task: MOSS-331Refactoring 1"
+275,fuel-plugin-vxlan-vlan-7,1167e277b8db91ecfd2764a2105c562c9f979945,"Refactoring #1
+
+1) Cosmetic metadata changes
+2) Functional fixes for puppet manifests.
+
+This refactoring step provides minimal changes from original version.
+Right way to change values in ml2_conf.ini is to make hiera override.
+This step will be proposed later.
+
+Type: refactor
+Task: MOSS-331","Refactoring #1
+
+1) Cosmetic metadata changes
+2) Functional fixes for puppet manifests.
+
+This refactoring step provides minimal changes from original version.
+Right way to change values in ml2_conf.ini is to make hiera override.
+This step will be proposed later.
+
+Type: refactor
+Task: MOSS-331Refactoring 1"
+276,fuel-plugin-vxlan-vlan-7,f26d7716d2e399c48f33bb044725ba077353be46,first commit,first commit
+277,solar,5e603bb560d178fdc3b42f70132448a767ec3086,Merge remote-tracking branch 'upstream/master',Merge remote-tracking branch 'upstream/master'
+278,solar,f1a3b1afca261898cca1d31cbb58955b0e041a17,Remove f2s directory,Remove f2s directory
+279,solar,c57937edb9e7e242693b800c75bbbbbd4312abdd,Generate inputs for compute and ceph-osd,Generate inputs for compute and ceph-osd
+280,solar,de76c08a6a383187576e202f8bdec6b085733c6a,Change path to actions,Change path to actions
+281,solar,cf5b0edafa6ee09b20442a6101d123cd37152359,Fix inputs in resources,Fix inputs in resources
+282,solar,5de8818efb9e929cf804099309c31a33ba85a30a,Add additional packages and config for container,Add additional packages and config for container
+283,solar,1d3409e381af59a6365d90e1721e8865929aac3a,Save generated resources with inputs,Save generated resources with inputs
+284,solar,cd3f1978b3e04f81b82e25b135d2cb7c8a35e445,Add manager globals.pp,Add manager globals.pp
+285,solar,8d86c837880ed8e9a8458d0b7d4ab3543e341606,"Merge pull request #287 from Mirantis/new_db
+
+new db backend","Merge pull request #287 from Mirantis/new_db
+
+new db backendnew db backend"
+286,solar,c3e81e56c71bc0c349523b36990626bfefd8db04,"Merge pull request #309 from loles/os
+
+Make puppet run on the new_db","Merge pull request #309 from loles/os
+
+Make puppet run on the new_dbMake puppet run on the new_db"
+287,solar,4d7efd4ae70002b4c09633db69aedabae320b53d,Make puppet run on the new_db,Make puppet run on the new_db
+288,solar,3fdea06486ec266559535d0cbf7da39e4e1ab6dc,"Merge pull request #277 from pigmej/pigmej-fix-158
+
+Added update action to nova_compute_libvirt_puppet","Merge pull request #277 from pigmej/pigmej-fix-158
+
+Added update action to nova_compute_libvirt_puppetAdded update action to nova_compute_libvirt_puppet"
+289,solar,9ea3b2354adeced77bf311b29bd150f2a3e0913c,"Merge pull request #270 from loles/librarian
+
+change db_port","Merge pull request #270 from loles/librarian
+
+change db_portchange db_port"
+290,solar,9f037ffa229e407ee786c1209d1d7eee93d16831,Added update action to nova_compute_libvirt_puppet,Added update action to nova_compute_libvirt_puppet
+291,solar,f5ab0fba0569835fb39dd14c6c871b49213daa15,Add update action for nova_compute,Add update action for nova_compute
+292,solar,1618caf931e52c0683df5162f6182c8c57e03ff8,Run and remove are the same,Run and remove are the same
+293,solar,9878adb9b5a70082bdaf653d0a9e3f426e578199,Run and remove are the same,Run and remove are the same
+294,solar,17f80b4a5b6ed9d1b6f2921b8418382969c82efc,Do not use hardcoded db port,Do not use hardcoded db port
+295,solar,43329c8b44adc8b5b8fa378ce701f6a24f236ae7,Add and fix update actions. changing db_port should work now,Add and fix update actions. changing db_port should work now
+296,solar,6e40b6550d18c927336a69d70c30bc216596d68f,"Merge pull request #254 from loles/librarian
+
+Move to Librarian","Merge pull request #254 from loles/librarian
+
+Move to LibrarianMove to Librarian"
+297,solar,8c1dc6623aa22e6b1615a8fb6f417d4422f1cf6f,"Merge branch 'master' into librarian
+
+Conflicts:
+	examples/openstack/openstack.py","Merge branch 'master' into librarian
+
+Conflicts:
+	examples/openstack/openstack.py"
+298,solar,8da98c3c80eb64191fab6933b32b613788fe36bf,Copy action run to update,Copy action run to update
+299,solar,e077a157269229f6d35013e0de2a897572369f47,Use default token backend. KVS seems to be broken,Use default token backend. KVS seems to be broken
+300,solar,4a3add5f3d38ffa9218c099129e77faf3e965887,"Merge pull request #244 from bogdando/node_network_puppet
+
+Node network puppet","Merge pull request #244 from bogdando/node_network_puppet
+
+Node network puppetNode network puppet"
+301,solar,2d56dc902f2e46b04afe961c00bc6790365c886b,"Merge pull request #236 from dshulyak/library_poc
+
+Ceph-mon installation using fuel-library","Merge pull request #236 from dshulyak/library_poc
+
+Ceph-mon installation using fuel-libraryCeph-mon installation using fuel-library"
+302,solar,19366f66c9d4cb6966d5aed8db592851fa30927b,Add ceph_mon resource and example,Add ceph_mon resource and example
+303,solar,9751b87906c953e4fd08e89090568008f57a8218,"Workaround l23network module issue
+
+* W/a https://github.com/xenolog/l23network/issues/105
+* Set use_ovs to true
+* Use kind of a ""stable"" commit of l23network module
+  as there is no yet any tags exist
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Workaround l23network module issue
+
+* W/a https://github.com/xenolog/l23network/issues/105
+* Set use_ovs to true
+* Use kind of a ""stable"" commit of l23network module
+  as there is no yet any tags exist
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+304,solar,289f022b93f824e597688c31d2d6a9a128525a56,"Update node_network resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Update node_network resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+305,solar,3d203c970afbfb382770bba33437e72fefa0e4f1,"Add node_network puppet resource
+
+WIP
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Add node_network puppet resource
+
+WIP
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+306,solar,5562b280277f0156a5630422573987cf32a1781b,"Bring back 'value' in input data, fix ansible_template .value
+
+'value' is artificial here, but it's easier to do than change all
+Puppet run.pp/remove.pp files.","Bring back 'value' in input data, fix ansible_template .value
+
+'value' is artificial here, but it's easier to do than change all
+Puppet run.pp/remove.pp files."
+307,solar,88462db2fc164b6b9d1f3bdea61a8853b179f4c2,Graph DB: upload hiera yaml configs for puppet,Graph DB: upload hiera yaml configs for puppet
+308,solar,5b639cf867c624bbbff9b2e2ae6eba5ddebfe4b0,Merge branch 'master' into cgenie/graph-db,Merge branch 'master' into cgenie/graph-db
+309,solar,0366126cb4d333b174f9488e9c8825818e3022ad,Merge branch 'master' into jnowak/pluggable_transports,Merge branch 'master' into jnowak/pluggable_transports
+310,solar,9ed99fd8bbd9cf79ad301f724414e7857f223f75,Merge branch 'master' into bogdando/rabbitmq,Merge branch 'master' into bogdando/rabbitmq
+311,solar,c96701c4280a8cf2e80f9c68aa7ed8d13bfc38d2,"Merge pull request #73 from Mirantis/bogdando/nova
+
+Bogdando/nova","Merge pull request #73 from Mirantis/bogdando/nova
+
+Bogdando/novaBogdando/nova"
+312,solar,9291303ce6f810452a867d4c30ea9bd18f3a3e68,Merge branch 'master' into jnowak/sol_103,Merge branch 'master' into jnowak/sol_103
+313,solar,4dbfd63c6d41493b71d5ce991a802d45ad535b31,"Fix nova_generic_service resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Fix nova_generic_service resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+314,solar,94979f8d4a266ae44afb65c84e0ac0c55523496a,"Add nova generic service resource
+
+* The generic service resource may be used
+to deploy multiple nova services like vncproxy,
+scheduler, consoleauth etc.
+* Add composition layer for the scheduler service
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Add nova generic service resource
+
+* The generic service resource may be used
+to deploy multiple nova services like vncproxy,
+scheduler, consoleauth etc.
+* Add composition layer for the scheduler service
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+315,solar,43c1a8143c7ced411215f836006da51d0319fa50,"Merge pull request #78 from Mirantis/jnowak/events_riak1
+
+Complete event based riak example","Merge pull request #78 from Mirantis/jnowak/events_riak1
+
+Complete event based riak exampleComplete event based riak example"
+316,solar,b53c833f20b32d027b057187441bac04ff8cee67,Merge branch 'master' into jnowak/events_riak1,Merge branch 'master' into jnowak/events_riak1
+317,solar,b113ce2a7c36aeef744298eb8829cc3d43a79d4f,"Merge pull request #81 from Mirantis/bogdando/neutron
+
+Bogdando/neutron","Merge pull request #81 from Mirantis/bogdando/neutron
+
+Bogdando/neutronBogdando/neutron"
+318,solar,aff97b4a7c91d288d9c6e6d42d1eaa10590dea99,Merge branch 'pretty' into jnowak/events_riak1,Merge branch 'pretty' into jnowak/events_riak1
+319,solar,8a5090ff187662163a8388bb8088e2102bedaf38,"Del duplicated puppet parameter
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Del duplicated puppet parameter
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+320,solar,23899f01675a3d74b4174b0fcf60eb9d4e463da7,"Fix ml2 agent resource and compostion
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Fix ml2 agent resource and compostion
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+321,solar,2c1855230c65e3e447ab90f635b6fecd0ceb20cd,"W/a LP1490438 for ml2 plugin resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","W/a LP1490438 for ml2 plugin resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+322,solar,6f72acde369ff6399457246174b59585f2aedfad,"Remove ovs plugin and agent
+
+Those aren't exist since Juno
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Remove ovs plugin and agent
+
+Those aren't exist since Juno
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+323,solar,1d990bb3410e9bf1d4146b54e32f99026dc387e0,"Add neutron agent ovs with ml2 plugin resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Add neutron agent ovs with ml2 plugin resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+324,solar,696e0445ed1a07eb99622937a8a63ec053d61789,"Add neutron ml2 plugin resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Add neutron ml2 plugin resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+325,solar,3505edef883985123fdc991c639a97bfc0333a47,Merge branch 'master' into cgenie/graph-db,Merge branch 'master' into cgenie/graph-db
+326,solar,e00003a53f41fb8ed7088ab748fdc4b244045ab5,"Merge pull request #53 from Mirantis/bogdando/apache_puppet
+
+Add apache puppet resource","Merge pull request #53 from Mirantis/bogdando/apache_puppet
+
+Add apache puppet resourceAdd apache puppet resource"
+327,solar,6d5b1302a222c2761f6f118f40f5b3fac5675088,"Merge pull request #60 from Mirantis/bogdando/neutron
+
+Bogdando/neutron","Merge pull request #60 from Mirantis/bogdando/neutron
+
+Bogdando/neutronBogdando/neutron"
+328,solar,2e78911e5c57794490311ab35fd94eb263f6c7c7,"Fix neutron conf for compute and nova_neutron resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Fix neutron conf for compute and nova_neutron resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+329,solar,6251331f2701d8adeb695c3af24baad60c90d7e7,"Fix neutron db stamp head
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Fix neutron db stamp head
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+330,solar,ad533c3cdfb0ca6766cee04fcee01b6d7634e3c8,"Add neutron metadata agent resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Add neutron metadata agent resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+331,solar,fa52977697c8d9169310c7d036dcae9da8d86a49,"Add neutron L3 agent resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Add neutron L3 agent resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+332,solar,4a9fee81e86c3af863d85118fde0378309c6e416,"Add neutron DHCP agent resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Add neutron DHCP agent resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+333,solar,d83e20317175a886a543c36fb53ccaf799a4b954,"Fix neutron stamp/upgrade head
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Fix neutron stamp/upgrade head
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+334,solar,956261f31adba6983a34c2b33027e1dcb7ee48a9,"Fix core plugin, remove external class ref for neutron
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Fix core plugin, remove external class ref for neutron
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+335,solar,26bf28ffc8384a279e7859baa9d8ac28a921c4d4,"Fix removed sql_con
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Fix removed sql_con
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+336,solar,261975552bbee198839aea1c1bb582ba0aa05da6,"Add composition for OVS plugin/agent
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Add composition for OVS plugin/agent
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+337,solar,ad9e1fa3ec442e425eb383f7422b7eb256aaf26f,"Remove deprecated/unused sql conn inputs
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Remove deprecated/unused sql conn inputs
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+338,solar,5bc771b8f6d4f08eaec575e08c6c68109db4b235,"Add neutron OVS agent resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Add neutron OVS agent resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+339,solar,190beffd6c9adcd8421c1f5bb48455e843fae1b5,"Add neutron ovs plugin resource
+
+* Add compostion layer for OVS plugin with GRE
+* Fix neutron tags, use_ssl input
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Add neutron ovs plugin resource
+
+* Add compostion layer for OVS plugin with GRE
+* Fix neutron tags, use_ssl input
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+340,solar,0570c4a670e64de8964d1b3268cc705f8a94bef2,"Remove external class ref for neutron server resource
+
+* Fix rabbit inputs for neutron
+* Decouple service neutron-server from neutron class
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Remove external class ref for neutron server resource
+
+* Fix rabbit inputs for neutron
+* Decouple service neutron-server from neutron class
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+341,solar,8be490610cd4d7fe188e1cabfc3da806b9ed4193,"Decouple neutron resource
+
+* Use neutron base and API(server) resources
+* Add db and db user for neutron composition layer
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Decouple neutron resource
+
+* Use neutron base and API(server) resources
+* Add db and db user for neutron composition layer
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+342,solar,a2d72c4fc9836ce63134f2965285648b377d580a,"Add apache puppet resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Add apache puppet resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+343,solar,3f02ae0d7cdb7d178ec1c4892335378265f994c5,Merge branch 'master' into dry-run,Merge branch 'master' into dry-run
+344,solar,b709d170e1b4d901dd47d9844dc124966034ddd2,"Merge pull request #61 from Mirantis/example-refactor
+
+Refactor example-puppet.py actions","Merge pull request #61 from Mirantis/example-refactor
+
+Refactor example-puppet.py actionsRefactor example-puppet.py actions"
+345,solar,8daccdf77ea43fe272e89bc30960728c5a39fd33,Refactor example-puppet.py actions,Refactor example-puppet.py actions
+346,solar,dac6855fa4a4d02f5c386d7bbcdfdbfc84c5e791,"Merge pull request #59 from Mirantis/bogdando/cinder
+
+Add cinder_glance resource","Merge pull request #59 from Mirantis/bogdando/cinder
+
+Add cinder_glance resourceAdd cinder_glance resource"
+347,solar,8d1c48acfd40c0a8ffd561b61248ec05f317eb17,"Decompose glance_api_servicers input
+
+Because of existing limitations for resource inputs
+connections, the glance_api_servicers upstream parameter
+was decomposed to host and port.
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Decompose glance_api_servicers input
+
+Because of existing limitations for resource inputs
+connections, the glance_api_servicers upstream parameter
+was decomposed to host and port.
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+348,solar,847f17b1a3474fbf822b60de5adb7dc80b86943d,"Add cinder volume ISCSI resource
+
+Add ISCSI backend as enabled default for the
+cinder_volume resource. Note, cannot be decoupled
+as a separate resource because of the external
+puppet class reference hardcoded upstream.
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Add cinder volume ISCSI resource
+
+Add ISCSI backend as enabled default for the
+cinder_volume resource. Note, cannot be decoupled
+as a separate resource because of the external
+puppet class reference hardcoded upstream.
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+349,solar,ab24480e3256d646b72ed813e502823d05ce8a0c,"Add cinder_glance resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Add cinder_glance resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+350,solar,b1faa0f9784576afded6164ff8abbfd82384b3a8,"Merge pull request #58 from Mirantis/bogdando/nova
+
+Bogdando/nova","Merge pull request #58 from Mirantis/bogdando/nova
+
+Bogdando/novaBogdando/nova"
+351,solar,51d122118964531bcce9d6ebe63b4b6f1f90c60a,"Fix glance api servers for nova compute
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Fix glance api servers for nova compute
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+352,solar,d8f5971084761a01f479895eaf9dfcccf1f01cfa,"Add nova_neutron resource.
+
+Includes configuration only classes for nova compute:
+nova::network::neutron and nova::compute::neutron
+Combined into the single resource as the latter one
+is too small (it has only 2 conf params)
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Add nova_neutron resource.
+
+Includes configuration only classes for nova compute:
+nova::network::neutron and nova::compute::neutron
+Combined into the single resource as the latter one
+is too small (it has only 2 conf params)
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+353,solar,41433b26db5d2420c124bde8c1c8b84bd00d1fb4,"Add nova comp libvirt resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Add nova comp libvirt resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+354,solar,204853a12195418152e7f06886ccd747c30cf9c6,"Add exec post config and network refresh to n-compute
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Add exec post config and network refresh to n-compute
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+355,solar,88d11981a331ceaf4809a5431b9b0dd8f359d918,"Add nova compute resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Add nova compute resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+356,solar,041161cf17752fd2c11fc35dc55e1e7320496e5d,"Add nova conductor resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Add nova conductor resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+357,solar,43843b6f6145e091c47236e59d3754f06d41259c,"Fix remove nova api resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Fix remove nova api resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+358,solar,f4bb568aeeedb7a1dfb46b35d69f7a7700258562,"Fix schema and db-sync condition
+
+Db sync should always be run once we
+decoupled nova api from nova, unless we
+have a proper notification system
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Fix schema and db-sync condition
+
+Db sync should always be run once we
+decoupled nova api from nova, unless we
+have a proper notification system
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+359,solar,4c862d6bf15586b2f4ac55993de387c34118616c,"Add missing post-config and nova-common
+
+Required for decoupling usage of nova and
+nova api classes in separate catalog runs
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Add missing post-config and nova-common
+
+Required for decoupling usage of nova and
+nova api classes in separate catalog runs
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+360,solar,a35697ae3a1a835beac41ade9a7179b54dbb6418,"Add missed admin_password for nova api resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Add missed admin_password for nova api resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+361,solar,86136d77f6e7d1160f5a695bf94d22362812f340,"Fix typo
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Fix typo
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+362,solar,70d9a0502ddacdda8f5fa3386b2f7c874850fb33,"Add nova api puppet resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Add nova api puppet resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+363,solar,648dd6d4bcbe2dd19a81ff7be8f871dd5294c8b5,"Del nova_api after moved to nova_puppet resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Del nova_api after moved to nova_puppet resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+364,solar,b26c8f954164c6552636e5dfce53ed2f6dca7e61,"Fix schema for nova puppet
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Fix schema for nova puppet
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+365,solar,08b4bb7f028957064476f506f87e1404b8bb81b0,"Create nova base puppet resource
+
+Also align composition layer:
+- rename nova_api to nova_puppet
+- adjust connections
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Create nova base puppet resource
+
+Also align composition layer:
+- rename nova_api to nova_puppet
+- adjust connections
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+366,solar,44196230dbd2f8e1e069702fe374005d79a2e4b1,"Merge pull request #32 from Mirantis/glance-puppet
+
+Glance puppet","Merge pull request #32 from Mirantis/glance-puppet
+
+Glance puppetGlance puppet"
+367,solar,ca9cbd0a0a2d550c96ff5e92c1b453fa762d7d91,"Fix remove actions for glance puppet resources
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Fix remove actions for glance puppet resources
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+368,solar,1b400b27e32fc649fee7ae8c51f75d1f84ac3a52,"Add glance registry puppet resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Add glance registry puppet resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+369,solar,be125bb214faaf4468713ced40ca018b480a424f,"Fix glance puppet classes dependencies
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Fix glance puppet classes dependencies
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+370,solar,10afefd2e191b5c9edb3993468f259060d60b732,"Align glance_puppet with cinder_puppet and upstream
+
+Install glance base and API as the base class
+does nothing but glance packages install.
+Remove registry to be implemented as separate resource.
+Update parameters to match upstream ones.
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Align glance_puppet with cinder_puppet and upstream
+
+Install glance base and API as the base class
+does nothing but glance packages install.
+Remove registry to be implemented as separate resource.
+Update parameters to match upstream ones.
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+371,solar,47b52a27aad816c4f8ae7abb8a42167100370700,"Glance-puppet, not fully working yet","Glance-puppet, not fully working yet"
+372,solar,2daf795172ba4bec5924ea89950fbf8d899822b4,Merge branch 'master' into dry-run,Merge branch 'master' into dry-run
+373,solar,f904b620b3f1c442fce3b65f4f30012665a90889,"Merge pull request #27 from Mirantis/nova-api
+
+nova-api resource","Merge pull request #27 from Mirantis/nova-api
+
+nova-api resourcenova-api resource"
+374,solar,4470c7d2002f530c1e65da761fcb8ee4f940f2b6,"Merge branch 'master' into nova-api
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>
+
+Conflicts:
+	example-puppet.py","Merge branch 'master' into nova-api
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>
+
+Conflicts:
+	example-puppet.py"
+375,solar,a7a60d8642ad6c64f3943432c51de1bc90832041,"Merge pull request #47 from Mirantis/bogdando/cinder_volume_puppet
+
+Bogdando/cinder volume puppet","Merge pull request #47 from Mirantis/bogdando/cinder_volume_puppet
+
+Bogdando/cinder volume puppetBogdando/cinder volume puppet"
+376,solar,b2f94c1cbd3b3138c852bf92c0e9b2e6a1559302,"Add compostion layer for c-volume puppet
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Add compostion layer for c-volume puppet
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+377,solar,73f87c03c00ac3422eedd3c394f9102369591124,"Remove enabled and manage_services params for c-volume
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Remove enabled and manage_services params for c-volume
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+378,solar,a23ddc735d073dc20b5afa3f556b2ce46f518e39,"Add cinder volume puppet resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Add cinder volume puppet resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+379,solar,db94a28229ff9165e87ace5bccdf547edcf62d30,"Merge pull request #45 from Mirantis/bogdando/cinder_scheduler_puppet
+
+Bogdando/cinder scheduler puppet","Merge pull request #45 from Mirantis/bogdando/cinder_scheduler_puppet
+
+Bogdando/cinder scheduler puppetBogdando/cinder scheduler puppet"
+380,solar,de9b064586353276440e8cfe68160d9f3abc9bbc,"Remove enabled and manage_service for c-scheduler
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Remove enabled and manage_service for c-scheduler
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+381,solar,08978ea341929e9fb0c00aaafdb81b3d0d20944f,"Fix cinder scheduler puppet params
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Fix cinder scheduler puppet params
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+382,solar,dfa473af8a089ec203bf1f89dd5d8048ae1f0a44,"Add cinder scheduler puppet resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Add cinder scheduler puppet resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+383,solar,a72ccb801965202e7c35cc9381b680846fd07604,"Merge pull request #42 from Mirantis/bogdando/cinder_api_puppet
+
+Bogdando/cinder api puppet","Merge pull request #42 from Mirantis/bogdando/cinder_api_puppet
+
+Bogdando/cinder api puppetBogdando/cinder api puppet"
+384,solar,5297e171fbcc5a4ed77e8b70b118ec4c574842ba,"Remove enabled and manage_service for c-api
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Remove enabled and manage_service for c-api
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+385,solar,e2a049e037cd2a309f98dc9bab36ab263a6d5c99,"Fix undeploy and resource_name ref at cinder api
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Fix undeploy and resource_name ref at cinder api
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+386,solar,9d6e5fe05815d146812d62c0a76a6cfaaef5a01c,"Fix package cinder dependency for cinder api
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Fix package cinder dependency for cinder api
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+387,solar,e6b033fb95c68c803931e30d1b12a689f474da94,"Fix indentation and parameters
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Fix indentation and parameters
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+388,solar,800054cc9013097340e1ef48bcca34bed5d7d41c,"Add cinder api puppet resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Add cinder api puppet resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+389,solar,5f7129c98cd98b040bb7af7f8a80f151b2180e99,"Merge pull request #39 from Mirantis/bogdando/cinder_puppet
+
+Bogdando/cinder puppet","Merge pull request #39 from Mirantis/bogdando/cinder_puppet
+
+Bogdando/cinder puppetBogdando/cinder puppet"
+390,solar,4957dd9d30fa2fa08bcdcfa90ca1212a76941a3d,"Merge pull request #44 from Mirantis/tpl
+
+Update virtual resource for current branch","Merge pull request #44 from Mirantis/tpl
+
+Update virtual resource for current branchUpdate virtual resource for current branch"
+391,solar,e2d4eca435728d1032e38d87902d7d039a949fe3,Update virtual resource for current branch,Update virtual resource for current branch
+392,solar,0e16ac9517c23ff67d0af5bc508afc731c62e98f,"Fix remove and resource name ref for cinder
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Fix remove and resource name ref for cinder
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+393,solar,124d983407f2229380d74748f72513c1dd30d4dc,"Merge pull request #40 from Mirantis/rabbitmq_fix
+
+Use default nodename when removing","Merge pull request #40 from Mirantis/rabbitmq_fix
+
+Use default nodename when removingUse default nodename when removing"
+394,solar,637838419c56df87d2431cabc0fddd68080c7d38,"Merge pull request #41 from Mirantis/neutron_fixes
+
+Neutron fixes","Merge pull request #41 from Mirantis/neutron_fixes
+
+Neutron fixesNeutron fixes"
+395,solar,322e1bb8a019079f047276fece775cbc7e6c42e2,"Neutron fixes
+
+- use correct role name
+- use correct rabbitmq user/password
+- set vhost name","Neutron fixes
+
+- use correct role name
+- use correct rabbitmq user/password
+- set vhost name"
+396,solar,2e6c8ba67655c7b5541204efcd4198be4fc95684,Use default nodename when removing,Use default nodename when removing
+397,solar,21112df4f69bf58c79b4bdc21bb18885ddc78c0e,Remove nodename,Remove nodename
+398,solar,674dbb5709010c3a3288019463a5e581f31eff8d,change path,change path
+399,solar,7dfd32eb1a002e12db8cef05b371b5d28f3b2fc1,nova-api resource,nova-api resource
+400,solar,74abd99f95d12d9e19fcf4c45c27aa55dfa9601c,"Fix undef db conneciton for cinder
+
+Do not pass deprecated param for cinder
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Fix undef db conneciton for cinder
+
+Do not pass deprecated param for cinder
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+401,solar,824c12d9f93c82c5ba195a3b232cd948baa544e6,"Add cinder puppet resource
+
+Populate from autogenerated parameters
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Add cinder puppet resource
+
+Populate from autogenerated parameters
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+402,solar,f6d04062a5091dd588eb2e02afa2074157580900,Merge branch 'master' into dry-run,Merge branch 'master' into dry-run
+403,solar,16d968e738ee32f32ac82d908de36ef3ef165d68,Merge branch 'master' into various-fixes,Merge branch 'master' into various-fixes
+404,solar,8f7149d8587ff4db502d341ac7a03ebae478073f,"Merge pull request #29 from Mirantis/rabbitmq_fix
+
+Rabbitmq startup fix","Merge pull request #29 from Mirantis/rabbitmq_fix
+
+Rabbitmq startup fixRabbitmq startup fix"
+405,solar,b694f44694d7971269a925858586d834ea1f2aca,"Fix rabbitmq startup
+
+Rabbitmq start with the default node name. Puppet tries to change nodename.
+After this start stop status stops to work","Fix rabbitmq startup
+
+Rabbitmq start with the default node name. Puppet tries to change nodename.
+After this start stop status stops to work"
+406,solar,f110e7d1a57ce3bf95fe8fa6ce0e7735b9211325,Merge branch 'master' into dry-run,Merge branch 'master' into dry-run
+407,solar,a5f0fc2005a841d315bad79ba05ff4eac57e6d70,Merge branch 'master' into various-fixes,Merge branch 'master' into various-fixes
+408,solar,fbfe8bbc33f41090025884f9a08567bf174dddf1,"Merge pull request #18 from Mirantis/rabbitmq_puppet
+
+Rabbitmq puppet","Merge pull request #18 from Mirantis/rabbitmq_puppet
+
+Rabbitmq puppetRabbitmq puppet"
+409,solar,7b72fb3775a2d949e8b40a9ccb4cecb0c4dcdf03,Rabbitmq remove action and fixes,Rabbitmq remove action and fixes
+410,solar,5c1c782ed7b91d50700a1236a16ae2486ed11b94,Rabbimtq service from puppet,Rabbimtq service from puppet
+411,solar,615089fa811862d5060028d4aa495cea56a9bad8,"Merge pull request #21 from Mirantis/bogdando/dev
+
+Bogdando/dev","Merge pull request #21 from Mirantis/bogdando/dev
+
+Bogdando/devBogdando/dev"
+412,solar,77e5deb54472de03f5b3eed254f89b8e0e0e01a0,"Fix bools in puppet manifests
+
+Capitalized bools ending up in wrong config values,
+like 'fooparam=True[]'. Use the lower case instead.
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>","Fix bools in puppet manifests
+
+Capitalized bools ending up in wrong config values,
+like 'fooparam=True[]'. Use the lower case instead.
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+413,solar,2cbdf5bbb54fad4401bc47733dabb799db7d86ff,Merge branch 'master' into resource-compiler,Merge branch 'master' into resource-compiler
+414,solar,9f375a341f4037e11d8fb1544442352181071da2,"Merge pull request #10 from Mirantis/puppet-tests
+
+Puppet handler & example-puppet.py","Merge pull request #10 from Mirantis/puppet-tests
+
+Puppet handler & example-puppet.pyPuppet handler & example-puppet.py"
+415,solar,f22e51831eb9f6d9cdadfc3f849565cc441303ed,Merge branch 'puppet-tests' into dry-run,Merge branch 'puppet-tests' into dry-run
+416,solar,fbe847b59d7a27059f253e5faa74dfb2e2e3fe8a,"Use FACTER_resource_name in shell variables
+
+Also, use_sudo added to _scp_command.","Use FACTER_resource_name in shell variables
+
+Also, use_sudo added to _scp_command."
+417,solar,86d65a8deef7e7bdd29a3424b6c9e91c38722246,"Merge pull request #16 from Mirantis/puppet-tests-fix
+
+Puppet tests fix","Merge pull request #16 from Mirantis/puppet-tests-fix
+
+Puppet tests fixPuppet tests fix"
+418,solar,b8d9436cc7fdd5307ede361363f822f412d144f0,Fix remove,Fix remove
+419,solar,86471e839fef52af26bb8e6be09926eaf3281391,neutron_puppet works now with upstream openstack manifests,neutron_puppet works now with upstream openstack manifests
+420,solar,7323a842dabc9c309e844ab73a438e9511c5a9e3,"Puppet: lots of fixes & improvements
+
+- resource_provider became a general provider for git/zip/whatever data
+- library-puppet is used to install & manage all dependencies
+- keystone_puppet resource is added, with manifests from openstack git","Puppet: lots of fixes & improvements
+
+- resource_provider became a general provider for git/zip/whatever data
+- library-puppet is used to install & manage all dependencies
+- keystone_puppet resource is added, with manifests from openstack git"
+421,solar,65c4e755805c7cdaccaffa757ef94f458421c947,Move Puppet resources to outside repos,Move Puppet resources to outside repos
+422,solar,e6afb39b4b8f3127e9d5eb32a937a439be738431,"hiera-redis added, single-master redis cluster","hiera-redis added, single-master redis cluster"
+423,solar,edf41f8318e5e0685ad25c0b95e9ba5701103852,Hiera storage showoff,Hiera storage showoff
+424,solar,7f667471ecd4c35af384a88a4da17ac523dc034c,Puppet: Keystone remove action is working now,Puppet: Keystone remove action is working now
+425,solar,54fdf934b4da6dd81189940ec65baa7fe303b288,Puppet: added port to keystone,Puppet: added port to keystone
+426,solar,4bb9958f6bf3b6c8a4e03b7616ce936d8acd04f0,Keystone can now be deployed using Puppet,Keystone can now be deployed using Puppet

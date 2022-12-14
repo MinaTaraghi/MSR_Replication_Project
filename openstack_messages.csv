@@ -1,0 +1,3720 @@
+,repo,commit,message
+0,puppet-tripleo,fa9fbe51e9bc35d5e415d095d5b9f6ee3a976256,"Merge ""Remove manifests for networking-ansible plugin"""
+1,puppet-tripleo,91eb4140b5b8337cbd029a58ea1cb4c3bab3fa21,"Template option addition for --pids-limit on Galera cluster resource
+
+mysql_bundle.pp has been modified to be able to configure --pids-limit option
+using a template. By default the parameter remains 'undef' when not specified.
+When ""tripleo::profile::pacemaker::database::mysql_bundle::pids_limit:"" is used
+as an ExtraConfig it will automatically set the value in the Galera cluster
+resource.
+
+Closes-Bug: #1982751
+
+Change-Id: Iffe9c9a1d7ca736f273d2da43928d7da4a99d1d6
+"
+2,puppet-tripleo,cd794e51ea8e22e03f5dc622fa3d4026fe339d07,"Remove manifests for VPP and Neutron ML2/VPP plugin
+
+... because these services are no longer supported by t-h-t. This
+allows us to remove puppet-fdio, which looks unmaintained, from
+the dependencies.
+
+Depends-on: https://review.opendev.org/864605
+Change-Id: Ibe0a59ad3dd9069e9650036cb2af31a3b9ddfb69
+"
+3,puppet-tripleo,6872a3ef82ecbb4d906a05c9bc75842c19ba3b15,"Remove manifests for networking-ansible plugin
+
+... because it is no longer supported by t-h-t.
+
+Depends-on: https://review.opendev.org/864607
+Change-Id: Ie76536c8e3f80feee09ff5b5f8781e938a6e3e56
+"
+4,puppet-tripleo,a7487743e5d2bb7ca4ab739263f0baa16740ff01,"Support for Cinder IBM Svf driver
+
+This patch adds support for Cinder IBM Spectrum virtualize family (Svf)
+driver.
+
+Depends-On: I43f954879de6ce70237cb468e7ef1fbc2649edcd
+Change-Id: I3c74f492d9d34eb8e16d9a203b5f02714b02f69a
+"
+5,puppet-tripleo,b3be1dc18c8284852905797d91b67d2dcd6a1a10,"Support deploying additional internal glance-api service
+
+OSSN-0090 [1] recommends deploying two instances of the glance-api
+service: a ""user facing"" service, plus an ""internal"" service that is
+accessible via keystone's internal endpoint.
+
+To support this, the tripleo::profile::base::glance::api class is
+enhanced to allow overriding certain associated glance::api parameters.
+This makes it possible to override parameters when including the
+glance::api class in order to facilitate configuring two different
+instances of the glance-api service, each with their own configuration.
+
+The tripleo::haproxy class is enhanced to provide HA support for running
+the internal glance-api service on its own TCP port (defaults to 9293).
+
+[1] https://wiki.openstack.org/wiki/OSSN/OSSN-0090
+
+Change-Id: Ideb5a951d538d9e2c7cca11dfe0e8b99520de959
+"
+6,puppet-tripleo,d649079ee75fc6d033832d09facc4e379c1a5fd2,"Merge ""Disable keystone domain creation by keystone::ldap_backend"""
+7,puppet-tripleo,85876847c8a5208ef15501f494b44936c5537400,"Merge ""fencing: Remove unused logic to detect deployment type"""
+8,puppet-tripleo,109a62a61e06b44e4764258082cb47c57409afeb,"Correct TLS cert permission
+
+This patch corrects file permission of cert directory and certificates
+for QDR.
+
+Change-Id: I5a8e4b3598d5e5a30ec967fba504bac91c7f51ec
+"
+9,puppet-tripleo,171814ebbab2db3d1554d580f48fb92f95617e3a,"Allow passing aditional arguments to wsrep_provider_options
+
+This commit allows to inject arbitrary arguments into the
+wsrep_provider_options string.
+Operators should be extremely careful in doing so as there is no
+validation or syntax checking whatsoever.
+
+Example:
+
+ExtraConfig:
+  tripleo::profile::pacemaker::database::mysql_bundle::provider_options: 'evs.suspect_timeout=PT30S'
+
+results in:
+
+wsrep_provider_options = evs.suspect_timeout=PT30S;gcache.recover=no;gmcast.listen_addr=tcp://172.17.0.151:4567;socket.ssl_key=/etc/pki/tls/private/mysql.key;socket.ssl_cert=/etc/pki/tls/certs/mysql.crt;socket.ssl_cipher=AES128-SHA256;socket.ssl_ca=/etc/ipa/ca.crt;
+
+Change-Id: Ie4711ace66846b10252bccdddae84e045af3f604
+"
+10,puppet-tripleo,f6e1a2ab71c39e822d05023c35900bf3b161191e,"fencing: Remove unused logic to detect deployment type
+
+The tripleo::fencing class is used only at host and is not used by
+puppet run inside containers. Thus checking the deployment_type fact
+is useless and we can always assume the class is executed at host.
+
+Change-Id: I87c78b6d12eeec7c69ed52eac5d6a261ae855aca
+"
+11,puppet-tripleo,16992c6ea499f044b3bdc0fdf0758efb1e806559,"MySQL Client: Remove logic for non-containerized deployment
+
+... because current TripleO supports only running services in
+containers.
+
+Change-Id: I13d3d3f796071c19670cb04a30536ca161b624e0
+"
+12,puppet-tripleo,424d9d1f66870b208233d9552c2edb0819300ee4,"haproxy: Remove logic for non-containerized haproxy service
+
+... because current TripleO no longer supports running haproxy service
+at host.
+
+Change-Id: Ic21f33d9a1003b32a1724d2bc4672a646afae211
+"
+13,puppet-tripleo,c4890a2b0072367f1bc8f182f5285e4eb33f2e05,"Fix typos in parameter descriptions, comments and tests
+
+Change-Id: I75b17e41aff3a63b618b6cada01f225f93a4ff4f
+"
+14,puppet-openstack-integration,32acf4f527af92c87d40bc94b2e202e7fad9f444,"Merge ""Manila: Remove workaround for missing sudoers record"""
+15,puppet-openstack-integration,36f5e3962cda999c39f3fc8b76d517d4f8d419bb,"Glance: Stop setting native ssl parameters
+
+Glance has already removed support for native ssl support[1]. These
+glance::api class parameters were also deprecated and will be removed
+during this cycle.
+
+[1] 2a2f349d8a1f0426f77bdbea6c70a316b4c3daa0
+
+Depends-on: https://review.opendev.org/834501
+Change-Id: I72fd6841d24197e9c747116437d49911e9c5b8b0
+"
+16,puppet-openstack-integration,06ba3a80f667473826ba7673ad3124c7c8ac3814,"Enable manila-data service
+
+The puppet-manila module now supports setting up the service. Let's
+enable the feature in our CI jobs.
+
+Depends-on: https://review.opendev.org/865795
+Change-Id: I329fab00774d131018ba65f374d7515fc439148a
+"
+17,puppet-openstack-integration,bc70d756b667aa6b5927efd1d20bcbd97c3ddfc3,"Manila: Remove workaround for missing sudoers record
+
+... because it has been fixed in the manila package [1].
+
+[1] https://review.rdoproject.org/r/c/openstack/manila-distgit/+/44699
+
+Change-Id: Ic5b5327a1462cbe980356b8716f0558710abc6b1
+"
+18,puppet-openstack-integration,12f4f97d8c1a3736b336fe4a694844c37e7b148d,"Merge ""Install ruby-augeas in Debian"""
+19,puppet-openstack-integration,8c2e41847e7ba15b4883c040e9865b93fa68bd8a,"Merge ""Remove logic for CentOS < 9"""
+20,puppet-openstack-integration,017e308b491747418018dd005749351294fa3ea2,"Remove logic for CentOS < 9
+
+... because RDO supports CentOS Stream 9 (aka CentOS 9) only since Zed.
+
+Change-Id: Ic8f5d35aca87a5df40864aeec3b04b5ea746188c
+"
+21,puppet-openstack-integration,82d6eae24871afb79319744a208edb4008497515,"Allow disabling separate Ceph repository
+
+This change introduces the new flag to disable the separate Ceph
+repository. This is now required to migrate Ubuntu job to Jammy,
+because the upstream ceph repository does not provide the packages
+for Ubuntu Jammy yet.
+
+Change-Id: I5549e5edea33e720a7d5cf67c3056036daca52fc
+"
+22,puppet-openstack-integration,1002258b5d318cce34ea61c9331487df437e876c,"Install ruby-augeas in Debian
+
+... because the package is available in recent stable releases[1].
+This allows us to make the logic to install the package simpler.
+
+[1]
+https://packages.debian.org/stretch/ruby-augeas
+https://packages.debian.org/buster/ruby-augeas
+https://packages.debian.org/bullseye/ruby-augeas
+
+Change-Id: If9c4bdbb3d8c447303adb6ddee420c12ecda4133
+"
+23,puppet-openstack-integration,0ad3004b8074bf15423065abd7d0fd2fffa657d0,"Add dns/nameservers parameter to tempest config
+
+After [1], designate-tempest-plugin requires parameter dns.nameservers
+in tempest config or it fails some jobs. This patch is setting this
+parameter always to <host ip>:5322 as that is what is used when
+designate is deployed in p-o-i [2].
+
+I am not doing this parameter conditional as it will just not be used when
+designate is not deployed so I guess we do not need to manage that case
+separatedly.
+
+[1] https://review.opendev.org/c/openstack/designate-tempest-plugin/+/860116
+[2] https://github.com/openstack/puppet-openstack-integration/blob/master/manifests/designate.pp#L92-L97
+
+Change-Id: I0c1fa9c4f7e00aa0c90b996d22dec8c5adef6c48
+"
+24,puppet-nova,a50a1a95be0a0df54d02d6d013a3b561f7bf8790,"Merge ""Clean up parameters for service validation"""
+25,puppet-nova,604905e8ad770db4e0567fdfed281c4dabc50b85,"Merge ""Support array value for console_ssl_ciphers"""
+26,puppet-nova,fa343cb9a90324fec8f5dd5a9989f4eb99e6f45d,"Merge ""Migrate instance_name_template to the base class"""
+27,puppet-nova,422770b70f70f37c31e4c3459f0a80e33106efa5,"Merge ""Deprecate support for [upgrade_levels] network"""
+28,puppet-nova,dfb0351f88d6eb6ad07a3744ae3ad37829e6af28,"Clean up parameters for service validation
+
+... service validation was deprecated during Yoga cycle by [1].
+The parameters were left for interface compatibility but have had no
+effect since then.
+
+[1] 2476bd9af54f3df68fdb57085a25d9754fff455e
+
+Change-Id: I4acfc7e903e0666e48c49c1911e67af8ab48d425
+"
+29,puppet-nova,68c507ffe8cbb6e672b9fedd51d0d6ad5925e7b9,"Merge ""Ensure [api] auth_strategy is wiped by default"""
+30,puppet-nova,6d566d2d4075e21c969a1c90c1eb243ed44035eb,"Support array value for console_ssl_ciphers
+
+The [colsone] ssl_ciphers option takes a colon-separated list. This
+change allows usage of a native array value to set the value so that
+users can more easily compose up the value without considering
+the actual value format.
+
+Change-Id: I1a1b43f040c8acc30a85164b03312683ab9002dc
+"
+31,puppet-nova,610ae05f9127b8c73e86f20dbff9ca0cd7e019e8,"Remove logic for CentOS < 9
+
+... because RDO supports CentOS Stream 9 (aka CentOS 9) only since Zed.
+
+Change-Id: I0ff6eb5da73d1be6fd8e5f1c8127f9b18116c7b9
+"
+32,puppet-nova,feb79359eb2cda759cfdb513d03302f1b2021c77,"Deprecate support for [upgrade_levels] network
+
+... because the option was deprecated several cycles ago by [1].
+
+[1] f0d2925bc71d0649f75fd3d281742f2e56e7e3b6
+
+Change-Id: I66527f6ef2ad547621e80ea702ef65980db77b26
+"
+33,puppet-nova,c5fd57ddba61bfcc188f17950cd53e17cf5461c2,"Remove deprecated cinder parameters
+
+This change removes the deprecated cinder parameters from the nova
+classes, because these were all deprecated before Zed release.
+
+This also makes the nova::cinder class removes all credential
+parameters in case the password parameter is unset, because these are
+useless unless the password parameter is given.
+
+Change-Id: I4fbd1c23c1fec1310675dd69491626c0f98e3dda
+"
+34,puppet-nova,449507e1a929c60f0a89f9f0d3ee16d0103b8289,"Ubuntu/Debian: Install qemu-block-extra when rbd backend is used
+
+In Ubuntu Jammy, the qemu-block-extra package is no longer required by
+the qemu-utils package and should be additionally installed to use rbd
+backend.
+
+Change-Id: I2ae6ed374dda55f8f68c3be5449b1fcd2a890123
+"
+35,puppet-nova,ec7b9f29b44ccd9dda5b379c11414f23dc6ae0d7,"Allow customizing state of libvirt packages
+
+... instead of hard-coding the state.
+
+Change-Id: I4e62309109bf0889741dc2da9fcb7cd6c7ac011b
+"
+36,puppet-nova,da09ff11a2ece02cabac685a0dd8d5d3d12ba3a6,"Ensure [api] auth_strategy is wiped by default
+
+... instead of leaving the parameter unmanaged.
+
+Change-Id: Id0222c03595bdf04596cc9a5f51734460da69e62
+"
+37,puppet-nova,73eb553202e77ca3073764bb863cc07adc7f32c4,"Migrate instance_name_template to the base class
+
+The [DEFAULT] instance_name_template parameter is used not only by
+nova-api but by other services like nova-conductor or nova-compute.
+This change migrate the parameter from the api class to the base class
+so that users can configure the parameter for all services.
+
+Change-Id: I0f590f12017e743a17d989d3a1008faa9b840e87
+"
+38,puppet-nova,d1fb621505eda9684f1563821c5c0b332a19fe1f,"Remove cleanup of [pci] passthrough_whitelist
+
+This logic was added during the previous cycle[1] as part of migration
+to the new [pci] device_spec parameter. The old parameter should be
+removed when a deployment is upgraded to Zed so we no longer need this
+beyond Zed.
+
+[1] 502aec2406e59806d23e8d857920d5d8f2ca6cd3
+
+Change-Id: I1e89883a9044b4d6bfd810d0a616b6a29aeff050
+"
+39,puppet-nova,39cb050371cee10a48638bd68e3289bae712569a,"Add support for [quota] count_usage_from_placement
+
+This change adds support for the [quota] count_usage_from_placement
+option in nova.conf, which allows nova to count core/ram usage
+from placement.
+
+Change-Id: I1668efd5f9fe2509e0fcfdd431dd74c304e3d0bd
+"
+40,puppet-nova,52fa5d2327ac58d665c74cb8ad48b960939ada7b,"Merge ""Replace redundant hard-code of [libvirt] inject_*"""
+41,puppet-nova,925646312f1de99f409e6d39c362669342770138,"Merge ""Add support for [libvirt] wait_soft_reboot_seconds"""
+42,puppet-nova,9fb6c8737848f065322af37b2d928b205448b8fd,"Add support for [libvirt] wait_soft_reboot_seconds
+
+Change-Id: I68b81ef44f3c6f6c92d9bdb2b2a18091706ff99b
+"
+43,puppet-nova,82349d5145040d1e6a1d8029d9cdadfcd4945690,"Fix default value of [libvirt] file_backed_memory
+
+... to ensure the parameter is removed from nova.conf by default.
+
+Change-Id: Idff7de4d33c5352e994a0013a062b3e45c115d35
+"
+44,puppet-neutron,6798f5a0f85b8e7099fa3ed45c97094ed73d2648,"Merge ""Support [DEFAULT] l3_ha_network_* options"""
+45,puppet-neutron,5ea0dce609e277c439d1cdbd32786ed0e7cd0be4,"Support [DEFAULT] l3_ha_network_* options
+
+This change introduces support for a few new parameters so that users
+can configure these parameters to customize the l3 ha network.
+
+Change-Id: Ifa92f37041c76d80b74769eae06d061b546c49d8
+"
+46,puppet-neutron,1e55ead168ff053921e72615855fce79124e5883,"Remove support for networking-ansible
+
+We deprecated the support during Zed cycle[1], because the plugin has
+been unmaintained. So now we can remove the whole implementation.
+
+[1] f82a231bad28f8bf9c4c2b3938d99091a54cfd3a
+
+Change-Id: I4d1509232daf18c213664545bda1d7f7aa05b93b
+"
+47,puppet-neutron,eb1178f73c622f1a5970f9f7316f6935be51277d,"Clean up parameter for service validation
+
+... service validation was deprecated during Yoga cycle by [1].
+The parameter was left for interface compatibility but has had no
+effect since then.
+
+[1] 35659b8d918e8e10e8dbbadf29339d04069bceb3
+
+Change-Id: I40782633478784b599bcba9ca29b525f2b952ece
+"
+48,puppet-neutron,55c77ffd34c7d9aac618432a58fc17ed94daaa6e,"Remove deprecated mech_driver defined resource type
+
+... because it was deprecated during the previous cycle[1] and its
+implementation is empty.
+
+[1] 069b2226a9d521865725d84fe950558cb7c06036
+
+Change-Id: Ied984b3f5e1515a4daa0c0a58bdf2b85e674f202
+"
+49,puppet-neutron,4305385ebc8654843bb275fff60c6b01a1b3a74b,"Document default values of neutron::designate parameters
+
+This change fixes some missing description about the default values of
+the neutron::designate class parameters, and makes the description
+format more consistent.
+
+Change-Id: I88f96f6a73921907cf076a8689b4113fc2b8170b
+"
+50,puppet-neutron,746280be8640e61e7263199c3eac28e0a3ee603c,"Remove support for networking-vpp plugin
+
+... because it was deprecated during Zed cycle by [1].
+
+[1] 7a47c5a29d530982ed85e5976de7b95992b9ed93
+
+Change-Id: I64da797bc921702f710e7328ef3e230354e2ceaf
+"
+51,puppet-neutron,ed0709cb48d60462e503f0c28415dfa3c96ac1b9,"Remove support for NSX plugin
+
+It was deprecated during Zed cycle by [1], because the plugin is no
+longer maintained.
+
+[1] c148a64307582445f7b1b6b3ae2cee4c7c6c0ea1
+
+Change-Id: I95feecae2e3beaed00b4a8da4c2340a0006993c8
+"
+52,puppet-neutron,8e007943dcbc8c2d5ab90a846c0f7231c9a5738d,"Remove support for linuxbridge plugin config
+
+... because it has been unused actually and was formally deprecated
+during Zed cycle[1].
+
+[1] 959c1cefeea69b65c67670b0ad44376843c9836f
+
+Change-Id: Ie43d17c3e7d411c723986f52c4c2e1d49713711f
+"
+53,puppet-neutron,e1aef2ddd3b1d5794619e7840d642057b2410032,"ODL: Drop cleanup of [ovs] ovsdb_connection
+
+... because it was added during Zed cycle[1] and the cleanup should be
+done when a deployment is upgraded to Zed.
+
+[1] d806c5a1bd3c967e59b0da245692996aef1008d4
+
+Change-Id: Icf6c4e3c6585bfa01127695b2f00dbfb56692546
+"
+54,puppet-neutron,e0e35b84f4c8de9a10d1206cc201977fa822d4f0,"Remove remaining parameter of the Nicira NVP plugin
+
+This change removes the remaining parameter of NVP plugin, which was
+formally deprecated during the past cycle by [1].
+
+[1] 4117660c384e703554b80a3a0599fc1911d173f5
+
+Change-Id: I99fa84f86d7c14b21393373d4684c24a4571d00d
+"
+55,puppet-neutron,2dd6369f93e7a1149d1ca578bb5752d4d91b253f,"mlnx: Remove deprecated duplicate parameters
+
+This change removes the two parameters of networking-mlnx-agent, which
+were deprecated by [1] during the Zed cycle, in favor of the duplicate
+parameters in the different common classes.
+
+[1] f7b4c844bc95056d8a242332bcf60fcb5b49d8f5
+
+Change-Id: I00cedb7a4a41333a6793d2358e64aa1ac4797fa8
+"
+56,puppet-neutron,5e9324e62f96ca2128548b95341b9376f400f85d,"ovn-metadata: Remove deprecated metadata_ip
+
+The parameter was deprecated during the previous cycle[1], because
+the actual parameter in Neutron had been removed a long ago.
+
+[1] 189d7d6bea084b0298e5490c43157018a330f5c4
+
+Change-Id: Id07aa47e723b44d53aaac02bbdb3f0b4e8d72968
+"
+57,puppet-neutron,312f8ea954c9b0443520ed364c6a9df75239281b,"Contrail: Clean up deprecated parameters
+
+This removes the parameters which were deprecated during the previous
+cycle[1][2] and have had no effect since then.
+
+[1] b35ceea55a0201fc59dc986e444593c4fbe37d70
+[2] 766570bd5a38832181dce79a16920e63a2dff6ec
+
+Change-Id: I48b9557e2552f12c25ce8149d92978394d0cc249
+"
+58,puppet-keystone,2d6bab823199c8b2c0b5d871349d2f67aadfc2af,"Fix wrong indent
+
+Trivial-Fix
+
+Change-Id: I79e39b43baa5963e13a4fda404244e6787980f9e
+"
+59,puppet-keystone,76505f1c12443703ffe047503b2c2bde1d25c830,"Remove deprecated keystone::service
+
+This defined resource type was deprecated during the past cycle[1] and
+can be removed.
+
+[1] 05c5605e98fcc0da33386065c2c315d69103b891
+
+Change-Id: Ib4c7565462e32be2d4dab4b0c538410ad98aefaf
+"
+60,puppet-keystone,aa394b17757baee5f168e6ff3ecc8957be8e42cc,"Remove keystone_puppet_config resource type
+
+This is no longer used since we replaced the configuration file by
+clouds.yaml. The resource was already deprecated by [1] in the past
+cycle so can be removed.
+
+[1] c140a44aebb271558c81e528aba8b6dcb4989a62
+
+Change-Id: I631c0a14cc0ee5b56e7864980da9a651d6bf7d9b
+"
+61,puppet-keystone,b99810d6f9844d6cf5eac966672164c1db5bac6f,"Remove deprecated parameters for [ssl] options
+
+These parameters were deprecated during the previous cycle[1].
+
+[1] 0954fea1d6b556681bb81d5d854b2f60a11b737d
+
+Change-Id: I67755c4181868e137928f9444fae4be09f511c36
+"
+62,puppet-keystone,e19a4c31510fb751cecf36bc74ced5047de803b2,"Remove deprecated keystone::log_* parameters
+
+These parmaeters have had no effect for a while and were deprecated
+formally during the previous cycle[1].
+
+[1] 1f13f9ed6b26b2d408371c31c41a1b82d9a6ab6b
+
+Change-Id: Iff34bd86a92d4f92ea46115889f83e37b68aba31
+"
+63,puppet-keystone,e8a58596b2ceb2e95cb0a439c56cb7bc19ddc021,"Remove warning message for old change
+
+This removes the warning message added to inform the old change which
+was merged multiple cycles ago[1], because we can safely assume users
+are aware of this change.
+
+[1] 3c08645ba8b894d3adce3d65464dd43a0a33ce55
+
+Change-Id: Ifca8a60409093b31f780c6a47a9cce0f9635286e
+"
+64,puppet-keystone,19b541df10e595253a0c0c0b164be434402ada8b,"Debian: Ensure keystone service is stopped when httpd is used
+
+This change fixes the missing logic to ensure the standalone keystone
+service is stopped when httpd + mod_wsgi is used to run the keystone
+service.
+
+Change-Id: I3ae6b9192c3c3d15fbf25be5d276efbcf2e9639b
+"
+65,puppet-keystone,91483e50e81addfab322273076bd5e2137c4648b,"Make WSGI process display-name configurable
+
+Change-Id: I3bfbd0283d1e9005719085d86cd00729c9002c43
+"
+66,puppet-keystone,f5cb86159a0d8b5999d6a8c2868998b2efb8c013,"Fix a typo in parameter description
+
+Change-Id: I9bc9f94f157bf991b174cbfc9f2d369d35d3371c
+"
+67,puppet-keystone,16309d9d062049f388808e6685f879e78263ac8d,"Fix inconsistent port parameter name
+
+The keystone::wsgi::apache class takes the api_port parameter but
+the other modules uses the port parameter instead.
+
+This change fixes the inconsistent interface.
+
+Change-Id: Ib6a643eedbb2ecd5050c10cc5ae98ffaabb441f5
+"
+68,puppet-keystone,2163a8f2bb6b6bca3156608ee06ce8834ec10873,"Fix dependency to purge default vhost config
+
+It turned out defining dependency for openstacklib::wsgi::apache
+doesn't properly enforce resource order and the default vhost file
+is not purged properly.
+This change adds the more explicit dependency to enforce the order
+properly.
+
+Change-Id: I2a01de89c43000bfc6f24dfc756806b968b5efd6
+"
+69,puppet-keystone,7465a117bde8ae438e0424216026051a896d165b,"Allow customizing --date option for trust_flush cron job
+
+This change introduces the new age parameter so that --date options is
+enabled when running the trust_flush cron job.
+
+Change-Id: I7d4a5a08c73683fff8fd270e5bc991531f8dda48
+"
+70,puppet-keystone,ae0b8a6772cb915831bcf6affad910287c9136bd,"Remove old puppet.conf resource in bootstrap class
+
+This is no longer used and can thus be removed.
+
+Change-Id: If7aa3781c0cfc44c1744e4d7f5ba235ed5eb0054
+"
+71,puppet-keystone,c0c885422db10764286b08ce00a93403dd29e025,"Merge ""Adapt to new type validation in puppetlabs-apache"""
+72,puppet-keystone,a5402c1e01b74dd21b699e6b972570e376e5ec5e,"Adapt to new type validation in puppetlabs-apache
+
+The puppetlabs-apache module is enforcing more strict data type
+validation[1].
+
+This change updates the default values to adapt to that change.
+
+[1] https://github.com/puppetlabs/puppetlabs-apache/commit/f41251e336fa3e7c31c19968ccee74121cf71e47
+
+Closes-Bug: #1983300
+Depends-on: https://review.opendev.org/851652
+Change-Id: Ic9cf630f6f1a8907e069ed10728f2a8c50b75d79
+"
+73,puppet-cinder,daa5d5cb188daaf3ecd9a9a97f087416feca26ae,"NetApp: Deprecate support for netapp_copyoffload_tool_path
+
+... because the parameter was already deprecated in cinder.
+
+Depends-on: https://review.opendev.org/c/openstack/cinder/+/847733
+Change-Id: I9ebb3f6a214222457547f687c6f3abd2b9c058fb
+"
+74,puppet-cinder,f1cee735a2df6f920a501800a8c02679aa2606a7,"Clean up parameter for service validation
+
+... service validation was deprecated during Yoga cycle by [1].
+The parameter was left for interface compatibility but has had no
+effect since then.
+
+[1] d944a76b95fb82fe161159954f3dfe720726bcfc
+
+Change-Id: I16936b092df46c689813b80557e24542b7d43093
+"
+75,puppet-cinder,3a63b7145b8a98e3a1189bae98a6b7a7834c2f6d,"NFS driver: Remove deprecated nfs_disk_util
+
+The parameter was deprecated during the previous cycle[1] and has had
+no effect since then.
+
+[1] eb3361bc9981a6e3a50bc9ac9ec53f76bf140743
+
+Change-Id: I3632a55f8f75873f1a9178bf42bac1f6c97d3c24
+"
+76,puppet-cinder,fa671e8ed6dfb80aee18d2ea1fdf7420f4f68371,"Support for Cinder IBM Svf driver
+
+This patch adds support for Cinder IBM Spectrum virtualize family (Svf)
+driver.
+
+Change-Id: I43f954879de6ce70237cb468e7ef1fbc2649edcd
+"
+77,puppet-cinder,12a1f1ffd2ee82ac6dc8a37ee9bac67323428024,"Clean up enable_v3_api parameter
+
+... because it was deprecated during Yoga cycle[1].
+The actual parameter was already removed from cinder by [2].
+
+[1] 40885d15bb92faa3e3902e7505da24c5e7c5fc5e
+[2] 81831c915aff5f83741968b758934abcef92b0e9
+
+Change-Id: I61a44e878129dbd1df08bd19fe38040215606635
+"
+78,puppet-cinder,07b54d1d0539bde6e9c5b496f028265508f856b8,"Prepare to replicate lvm setup functionality
+
+This is the preparation work to replicate the functionality to create
+volume group to puppet-manila.
+
+Change-Id: I2473eba3c463828ad5036ebd52e192cd14b75b68
+"
+79,puppet-cinder,d0d1da0b4a31e628d56e578745c7101aa5f61028,"Fix detection of existing PV
+
+Existing PV should be detected by the physical device name, not by
+the volume group name. This also simplifies the command to determine
+whether the VG exists.
+
+Change-Id: I8d694d8127cf5cfb1e2a6525599616a2c2f9934d
+"
+80,puppet-cinder,9fea76ab0de1a08c12cf76b1b9f9a49c893fbad6,"Ensure lvm setup is completed before starting services
+
+The lvm setup process should be completed before cinder-volume starts,
+otherwise cinder-volume fails to initialize the backend and the service
+status remains down until the cinder-volume service is restarted.
+
+Change-Id: Icd8401d8a1bfaf5bd4b235c177711a0afcab5e55
+"
+81,puppet-cinder,8cc758614af1ac5df32af3348dcc594ca0c7e759,"Use standard parameter description format for wsgi::apache
+
+Currently parameter description of the <module>::wsgi::apache classes
+are formatted differently in individual modules, and this is making
+the maintenance effort quite difficult.
+
+This change updates the description format following the srandard one
+we are globally using in our modules to reduce undesired differences
+between modules.
+
+Change-Id: I7c8cfb2cf7303fcb280e411276cf121bd1c9a74b
+"
+82,puppet-cinder,9ba56af0d050be5139c8f4b49c4ef39d132e2322,"Support [DEFAULT] image_conversion_disable
+
+... which was added during Zed cycle.
+
+Depends-on: https://review.opendev.org/839793
+Related-Bug: #1970115
+Change-Id: I0be505b76da7bf40ffd8fe990cdea08c7839f747
+"
+83,puppet-cinder,fe36a69db0013299a1eeae3bd71d007c19034792,"Support more customization of image conversion
+
+This change introduces a few new parameters to allow users to customize
+behavior of image conversion process in Cinder.
+
+Change-Id: Ic94bfaee69c7eab3c3d8e00157ef29cfa9a72963
+"
+84,puppet-cinder,162b4bbe60260e1b7d86accdcfa773ffac5c3a78,"Remove old description about volume_tmp_dir
+
+The cinder::backend::rbd::volume_tmp_dir parameter was removed several
+cycles ago[1] and has been completely replaced. The current description
+is bit confusing because the old parameter no longer exists.
+
+[1] 5c5a7dbf95650ff476604d369bfc197a757beab8
+
+Change-Id: I5e724ffcb7b60ed154abae32c93256cde6e80493
+"
+85,puppet-cinder,94d0e62ed13e792a8e97c6226de7b39edc253605,"Add support for [DEFAULT] backup_swift_service_auth
+
+This change introduces support for [DEFAULT] backup_swift_service_auth
+which was recently added to the swift backup driver.
+
+Depends-on: https://review.opendev.org/c/openstack/cinder/+/840289
+Change-Id: I32b19f298311266e913507661dbe2a65e0cfe5f0
+"
+86,puppet-ironic,6fd748956f0d44584cc38df1886ca7b3b9e96fdd,"Add support for [agent] command_wait_* options
+
+... so that users can tune how asynchronous commands completion is
+handled.
+
+Change-Id: I9c84ea89ed6a1844b9facf95bd405ba51790401c
+"
+87,puppet-ironic,1929c31aacf2aa5adc05a36e75fcdd1951942c4d,"Remove logic for CentOS < 9
+
+... because RDO supports CentOS Stream 9 (aka CentOS 9) only since Zed.
+
+Change-Id: I7514c4384a15b235a54f1c310f6d0167089e0515
+"
+88,puppet-ironic,6f50d93cf842f57fb76a4323559a099ce06209cd,"Merge ""pxe: Allow disabling http server"""
+89,puppet-ironic,d4627d40212ba0a16d7cb90a45063ccceca3b516,"pxe: Add option to determine status of dnsmasq tftp server
+
+... so that all classes with service resources provide the consistent
+capability.
+
+Change-Id: Ic2f5d5140320f1a5921d5fa4984e6a8773aa304f
+"
+90,puppet-ironic,449150fd050ec44208551516e0dbccdefe0e2681,"Add manage_service parameter
+
+... so that users can disable service management by Puppet. The same
+functionality is already implemented in the other modules.
+
+Change-Id: If08149ebd7b40b106327d5363f6b28e51176510e
+"
+91,puppet-ironic,084c0e54a39f77d8ef8bedba4a8903d2076559b0,"pxe: Allow disabling http server
+
+This change introduces a new option to disable resources to set up http
+server for ipxe boot. This is useful, when ipxe boot interface is not
+used or users have their own external tooling to maintain the http
+server.
+
+Change-Id: Ic767795442ee68ce8dda6bc8b53493ac17f6f40c
+"
+92,puppet-ironic,2504f817b05ba090b8a3ef40c912482fd6d2cb3d,"Use standard parameter description format for wsgi::apache
+
+Currently parameter description of the <module>::wsgi::apache classes
+are formatted differently in individual modules, and this is making
+the maintenance effort quite difficult.
+
+This change updates the description format following the standard one
+we are globally using in our modules to reduce undesired differences
+between modules.
+
+Change-Id: I573b1d656268ea7004c16a571afca6489893f0f5
+"
+93,puppet-ironic,62043acf72fdf0854d327dd692ed55644fbf24c3,"Add Apache WSGI logging parameters for pipe/syslog
+
+Add parameters for advanced logging configurations in Apache to
+support piped logging and support for syslog (via mod_syslog
+available in Apache >= 2.5.0)
+
+Co-Authored-By: Andy Botting <andy@andybotting.com>
+Change-Id: I55f899284edfe15c177e5253bb3e278d73955fe9
+"
+94,puppet-ironic,3213f8e2dfdec4b5c2f981aa986d7ab520c56549,"Merge ""Fix type validation error with puppetlabs-apache 8.0.0"""
+95,puppet-ironic,fbc55f821dd668da6d4ea91c0b796cb913846ddd,"Fix type validation error with puppetlabs-apache 8.0.0
+
+This is follow-up of 11c3e1acad2db20ce9e2a959eba6211bef1e17b3 and fixes
+type validation error of apache::vhost::port, which now accepts only
+an integer value.
+
+Related-Bug: #1983300
+Change-Id: I8594d5857c54a860cdbb740acb63b5104a29c655
+"
+96,puppet-ironic,11c3e1acad2db20ce9e2a959eba6211bef1e17b3,"Adapt to new type validation in puppetlabs-apache
+
+The puppetlabs-apache module is enforcing more strict data type
+validation[1].
+
+This change updates the default values to adapt to that change.
+
+[1] https://github.com/puppetlabs/puppetlabs-apache/commit/f41251e336fa3e7c31c19968ccee74121cf71e47
+
+Closes-Bug: #1983300
+Depends-on: https://review.opendev.org/851652
+Change-Id: Idde8d7201d36f07f200e06781b331ebe75c0d7b3
+"
+97,puppet-ironic,05a1a039609a5f686a025bbbe96afe6e65bc5b68,"conductor: Support tuning of heartbeats
+
+This change adds support for the following parameters so that users can
+tune heart beats in the ironic-conductor service.
+
+- [conductor] heartbeat_interval
+- [conductor] heartbeat_timeout
+
+Depends-on: https://review.opendev.org/850298
+Change-Id: Ic4ceaf703b897c7266d802f5394ae065ef2d11a1
+"
+98,puppet-ironic,df934502622fe834f03316af02d926fa232e558d,"Merge ""Get rid of unnecessary ensure_resource"""
+99,puppet-ironic,36a824202e5cb802ce437b643a2c3f7d5b8cdb8e,"Add deploy_callback_timeout parameter
+
+Change-Id: I30fef88b425c2729acf860d489e9fb6a493c5a4e
+"
+100,puppet-swift,a8ef5f69060adda86433ff2de4c761a0f86f68c3,"Format IPv6 address for ring device
+
+The IPv6 addresses in ring_*_device resource names should be surrounded
+by []. This ensures the address is properly formatted when the resource
+is define in swift::storage::node.
+
+Closes-Bug: #1997295
+Change-Id: I390f3c7bbfbbbc7217f81e8a0312e5db201ef409
+"
+101,puppet-swift,be26baa863c473ae139deb0587a37fa0a97dc2d5,"Remove logic for CentOS < 9
+
+... because RDO supports CentOS Stream 9 (aka CentOS 9) only since Zed.
+
+Change-Id: I9f1faaaf8481da40992e5ccf3cc0c7a66f4811ea
+"
+102,puppet-swift,911919e5a5fca9bd1f8fe67f66aad51cf899822b,"Restrict access to the mount base directory
+
+The swift processes does not require write access to the mount base
+directory (which is usually /srv/node), thus the directory can be owned
+by root. This is more consistent with the current installation guide
+of Swift.
+
+Change-Id: I6da122c569e7a66a1933b7483fb8cf68a40dd94f
+"
+103,puppet-swift,41ca173193d1ef91d6367b4cf9ee0039019b672b,"Prohibit write to the mount directory
+
+This change makes the root user, instead of the swift user, own
+the mount path where the data disk is mounted. This allows us to
+prevent the swift processes from writing files.
+
+This follows the current installation doc(eg. [1]) which suggests
+chown AFTER mounting the disk device.
+
+[1] https://docs.openstack.org/swift/latest/install/storage-install-rdo.html
+
+Change-Id: I1a612fcf658da8ed0cb1dc51fa5e534dc0341241
+"
+104,puppet-swift,7e821025b2c171991eb93dd88a1e68ca2e66d74f,"authtoken: Remove deprecated auth_plugin
+
+The parameter was deprecated during Victoria cycle[1] in favor of
+the auth_type parameter.
+
+[1] 5722f7149c678fcb79cf792a9eda53537e080cb8
+
+Change-Id: Ibc261c2e2ba9fa9ba547ad5d0f736c1b7230c579
+"
+105,puppet-swift,b22daabdc25e81502a304318eb50408a9e2eb5a8,"Merge ""authtoken: Accept array for service_token_roles"""
+106,puppet-swift,2391c0062a3b0761e02bd714a10753dc5d8db4c3,"authtoken: Accept array for service_token_roles
+
+... because the parameter is ListOpt.
+
+Change-Id: Ic436aeb90c3e592895112320e4342c0ad3d018ff
+"
+107,puppet-glance,493c8289005ccdb62461746b5fb00edab19b38cd,"Remove parameters for native ssl support
+
+These parameters were deprecated during the previous cycle by [1] and
+have had no effect. These parameters are not really used by recent
+glance.
+
+[1] 2a2f349d8a1f0426f77bdbea6c70a316b4c3daa0
+
+Depends-on: https://review.opendev.org/865924
+Related-Bug: #1965776
+Change-Id: Ia24b57966f6d8aee5cfa56cfe3496f1d81924ea1
+"
+108,puppet-glance,b3327ff10ed5edcb1974455cad5b87c58481fbea,"Install python-ceph/rbd before starting glance services
+
+The python-ceph/rbd package is required so that glance services can
+access to its ceph backend. This change ensures the package resource
+is tagged with the glance-support-package tag so that the package is
+always installed before starting glance services.
+
+Change-Id: I0df179dccc95fd4d617eb1b39d921ecc4a6d7bee
+"
+109,puppet-glance,0176638d47165b670824d1eee053caac9228d218,"Merge ""Deprecate support for [DEFAULT] cache_prefetcher_interval"""
+110,puppet-glance,89857141d1e3ecb90ee18d61bcdd3af6003de878,"Deprecate support for [DEFAULT] cache_prefetcher_interval
+
+... because the parameter was already removed from Glance.
+
+Depends-on: https://review.opendev.org/c/openstack/glance/+/842070
+Change-Id: I6a8029e9f85ef0511fe52292901fc66fc437b57b
+"
+111,puppet-glance,dd07fa723c550255bcf28955aba36eb0c6a329bc,"Merge ""Fix dependency to purge default vhost config"""
+112,puppet-glance,44b2311a4aea9b18c55498879bf673619fe465e2,"Merge ""Remove redundant class inclusion"""
+113,puppet-glance,709b83b390a747beb55b08c6cf3477a5ca231264,"Add new option for api: public_endpoint
+
+When running glance-api behind a proxy or load balancer that hides
+glance behind an extended base URL, it is necessary to provide
+information about the base URL to glance-api to ensure that clients
+know where to pass subsequent requests.
+
+Change-Id: I9bebee01c2580f0500a069f5ab57ac2a8c329389
+"
+114,puppet-glance,f1bf1ab360d2025c0081cc51092ac466483c3946,"Fix dependency to purge default vhost config
+
+It turned out defining dependency for openstacklib::wsgi::apache
+doesn't properly enforce resource order and the default vhost file
+is not purged properly.
+This change adds the more explicit dependency to enforce the order
+properly.
+
+Change-Id: I3c9afa0d9b0ef37ab56dd17136e4700b914de501
+"
+115,puppet-glance,b1a6e9c61e7ab196ed7fbce91f8203729c8a7af3,"Use standard parameter description format for wsgi::apache
+
+Currently parameter description of the <module>::wsgi::apache classes
+are formatted differently in individual modules, and this is making
+the maintenance effort quite difficult.
+
+This change updates the description format following the standard one
+we are globally using in our modules to reduce undesired differences
+between modules.
+
+Change-Id: Ic19381c0beeca3c7b62db6345157cd6aab5b3105
+"
+116,puppet-glance,ab56cfb33a6d3d03ed0ea45daf2826c3d05638d8,"Remove redundant class inclusion
+
+The apache class is already included by the openstacklib::wsgi::apache
+defined types and the apache::wsgi class and the apache::ssl class is
+automatically included by the apache::vhost defined type.
+
+This removes the redundant inclusion of these classes.
+
+Change-Id: If132d46ec1929ed56e16a9b615010ea0535282ba
+"
+117,puppet-glance,33f273f41610fe567b5f59458903af8eaa8607c3,"apache::vhost::priority should be Integer
+
+This change fixes the left over of [1] and makes sure the priority
+parameter is an integer value, according to the type validation in
+puppetlabs-apache 8.0.0 .
+
+[1] 23584e89becb3920287c8dc2effb2d76c666f623
+
+Related-Bug: #1983300
+Change-Id: I6a47f32dbfc8a6c10bc9535d1208bf16a8470a08
+"
+118,puppet-glance,3aa1e7697d408043259e67f588ed94ce22b8b51c,"Remove deprecated keymgr_* parameters
+
+These were deprecated during Xena cycle in favor of the new separate
+classes to customize key manager[1].
+
+[1] bc7651fa5f7d622616c8634a55c9339306583c23
+
+Change-Id: Id3395fd58cbdd7e686a08c8369cd38c3e322628b
+"
+119,puppet-glance,b91d905887031d144ea86ddac446efe139dfb29d,"Remove deprecated glance::os_region_name
+
+It was deprecated during Ussuri cycle by [1].
+
+[1] 9e82f598ad86d99a5bc356ba5c118a52a1d5d9bc
+
+Change-Id: Iab8fe79beedbe8cae0a5e6f6bd7c8a0b2d1e74c0
+"
+120,puppet-glance,e18968ed1b213f73bb0e900d08485f82bbc88c7d,"Remove deprecated rabbit_notification_exchange parameter
+
+This parameter was deprecated during Yoga cycle[1] because it has been
+invalid.
+
+[1] 8bb784d524b90b9d9b69a89b1b39762ea669745b
+
+Related-Bug: #1955510
+Change-Id: I412625e9c741a20c3661f6a2ae17b6e16788b60a
+"
+121,puppet-ceilometer,834d9a6780c33233cef141a7b6007dbfe527ae08,"Remove implementations to set up Ceilometer DB
+
+Ceilometer no longer requires its own database since metric/event
+storage was offloaded to Gnocchi/Panko. These implementations were
+formally deprecated during the previous cycle[1] so can be removed.
+
+This also updates the outdated example manifests to adapt to
+the removal and the recent refactoring.
+
+[1] 60882c29dff6b5302d982eaf79796913c4a8bea9
+
+Change-Id: Id18b9221703eda9311b81c5a5dfdd41cc68f5424
+"
+122,puppet-ceilometer,6d780115877567c35cde91c861a4cfa9cde9b83a,"Remove parameters for [hardware] options
+
+... because these parameters were deprecated during the previous
+cycle[1] and the feature has been removed from Ceilometer already.
+
+[1] e5ce40b16d7534a917416cb2e5f3669336fc816f
+
+Change-Id: Ibaba550aa9a13c7b1afb62970e391c1d4beb2f08
+"
+123,puppet-ceilometer,b00000fb86e2882c11fb399d9adf410812a895bd,"Add new parameter `tenant_name_discovery`
+
+Enabling this parameter will identify user and project
+names from the polled metrics [1].
+
+These details are collected by making additional requests
+to keystone service, depending upon the scale of environment,
+number of projects/users and the count of metrics polled in
+every iteration, enabling this could overwhelm the keystone
+service.
+
+[1] Iee5dbf09a1fd3ac571746fc66d2683eb8e6a1b27
+
+Depends-on: https://review.opendev.org/852948
+Signed-off-by: Yadnesh Kulkarni <ykulkarn@redhat.com>
+Change-Id: I045c7cd7a86d0f7f97a9078cbfc74353dcff0eb8
+"
+124,puppet-ceilometer,1dcdea2e622dbbe5b49ce1991cea9db322270dfd,"Forcefully purge [hardware] readonly_user_* parameters
+
+This is follow-up of e5ce40b16d7534a917416cb2e5f3669336fc816f and now
+enforces that the parameters are removed from ceilometer.conf because
+these were already removed from ceilometer and no longer used.
+
+Depends-on: https://review.opendev.org/840808
+Change-Id: I4d9196133ead84d4b388929231ce970882fcaaa6
+"
+125,puppet-ceilometer,f42458bfe61cc6d4b5a4a184ace5a82003b0fb04,"Remove deprecated notificaton_workers
+
+... because the parameter was deprecated during Wallaby cycle[1] in
+favor of the new workers parameter.
+
+[1] 15921006c595ff705be40c02d324a387c92a4339
+
+Change-Id: I787bbe850cfcca737b9ad9de5db676b868549f2e
+"
+126,puppet-ceilometer,2f053934da8ee09b694eebf55327a2921356e75a,"Remove deprecated ceilometer::agent::polling::coordination_url
+
+... because it was deprecated during Xena cycle[1] in favor of the new
+ceilometer::coordination class.
+
+[1] 1155b41db051e95e9246aa02eed2205f1f0f845a
+
+Change-Id: I0885b79bd83bcc3b41b8da0bd0fd00f29d176f13
+"
+127,puppet-ceilometer,60882c29dff6b5302d982eaf79796913c4a8bea9,"Deprecate classes to set up Ceilometer DB
+
+Since metric/event storage was offloaded to Gnocchi/Panko, ceilometer
+no longer requires its own backend storage.
+
+Change-Id: Idf9904e7e8f1b5eca3f25cd37fb83e9adbca0995
+"
+128,puppet-ceilometer,a8e2dc6891cc36209d947da06137cd450e9711af,"Clean up deprecated cache parameters
+
+These parameters were deprecated during Yoga cycle[1].
+
+[1] a7cf7060ddfeab7440bf2e84522d220014c10bd8
+
+Change-Id: I0358678a9298dfceb9c4ebf918ef334f0f5e496d
+"
+129,puppet-ceilometer,7d3af77f010fa6c1921ae6b1d4b7fc903f7b62da,"Fix typos in parameter descriptions and tests
+
+Change-Id: Id17358fce48468284f162a6de35840d439871cd5
+"
+130,puppet-ceilometer,eafc9088718239b6b9b4a8a579c4588dfb7d10af,"Refactor service user/group management
+
+This change refactors how the ceilometer service user and group are
+managed.
+
+- The ceilometer service user and group are created by the common
+  package. While the user resource should still be declared to manage
+  its group membership, we don't need the group resource.
+
+- Introduces the configuration knob to disable user/group management.
+  This would be useful in the case where all service users are
+  declared externally.
+
+Change-Id: Iaabe5b02f0ebd782debd0f3ca41e2fdafbf9c80f
+"
+131,puppet-ceilometer,e5ce40b16d7534a917416cb2e5f3669336fc816f,"Deprecate support for [hardware] options
+
+... because these options were deprecated during the Yoga cycle when
+GenericHardwareDeclarativePollster was deprecated[1].
+
+[1] d10f6ca32fd9dfe5100cb54531adb4bba866edf8
+
+Change-Id: I2bf6423d54234822b05a1a22f3cc29d0f7a3c1e7
+"
+132,puppet-ceilometer,2c48365980cd93de53aa17f25dc2531c8bcbfc6e,"polling: Ensure unused parameters are cleared
+
+... instead of leaving the parameters unmanaged.
+
+Change-Id: I0eeb25b131385ad4448fc8cec04efbdce0b7d87a
+"
+133,puppet-octavia,6840de653f717ccb715d362dd4f054c8e57ec8ae,"Add support for [controller_worker] amphora_delete_* options
+
+... so that users can tune these options using the native class
+parameters.
+
+Change-Id: I13fb52a3f8e0e3237013da2c42c7b8baf322a006
+"
+134,puppet-octavia,edf3a4b38dcbcc1dcf727ff5687908cbeb5976f5,"Drop redundant class inclusion check
+
+The include function should be handle the case when the class is
+already included in the catalog, and it does not fail in case the class
+is already included by resource-like declaration.
+
+Change-Id: Iae52c40aba07cf2cba49bca885bbaa33f8451ccf
+"
+135,puppet-octavia,501e54596ea1e694bd0aa1a98b12b157fb53d229,"Add health_manager::failover_threshold parameter
+
+This parameter was added in Zed as part of the Failover stop threshold
+feature [0]
+
+[0] https://review.opendev.org/c/openstack/octavia/+/656811
+
+Change-Id: I637e89a794203c393c50728b42666a0d2a104849
+"
+136,puppet-octavia,540e2e0571adee17a3170d49c8a5d023e46032de,"Use standard parameter description format for wsgi::apache
+
+Currently parameter description of the <module>::wsgi::apache classes
+are formatted differently in individual modules, and this is making
+the maintenance effort quite difficult.
+
+This change updates the description format following the srandard one
+we are globally using in our modules to reduce undesired differences
+between modules.
+
+Change-Id: I620b9cea87b3bde5777dc8e83e9d8a57440f00b1
+"
+137,puppet-octavia,49b37d5fd6931e98b000ccf07c77cb9d2c4847f9,"Add Apache WSGI logging parameters for pipe/syslog
+
+Add parameters for advanced logging configurations in Apache to
+support piped logging and support for syslog (via mod_syslog
+available in Apache >= 2.5.0)
+
+Co-Authored-By: Andy Botting <andy@andybotting.com>
+Change-Id: I1c4a1af57f090cfd0d2edeca897ee23e50203d12
+"
+138,puppet-octavia,fcd1225ae6c2d4ca546a71a63c7cc0eadb2a3a1f,"Support customizing ssh key type
+
+This change introduces a few new parameters to customize type of
+the ssh key automatically generated. This is required especially in
+recent operating systems like CentOS 9 which no longer allow RSA key
+by default.
+
+Closes-Bug: #1986651
+Change-Id: I73f8b584ac228a0ba65b531c2e8d9f6495d63ad2
+"
+139,puppet-octavia,e475e44add5d2b236df342e569b7cac8c478893c,"Adapt to new type validation in puppetlabs-apache
+
+The puppetlabs-apache module is enforcing more strict data type
+validation[1].
+
+This change updates the default values to adapt to that change.
+
+[1] https://github.com/puppetlabs/puppetlabs-apache/commit/f41251e336fa3e7c31c19968ccee74121cf71e47
+
+Closes-Bug: #1983300
+Depends-on: https://review.opendev.org/851652
+Change-Id: I9e66709c40d1c1d1bd1419e92544e005fdb8f7ef
+"
+140,puppet-octavia,6f1330551977b2afca906f5d00e726cd83e724f6,"Merge ""Allow (more) customization of amphora log offloading"""
+141,puppet-octavia,9e4f26e62688ac18a83f54d7ead330a2dfe579d4,"Add support for audit middleware options
+
+Change-Id: Ic65828ddf8a8631e5ce1db56cd50aeda3eeb9656
+"
+142,puppet-octavia,dc69ce8b494a53e64c0fff6f85bc4196ee79e8d5,"Validate octavia::health_manager:heartbeat_key only if it is set
+
+... to avoid the following warning.
+
+validate_legacy(validate_string) expects a String value, got Undef
+at [...]
+
+This also fixes the wrong logic to detect usage of the deprecated
+heartbeat_interval parameter.
+
+Change-Id: Ic914e3164ea648e502ce51d213e1f3f9962dcb9c
+"
+143,puppet-heat,8e4ba4e77b1bc20cae7f2d86e9b393f04eae5aa9,"Fix usage of non-existing parameter in example
+
+The heat::sql_database parameter no longer exists.
+
+Change-Id: I066634fe94cfe2503a0c5fc8ed6ac3dae374f427
+"
+144,puppet-heat,3a8ae230ccd0e0069bb55e1bba4b9efeb1e3315e,"Use standard parameter description format for wsgi::apache
+
+Currently parameter description of the <module>::wsgi::apache classes
+are formatted differently in individual modules, and this is making
+the maintenance effort quite difficult.
+
+This change updates the description format following the standard one
+we are globally using in our modules to reduce undesired differences
+between modules.
+
+Change-Id: Icec870fce75185f2ca902c565dd94c467b9f6638
+"
+145,puppet-heat,bd92c63d41f422a8e2401b84f083aadc650a646f,"Add Apache WSGI logging parameters for pipe/syslog
+
+Add parameters for advanced logging configurations in Apache to
+support piped logging and support for syslog (via mod_syslog
+available in Apache >= 2.5.0)
+
+Co-Authored-By: Andy Botting <andy@andybotting.com>
+Change-Id: Idb3d73309588a7436cd2e067121119c5878eee18
+"
+146,puppet-heat,1516806fc5d885e297e6d5c4bd06f31db5d50e86,"Adapt to new type validation in puppetlabs-apache
+
+The puppetlabs-apache module is enforcing more strict data type
+validation[1].
+
+This change updates the default values to adapt to that change.
+
+[1] https://github.com/puppetlabs/puppetlabs-apache/commit/f41251e336fa3e7c31c19968ccee74121cf71e47
+
+Closes-Bug: #1983300
+Depends-on: https://review.opendev.org/851652
+Change-Id: I2df44be85cb73144ce45b8f5bea2ccba64d0be86
+"
+147,puppet-heat,73c888a69b1a2325d320f755f6e4afff5696f30a,"Merge ""Expose headers option of apache::vhost"""
+148,puppet-heat,51cfa309452f84682c6ce375ec6f7b37a990e6b4,"Expose headers option of apache::vhost
+
+The headers option in apache::vhost is required in some case, for
+example when adding the X-XSS-Protection header. This change allows
+customizing the option for the api vhost.
+
+Change-Id: I2c527b5511db04f9daa7f605b565a567599b5431
+"
+149,puppet-heat,82809e909572218a67ecd7d927fce2e669e3b7b6,"Fix typos in parameter descriptions and tests
+
+Change-Id: I4b368e030e207beabb1d69b9c5079d34aa494856
+"
+150,puppet-heat,98c92fe15ce0e0557e85fff20ecf809f7607ef54,"Ensure [DEFAULT] deferred_auth_method is purged
+
+... instead of left unmanaged. The parameter was deprecated a while ago
+but is still valid in Heat.
+
+Change-Id: I13c7c869855c60c9db1ca57772a2c0989b511e94
+"
+151,puppet-heat,68ec6e99d3d515ba203c8c1d1784daeea4825833,"Remove deprecated heat::max_stack_per_tenant
+
+... because it was deprecated during Xena cycle by [1].
+
+[1] e79e74cd089622bc33ebcc0ceb2bb17c398e216f
+
+Change-Id: I3806ab51e6593a9e00172af6b1eb02d9812fcf72
+"
+152,puppet-heat,058565693733bb058af2e627b8999cc7acefcc75,"apache+mod_wsgi: Disable SSL by default
+
+During the previous cycle, a warning message was added to inform users
+of this change.
+
+Now the default value is updated so that SSL is disabled by default.
+
+Change-Id: I6bd11a340b8623b45da7284e52ee505ea6870562
+"
+153,puppet-heat,ec9c6317ffdc16e93ef77be39a273b64279d18c6,"Support tuning batch size of DB purge operation
+
+The heat-manage purge_deleted command supports customizing batch size,
+number of stacks to delete by a single transaction. This change adds
+the new parameter to customize the parameter.
+
+Change-Id: Id980c6f975f22baa305d3cd84378c98b3e9f84f2
+"
+154,puppet-heat,0d043d793fa9eb83e87cb008b073329bb063bfb1,"Support more clients configurations
+
+This change introduces support for [clients] parameters and
+[clients_<service>] parameters, which determine behavior of service
+clients used by heat for communication with the OpenStack services.
+
+- Implementation of heat::clients::<service> are generally same.
+  Only cinder, heat, keystone and nova provides additional parameters.
+
+- The existing parameters in the base heat class are deprecated in
+  favor of the new classes.
+
+Change-Id: Icdf4f0201dd1e5f93a450473709851977ec20034
+"
+155,puppet-aodh,551bf848e1bde8a89a44b2fd029d6f82748aae85,"Remove cleanup of [DEFAULT] evaluation_interval
+
+This logic was added during the previous cycle by [1].
+
+This old parameter should be removed when a deployment is upgraded to
+Zed, thus we no longer need this cleanup beyond Zed.
+
+[1] c58c36d92741bd41fda663d5765d9136399a77b5
+
+Change-Id: Ic791e5b597d4b702241d7938ed8d0c0f37f2e7ff
+"
+156,puppet-aodh,86d8f81e0d815e125920fef0afeb9e37bbb43b91,"Use standard parameter description format for wsgi::apache
+
+Currently parameter description of the <module>::wsgi::apache classes
+are formatted differently in individual modules, and this is making
+the maintenance effort quite difficult.
+
+This change updates the description format following the srandard one
+we are globally using in our modules to reduce undesired differences
+between modules.
+
+Change-Id: Ie874d47e7c9c37da642c2cc5d9c46e385e7cc176
+"
+157,puppet-aodh,c8c59f1e9aabffeceaf85ead3590eea90ee98d86,"Add Apache WSGI logging parameters for pipe/syslog
+
+Add parameters for advanced logging configurations in Apache to
+support piped logging and support for syslog (via mod_syslog
+available in Apache >= 2.5.0)
+
+Co-Authored-By: Andy Botting <andy@andybotting.com>
+Change-Id: I16c7a6407d647a25d6093239b30845a212202a5c
+"
+158,puppet-aodh,99307d1bf126daa107bd83455e1206fce3464e57,"Merge ""Adapt to new type validation in puppetlabs-apache"""
+159,puppet-aodh,97682cfa99b013d149f232e9075acd9f3f45140a,"Remove deprecated aodh::evaluator::coordination_url
+
+... because it was deprecated during Xena cycle[1] in favor of the new
+aodh::coordination class.
+
+[1] 16091c8dd6f97f55fb7875e7843f3de7017a99ce
+
+Change-Id: I0e11987c7d121b2fb639274ed60181c56ce4f6d1
+"
+160,puppet-aodh,976196bce37726419ff50113d65041ff0dff8f56,"Adapt to new type validation in puppetlabs-apache
+
+The puppetlabs-apache module is enforcing more strict data type
+validation[1].
+
+This change updates the default values to adapt to that change.
+
+[1] https://github.com/puppetlabs/puppetlabs-apache/commit/f41251e336fa3e7c31c19968ccee74121cf71e47
+
+Closes-Bug: #1983300
+Depends-on: https://review.opendev.org/851652
+Change-Id: I9261c53fdb930fd9ff5e2c06e91eb312d665bb9a
+"
+161,puppet-aodh,0c8d02c75887decca516d93ef33f887d66cd0817,"Expose headers option of apache::vhost
+
+The headers option in apache::vhost is required in some case, for
+example when adding the X-XSS-Protection header. This change allows
+customizing the option for the api vhost.
+
+This change also adds support for request_headers so that both request
+headers and response headers can customized.
+
+Change-Id: I857407802617087f75334c8357055250dcd4cef5
+"
+162,puppet-aodh,8b29e4b5ab9131c5dd16a434a477e5edf2141531,"Fix typos in parameter descriptions
+
+Change-Id: I643cc6b6cc85c1c3fc9d4803ebbf56ed1c40da5c
+"
+163,puppet-aodh,c58c36d92741bd41fda663d5765d9136399a77b5,"Update section of the evaluation_interval parameter
+
+The evaluation_interval parameter in the [DEFAULT] section has been
+deprecated and it was migrated to the [evaluator] section.
+
+This change updates the parameter section accordingly.
+
+Depends-on: https://review.opendev.org/837864
+Change-Id: If41e9e21771ea236ec18379790fe5427dcb6e8af
+"
+164,puppet-aodh,cc2cec0491b1bd647b86521609e19bb256c1a40d,"coordination: Remove deprecated heartbeat
+
+The parameter was deprecated during Yoga cycle[1] in favor of the new
+heartbeat_interval parameter.
+
+[1] 49eb825204860d8465158a41c84f6af558a67b41
+
+Change-Id: I03d217663445001fc48f9192774ae6b680d2d7f9
+"
+165,puppet-aodh,4ec7119fc643ac372edd74d5d1b914dcda40f84e,"apache+mod_wsgi: Disable SSL by default
+
+During the previous cycle, a warning message was added to inform users
+of this change.
+
+Now the default value is updated so that SSL is disabled by default.
+
+Change-Id: I0f05258885570637aa9d53b2d6a69c1756f375e9
+"
+166,puppet-aodh,9400853421a8f1ef4c11646d9a89b8d8a8a19d09,"listener: Add support for tunable parameters
+
+Change-Id: Iaa9199dde153cfd218171a0b23c724bad421529c
+"
+167,puppet-designate,d9634ff74a9393ac7e665bdc5ed7ab6cd0591d75,"Remove cleanup of [service:api] max_header_line
+
+... because the logic was added during the previous cycle[1] and
+the option should be removed when a deployment is upgraded to Zed.
+
+[1] f39567e17b6e98a4cdf15608756a5463df32de39
+
+Change-Id: Iecc650fe94846a2f643ff2bf0b613026a1fb6570
+"
+168,puppet-designate,6aeb861a3d2ce9245f6de22796bef13a910aff1c,"worker: Remove deprecated worker_topic
+
+The parameter was deprecated during the past cycle[1] in favor of
+the new worker parameter.
+
+[1] b3f265888674a6136890287365e3a34bf45484ce
+
+Change-Id: I02673fe8ec9749c98f2381ab6b2bbe0c1093b576
+"
+169,puppet-designate,a0bd6bdc9208e2e2db3849a03cb2d32304ed015d,"Merge ""Remove redundant hard-coded defaults of oslo.messaging parameters"""
+170,puppet-designate,91a6bd2a6fc856031dce1427b58c2619ae17191c,"Remove redundant hard-coded defaults of oslo.messaging parameters
+
+These define same values as the default values in the oslo.messaging
+library, thus can be replaced by $::os_service_default.
+
+Change-Id: I7da6736c7a47ebdc988bc8e0d7274cba873f72c6
+"
+171,puppet-designate,86766620b8481b243076e664b45de2da093eed6e,"Add support for [DEFAULT] supported_record_type
+
+Change-Id: I566dca39f9d0d9b85f33a30a593f08000f705baf
+"
+172,puppet-designate,3d68d191e209a198c25feadd5c597d55021c572c,"Add support for [DEFAULT] default_ttl
+
+Change-Id: I3f53227902caebd6131d2ed4e1f0b5bc1dc2edcd
+"
+173,puppet-designate,54545aacb64d7419f2e2d3c2b756eab29a050046,"Add support for [DEFAULT] host
+
+... so that users can override this parameter to use static hostname
+rather than the one deteted by socket.gethostname().
+
+Change-Id: I909e40692aaa2b7a23a0efe8ff5a0392e8fe7293
+"
+174,puppet-designate,a45b62e2139941c49e7079968793965108abc6b3,"Remove deprecated behavior of enabled_notification_handlers
+
+Handling of a false value was deprecated during Yoga cycle[1].
+
+[1] f87bd126b0247112e3c130e1397484ba17b5647f
+
+Change-Id: I9d96ba4bf12dd4c093aba55d7916598ff24f3327
+"
+175,puppet-designate,406a78f867a858e1c6bea7b8ee943c2ff00a607d,"Use standard parameter description format for wsgi::apache
+
+Currently parameter description of the <module>::wsgi::apache classes
+are formatted differently in individual modules, and this is making
+the maintenance effort quite difficult.
+
+This change updates the description format following the srandard one
+we are globally using in our modules to reduce undesired differences
+between modules.
+
+Change-Id: Ia9334d11a46b1e23532e112665ef6d2c5375eabe
+"
+176,puppet-designate,59a16624b79d19bd294de88a5573f121e2775c96,"Add Apache WSGI logging parameters for pipe/syslog
+
+Add parameters for advanced logging configurations in Apache to
+support piped logging and support for syslog (via mod_syslog
+available in Apache >= 2.5.0)
+
+Co-Authored-By: Andy Botting <andy@andybotting.com>
+Change-Id: Idaddbca1acb1daafbf5381fc2e19f7db4748bbea
+"
+177,puppet-designate,01e72cbb9a0ab7310f2ac4f7a10caf880f86a41f,"Remove deprecated designate::neutron_network_type
+
+The parameter was deprecated during Yoga cycle in favor of the separate
+class to manage network_api:neutron parameters[1].
+
+[1] 09a2c6b46c5ba02f8290904dca195329f2ebeafb
+
+Change-Id: I31f52fcda46c33bf0163733aece4fd1279f63cc7
+"
+178,puppet-designate,4f2583ebe17ea6d9d099075ad271f7d16f3930e8,"Clean up deprecated parameters of designate::worker
+
+This change removes the two ineffective parameters which were
+deprecated during Yoga cycle in favor of the refactoring work[1].
+
+[1] 913b9a5af480794c3d2518c17e53fe1a427c5627
+
+Change-Id: I103433bcfa4227422f7daf2daa565cd32bde6d55
+"
+179,puppet-designate,b8ddf2b1f3f43b4e3ccbc50ad2f3d0d5aa0e662d,"Remove deprecated designate::worker::worker_notify
+
+... because the parameter was deprecated during Victoria cycle[1].
+
+The actual parameter was already removed from Designate by [2].
+
+[1] 3134f475ab516887d25792764bd4cd7e3bff6d9f
+[2] 5d5d83e511acbf5d6f34e9a998ff16d96c5bb162
+
+Change-Id: I9eb1e7d7e2463d21a52b347ccc8e8b1da9b975fc
+"
+180,puppet-designate,d4550c5b6e0e4d3d60d03d3945ce6e221d1b5d65,"Remove deprecated designate::producer::backend_url
+
+... because it was deprecated during Xena cycle[1] in favor of the new
+designate::coordination class.
+
+[1] 823d409fe8ef56bb5be931791c5624bd70df0e26
+Change-Id: I564ef6ec944c4b0f4a48fe99db2aade54e7f684c
+"
+181,puppet-designate,19fdf5e0f77ac4f8477994ff500ae32dd5fb26ed,"Adapt to new type validation in puppetlabs-apache
+
+The puppetlabs-apache module is enforcing more strict data type
+validation[1].
+
+This change updates the default values to adapt to that change.
+
+[1] https://github.com/puppetlabs/puppetlabs-apache/commit/f41251e336fa3e7c31c19968ccee74121cf71e47
+
+Closes-Bug: #1983300
+Depends-on: https://review.opendev.org/851652
+Change-Id: I76f58c4e79a415ec26d2747e14516b108ce90248
+"
+182,puppet-designate,5d9b0ede4ea598c4af7e39d37d1400259911f163,"Merge ""Enable policy settings in designate-api"""
+183,puppet-designate,20d78340cf4e421b404b18659c23d0122b1b2616,"Fix wrong variable used to determine designate api service
+
+Closes-Bug: #1982794
+Change-Id: I9140547a2f2a8d6fd8999394333c7d29fdd9cde0
+"
+184,puppet-trove,8838f7fa8c6c3b900f636878fcabeb9446c92cd9,"Remove trove::default_neutron_networks
+
+... because the parameter was deprecated in the past cycle by [1].
+
+[1] 74881548a4315b09fa9488a94a70fa865b7b5d42
+
+Change-Id: I7b12225aa82a05bcb978a3b6adc975c3a5d6c75c
+"
+185,puppet-trove,d76efc7787bdf8a840f41453edf3b2aa3386efc2,"Remove deprecated trove::guestagent::control_exchange
+
+The parameter was deprecated long ago[1] and has had no effect.
+
+[1] 7cb103c17ff121de8f852988f356386fcf4229f1
+
+Change-Id: I1e7f54ae462e72866d03a2ea7f00e656e68db513
+"
+186,puppet-trove,4d59d16be52af313d006550a9e8b5cb612fdd3b3,"Remove resource types for per-daemon config files
+
+Since yoga relase, this module no longer uses separate config files for
+individual daemons but use the single trove.conf [1].
+
+This change removes the remaining resource types for the separate
+.conf files, which should have been removed by the cleanup patch[2].
+
+[1] f1c11c68d56e4f1ad5125fa0df04ab91d929cd33
+[2] 4d87fa2c694adb33607fa33273faa849792351b1
+
+Change-Id: I66c1ccedc2ef1a73b5ee3f053b843e97be0d59b4
+"
+187,puppet-trove,f28094de5307f6db55d2c8a6248e6b1938a915b3,"api: Remove redundant default values
+
+These default values are same as the actual default values in Trove,
+thus we can replace these by $::os_service_default. This saves us
+from maintaining our own default.
+
+Change-Id: I557a919be3496d5314baec303764b7e8b99ed2de
+"
+188,puppet-trove,df1c3e258ee664c3dacf11c72cf263ac38e56b80,"Avoid hard-coding default of http_*_rate parameters
+
+The current hard-coded default values are exactly same as the default
+values in Trove, thus can be replaced by $::os_service_default.
+
+Change-Id: I241355d278f23ac05f42ef0150f41cc2a5795abb
+"
+189,puppet-trove,74881548a4315b09fa9488a94a70fa865b7b5d42,"Rename default_neutron_networks
+
+... because the parameter was deprecated in favor of renaming to
+the management_networks[1].
+
+Also, allow usage of an Array value because the parameter is ListOpt.
+
+[1] 44fbcfaaa608aba9184bd8757ba60c6a8155bae1
+
+Change-Id: I4f8215995d098654d9303b54b5687552e94b23b7
+"
+190,puppet-trove,7d5e85200aae972efece21b7779a1e5065490a34,"Remove deprecated database options
+
+... because these options were deprecated during Yoga cycle[1].
+
+[1] a1f85ce1ef33f2d1f8c9bfe89e84d4f8a32248c0
+
+Depends-on: https://review.opendev.org/842828
+Change-Id: I6e7402bacd8ca23abda39d9fb3330cface5da288
+"
+191,puppet-trove,18a4e46704df2cd83f407f6bee57de3922e926a1,"Remove use_neutron parameter
+
+... because it was deprecated during Yoga cycle[1] and has had no
+effect since then.
+
+[1] ddb0f14f95156c483c499fe95982d2e5777b236f
+
+Change-Id: Ib9eab7d3c174c11932afb05c66138dfe3cbf5a7c
+"
+192,puppet-trove,4d87fa2c694adb33607fa33273faa849792351b1,"Clean up deprecated items related to conductor/taskmanager
+
+This change removes deprecated parmaeters and classes related to
+trove-conductor and trove-taskmanager. These were deprecated during
+past cycles and are ready to be removed.
+
+Depends-on: https://review.opendev.org/839061
+Change-Id: I250fb4cd098b7aaa6f4b9488e7226ffb27355046
+"
+193,puppet-trove,e6686c48a9fa95cbe62e444246cfad91f58aad56,"Merge ""guestagent: Deprecate the backup_aes_cbc_key parameter"""
+194,puppet-trove,b732428800b464128db2f4a919ef87e3544bedf0,"Merge ""guestagent: Fix reference to trove::* parameters"""
+195,puppet-barbican,eb2b84ea8fd4513c00a1b38e6d7041e1d6d81a23,"Fix inconsistent parameter/resource names of wsgi::apache
+
+The barbican::wsgi::apache class names a few parameters and resources
+differently from the other modules. To make its interface and
+implementation consistent with the other implementations, this renames
+these inconsistent names. The old parameter names are kept but will be
+removed in a future release.
+
+Change-Id: I49ca51e4ea7a2404dfdbd0c88ce39339750da4f6
+"
+196,puppet-barbican,5b21717a19d4dd7993f895d07d3d53254c7de54c,"Use standard parameter description format for wsgi::apache
+
+Currently parameter description of the <module>::wsgi::apache classes
+are formatted differently in individual modules, and this is making
+the maintenance effort quite difficult.
+
+This change updates the description format following the srandard one
+we are globally using in our modules to reduce undesired differences
+between modules.
+
+Change-Id: Ifac421c3a74bf600e8b0e596a8449e5f25cda90b
+"
+197,puppet-barbican,38981908d8b36a78601614f6728233a31045149b,"Add Apache WSGI logging parameters for pipe/syslog
+
+Add parameters for advanced logging configurations in Apache to
+support piped logging and support for syslog (via mod_syslog
+available in Apache >= 2.5.0)
+
+Co-Authored-By: Andy Botting <andy@andybotting.com>
+Change-Id: I77f1d65b1f6085fdb1205de9654a8d6d2da496f5
+"
+198,puppet-barbican,5d4084a9511794c5d39c837f863c9db986d28ba4,"Remove the temporal logic to fix barbican_api pipeline
+
+The old wrong value should be fixed when the deployment is updated to
+stable/yoga, and the logic is no longer used in stable/zed and later.
+
+Related-Bug: #1946378
+Change-Id: I699847c127e5890857446585ededc9d860b0dc78
+"
+199,puppet-barbican,577a44a522416b9ae0bad8a3fd10045565865d6b,"Adapt to new type validation in puppetlabs-apache
+
+The puppetlabs-apache module is enforcing more strict data type
+validation[1].
+
+This change updates the default values to adapt to that change.
+
+[1] https://github.com/puppetlabs/puppetlabs-apache/commit/f41251e336fa3e7c31c19968ccee74121cf71e47
+
+Closes-Bug: #1983300
+Depends-on: https://review.opendev.org/851652
+Change-Id: I9573f53e24dcf0666e4649189ccd8fcab0dbcc26
+"
+200,puppet-barbican,72299ab60d71c376a98aa0992809b4310b740baa,"Expose headers option of apache::vhost
+
+The headers option in apache::vhost is required in some case, for
+example when adding the X-XSS-Protection header. This change allows
+customizing the option for the api vhost.
+
+This change also adds support for request_headers so that both request
+headers and response headers can customized.
+
+Change-Id: I0e78f2183ffe14c310ee5c5632c203258c8c85cd
+"
+201,puppet-barbican,f606fd1ca3c0d60853146b41ea608d1bc0e14dae,"Remove support for [p11_crypto_plugin] token_label
+
+... because it was deprecated during Wallaby cycle[1].
+
+[1] 4403fe7247151d324f80b865cc2d5a0a078d25fa
+
+Change-Id: Ia9b89d92256f51d5a48a19849715335f6856e839
+"
+202,puppet-barbican,237c4b2fb0340108c50888e9df08867399ba9684,"Clean up baribcan::api::retry_scheduler_* parameters
+
+... because these were deprecated during Yoga cycle[1].
+
+[1] 0d4580b27dd8a45e07c065e1dfc7ce446eb1dd77
+
+Change-Id: I781d06e3ba9c9b9ab7fd8360095cdb67917f016c
+"
+203,puppet-barbican,3b1ecbed5c857c351c927c408a67391267d37d30,"Fix some typos in parameter descriptions
+
+Change-Id: I634698c222da7e5f570ac3bd2cdee924457791bd
+"
+204,puppet-barbican,109ea49acbc89d9009a6201be5feb08e36d31678,"api: Deprecate unused ssl parameters
+
+These parameters are used by oslo.service library but Barbican does not
+provide wsgi servce based on the library.
+
+Change-Id: Ie035ec4a4dbce089e9911e11f91c2c013998192b
+"
+205,puppet-barbican,3af0df5bb4c411523380de82f42a228eb1047e0a,"Merge ""Remove non-existing bind_host/port"""
+206,puppet-barbican,043774f3894a89e82ef27b9902dbdcea6df17012,"Remove non-existing bind_host/port
+
+The bind_host parameter and the bind_port parameter are not implemented
+in current Barbican. This change removes these ineffective parameters
+from barbican.conf.
+
+Change-Id: I7758a6e852795c5410e6dab023ce612f44ee27fd
+"
+207,puppet-barbican,6e8df9739a5bfb43579f4d032674b8ca2ff6b1ad,"apache+mod_wsgi: Disable SSL by default
+
+During the previous cycle, a warning message was added to inform users
+of this change.
+
+Now the default value is updated so that SSL is disabled by default.
+
+Change-Id: I72cf30d418b99ba06c4d5738544acb1930d4806f
+"
+208,puppet-barbican,f9da5522197c9c2155e8e767965d53ab9ade2f96,"Merge ""Use more strict expression to look up the bind parameter"""
+209,puppet-manila,c0e8c3848137a76f830d688c7fa9a95226262e61,"Use $::os_service_default by default
+
+This change prepares getting rid of the additional logic to manage
+the scheduler_driver option, to follow the global pattern to use
+ $::os_service_default by default.
+
+Change-Id: Ic1d01425123bf02fa3caaf9f2ba72ed2233fc914
+"
+210,puppet-manila,525aae76e8d5dc2ab09de241c7c4a572e5ffac12,"Ensure [DEFAULT] scheduler_driver is cleared by default
+
+... otherwise the old setting can be left in manila.conf.
+
+This also refactors unit tests for the manila::share class.
+
+Change-Id: I30fa9fdc73164f898bf46d2983c807ec2bcd5451
+"
+211,puppet-manila,11e2e6a7c751dd703b08d67951e188d64834e220,"Support manila-data service
+
+Manila provides the separate manila-data service to process
+host-assisted share migration. This change introduces support for
+the service.
+
+Change-Id: I4ed63ae3992735352fd0f5a317e998074e127127
+"
+212,puppet-manila,5080fb84dc8eadff7b4ad4c759c1938be7dc0d93,"Remove cleanup of [DEFAULT] network_api_class
+
+... because the logic was added during Yoga cycle[1] and the old option
+should be removed when a deployment is upgraded to Yoga.
+
+[1] e7330687baa66c3c8d55aeb581643e4a227b6568
+
+Change-Id: I0f39c0ce4bad8a6fd1d17faf6ffae11dda75919f
+"
+213,puppet-manila,715e97a3bf4b50a7ecbf92ec91c216a637cf7e4d,"Enable manila-share in acceptance tests
+
+This change enables the manila-share service and lvm backend in
+acceptance tests, so that we can test more complete setup.
+
+Change-Id: I8e3c1cda17c897b6c13563ea733988e28dd49f8f
+"
+214,puppet-manila,58732b2f648c8b7340a2294f718289d737f5c1c0,"Merge ""Allow mulitple GlusterFS backends"""
+215,puppet-manila,7aa432d01c31b9d61b8250fd4d818951620be9db,"Add Apache WSGI logging parameters for pipe/syslog
+
+Add parameters for advanced logging configurations in Apache to
+support piped logging and support for syslog (via mod_syslog
+available in Apache >= 2.5.0)
+
+Co-Authored-By: Andy Botting <andy@andybotting.com>
+Change-Id: I643778c71a683f95a5e91f0904634a0e849ad60d
+"
+216,puppet-manila,f417334c71c77a8bc86a29419dd6134d6d7bd578,"Remove unused parameter
+
+manila::params::lio_package_name is defined but is not used.
+
+Change-Id: Ic3f7fe01610cee819088eb0d77f73b0b54003bdd
+"
+217,puppet-manila,c7f79e2b085602c91f6bf8b121a97cccb6bbe158,"Allow mulitple GlusterFS backends
+
+This change fixes duplicate resource declarations when multiple
+GlusterFS backends are configured.
+
+Closes-Bug: #1987715
+Change-Id: If29da565cdcc33605bc3f5211db22f0b157fa215
+"
+218,puppet-manila,b36bb510da99be157634776b44029b236e9d6bd9,"Remove deprecated glusterfs_native_path_to_private_key
+
+... because it was deprecated during Wallaby cycle[1].
+
+[1] bacfbc1c661a089c879fb66b1a965231254a9e0d
+
+Change-Id: Ic7c6b80ca3e80d216f65a1075851280663ce1c16
+"
+219,puppet-manila,5182150a8550545db28275935165567fa8299a0f,"quota: Clean up deprecated quota_* parameters
+
+These were deprecated during Yoga cycle by [1].
+
+[1] 83651174222a300d450279e1861b15a7ea8812d1
+
+Change-Id: I3f85d92e0164af3eb8a6810e82c2c23dda8d61bd
+"
+220,puppet-manila,42344e5722704fd725bcc4182bdec63de0fe1c26,"Adapt to new type validation in puppetlabs-apache
+
+The puppetlabs-apache module is enforcing more strict data type
+validation[1].
+
+This change updates the default values to adapt to that change.
+
+[1] https://github.com/puppetlabs/puppetlabs-apache/commit/f41251e336fa3e7c31c19968ccee74121cf71e47
+
+Closes-Bug: #1983300
+Depends-on: https://review.opendev.org/851652
+Change-Id: I690b84be0d91e39dc44b2013d90bf364710eac07
+"
+221,puppet-manila,05d6b720a4d07236db8f820e2c874243d2a4c584,"lvm: Deprecate driver_handles_share_servers
+
+The manila-share service requires that the driver_handles_share_servers
+parameter is configured for all backends and the service fails to start
+if the parameter is missing.
+
+Because lvm driver supports only driver_handles_share_servers=False,
+this change makes the parameter hard-coded instead of requiring users
+to set the parameter correctly.
+
+Change-Id: Idc9dee01e66cc3b72ae441aa150281f7313f14f4
+"
+222,puppet-manila,6e5960381a0f4bd7926e4e4836077cd5a24298a3,"Accept a string value for enabled_share_backends
+
+Currently using a string value for the enabled_share_backends parameter
+causes the following error, which is not quite clear for users.
+~~~
+Error: Evaluation Error: Error while evaluating a Function Call, 'join'
+parameter 'arg' expects an Array value, got String ...
+~~~
+
+This change allows usage of a single string value, as is done for
+the other ListOpts, because there is no logic which actually requires
+an array value.
+
+Change-Id: I786e5d477131fa60502a9985f0db4b19f418ce9b
+"
+223,puppet-horizon,d906fe4ee602e89f8f88856ee0133995ec5c6026,"Fix the wrong key to look up designate policies
+
+This change fixes the key to look up designate policies from the base
+horizon class parameter. The previous value is for octavia.
+
+Change-Id: I5ef41b5ccc49b742172848f2ff63b08f038c114b
+"
+224,puppet-horizon,5660159a6e2237c8bcdc66167873b6534da1d935,"Ensure pymemcache library is installed
+
+The pymemcache library should be installed when pymemcache backend is
+used but this library is not installed by the package dependencies and
+should be installed additionally.
+
+This also ensures the cache libraries are installed during package
+installation phase, so that the libraries are available when horizon
+is started.
+
+Closes-Bug: #1988205
+Change-Id: I90cd9d9e1276fae71fcb9cbc7ba95b8839690dbd
+"
+225,puppet-horizon,525e879385ae96bf648941608f44e6d6ea7af946,"Remove unnecessary a+x bit from /var/log/horizon
+
+The /var/log/horizon directory is created with a+x bit but this
+permission is not really necessary.
+
+Change-Id: I79a2628e9c262c25fce7a1d0b0dbfc8de62530b4
+"
+226,puppet-horizon,dfb5c37f91ec5dcc891f5e5e5ebaa754763d0325,"Merge ""Validate boolean values used in if-statement"""
+227,puppet-horizon,a90402f3372506c3f478db6d85d86a7d80a2b267,"Merge ""Do not show diff of local_settings(.py)"""
+228,puppet-horizon,ccc9227b12448c99bb48eb7cea1426645630ea2e,"Validate boolean values used in if-statement
+
+This change ensures the parameters used in if-statement take boolean
+values, because usage of a different type(eg. String) can cause
+unexpected evaluation result.
+
+[vagrant@localhost ~]$ cat foo.pp
+$foo = false
+$bar = 'False'
+$baz = 'false'
+
+if $foo { warning('foo') }
+if $bar { warning('bar') }
+if $baz { warning('baz') }
+[vagrant@localhost ~]$ puppet apply foo.pp
+Warning: Scope(Class[main]): bar
+Warning: Scope(Class[main]): baz
+Notice: Compiled catalog for localhost.localdomain in environment production in 0.02 seconds
+Notice: Applied catalog in 0.01 seconds
+[vagrant@localhost ~]$
+
+Change-Id: I5c327c37e700829ffb80b9f58d15607aa883bdc1
+"
+229,puppet-horizon,a810ca2b4ef29eb166eb8f1041643a31262be49c,"Do not show diff of local_settings(.py)
+
+... because the file contains a few sensitive values like SECRET_KEY.
+
+Closes-Bug: #1987015
+Change-Id: Ie96eb626148214270c5a3a041087fcc679c127ce
+"
+230,puppet-horizon,5a5ef576be50b2b601530fc4faa79ef72ca217cc,"Remove redundant include of apache::mod::*
+
+The puppetlabs-apache module includes the classes for required modules
+automatically based on the parameters used in apache::vhost.
+
+apache::mod::wsgi
+https://github.com/puppetlabs/puppetlabs-apache/commit/efffa854f
+(available since 1.1.0)
+
+apache::mod::ssl
+https://github.com/puppetlabs/puppetlabs-apache/commit/ee37f2146
+(available since 0.3.0)
+
+Change-Id: I44d49918b81325815d5d7a3770c2e8a7487eef74
+"
+231,puppet-horizon,6bf7abada90dcbadb04d0cee848aa1430704fecc,"Remove logic to handle quoted horizon_upload_mode
+
+This is follow-up of 625275af36f6775e939334724f439c480d863d24 and
+removes the temporal logic to keep compatibility, because we have kept
+the warning message for several cycles.
+
+Related-Bug: #1946277
+Change-Id: I1b11305df67dbe3127642a96bda429faae0059d5
+"
+232,puppet-horizon,14b45e9987c256e9e2a727c358944bee6b491661,"Fix type validation error with puppetlabs-apache 8.0.0
+
+This is follow-up of 3ae8f91ca4c11f06ae145907b2b6c0b5ea16cf2d and fixes
+type validation error of apache::vhost::access_log_format, which no
+longer accepts a boolean value.
+
+Related-Bug: #1983300
+Change-Id: Ic5bcbcd94bfe74b0ff7ea750780021daa772a196
+"
+233,puppet-horizon,2d3d0244a5ee8403a5d43c9ecb704ea6183e246f,"Merge ""Add inet6 prefix only when MemcacheCache is used"""
+234,puppet-horizon,663326902092fef964eb136d77a015ffe648457b,"Add option websso_choices_hide_keystone
+
+This change allows a cloud-deployer using WEBSSO to not expose a
+form for attempting to log in using Keystone Credentials.
+
+Closes-Bug: #1983855
+Change-Id: Iae15a5dac8f3de0f70dad5af8837177f67857428
+"
+235,puppet-horizon,3ae8f91ca4c11f06ae145907b2b6c0b5ea16cf2d,"Adapt to new type validation in puppetlabs-apache
+
+The puppetlabs-apache module is enforcing more strict data type
+validation[1].
+
+This change updates the default values to adapt to that change.
+
+[1] https://github.com/puppetlabs/puppetlabs-apache/commit/f41251e336fa3e7c31c19968ccee74121cf71e47
+
+Closes-Bug: #1983300
+Change-Id: I5aabfbfd438bd4bc981f20b3f924a41ec963648c
+"
+236,puppet-horizon,94422e6dccfed2d34100f7bd2c7bd87cdc5cfd18,"Add inet6 prefix only when MemcacheCache is used
+
+inet6 prefix is required only by python-memcached and it should NOT be
+added when a different backend like PyMemcacheCache is used.
+
+Closes-Bug: #1983182
+Change-Id: Iee260f8578ed6c473c651e0665a548c68e94c954
+"
+237,puppet-gnocchi,86fc061b4c94ddd704192f88b0d0cd31e75969f9,"Replace deprecated [oslo_middleware] enable_proxy_headers_parsing
+
+Gnocchi replaced usage of http_proxy_to_wsgi middleware from
+the oslo.middleware library by its own implementation since Gnocchi
+4.4[1]. Because now both Ubuntu and CentOS uses Gnocchi 4.4.z, this
+replaces the deprecated [oslo_middleware] parameter by the new [api]
+parameter.
+
+[1] https://github.com/gnocchixyz/gnocchi/commit/bcd9a8cdd7c37fb655764a3b12c7e567598d088d
+
+Change-Id: I52ba953c481bb66dd8a5af35b74c11dac6278e45
+"
+238,puppet-gnocchi,8ba78b6b37a39fb5b7cd6d4ee76b39da1fdbfa98,"Use standard parameter description format for wsgi::apache
+
+Currently parameter description of the <module>::wsgi::apache classes
+are formatted differently in individual modules, and this is making
+the maintenance effort quite difficult.
+
+This change updates the description format following the standard one
+we are globally using in our modules to reduce undesired differences
+between modules.
+
+Change-Id: Id99d044171b1fafefd310fafff2ce2f4de1e9fa8
+"
+239,puppet-gnocchi,990298ddd51b9502b11f875ac8b5ccdab5fbcc8e,"Add Apache WSGI logging parameters for pipe/syslog
+
+Add parameters for advanced logging configurations in Apache to
+support piped logging and support for syslog (via mod_syslog
+available in Apache >= 2.5.0)
+
+Co-Authored-By: Andy Botting <andy@andybotting.com>
+Change-Id: Ifa33b2e84284d8032c4e4f54acb26c30fc285cb5
+"
+240,puppet-gnocchi,8001209a81ca78bea86933b86fa96bc689477957,"Remove gnocchi::metricd::cleanup_delay
+
+... because the parameter was deprecated during Yoga cycle[1] in favor
+of the new metric_cleanup_delay parameter.
+
+[1] 04f29cb088e7e1eadae5cb1834dab637d6c5b745
+
+Change-Id: I8efe9f153ca112dafb621edc4ee3b3d090083d91
+"
+241,puppet-gnocchi,1774c83c7d09d734585ba31c5759cb634371edbe,"Merge ""Adapt to new type validation in puppetlabs-apache"""
+242,puppet-gnocchi,6da581fa0260db2e51cebb0edd9ff2894332f1ad,"Adapt to new type validation in puppetlabs-apache
+
+The puppetlabs-apache module is enforcing more strict data type
+validation[1].
+
+This change updates the default values to adapt to that change.
+
+[1] https://github.com/puppetlabs/puppetlabs-apache/commit/f41251e336fa3e7c31c19968ccee74121cf71e47
+
+Closes-Bug: #1983300
+Depends-on: https://review.opendev.org/851652
+Change-Id: Ie6310a022e9715336832865741318369bc3fa188
+"
+243,puppet-gnocchi,3be542d7b2bae588d1b4a97eefe57a5125a130f3,"Expose headers option of apache::vhost
+
+The headers option in apache::vhost is required in some case, for
+example when adding the X-XSS-Protection header. This change allows
+customizing the option for the api vhost.
+
+This change also adds support for request_headers so that both request
+headers and response headers can customized.
+
+Change-Id: I9fe841e9dc2a90627d0debdc9b6766a847390aed
+"
+244,puppet-gnocchi,b2516674df7e3363b527bf34478f4dcb932c2e58,"Fix typos in parameter descriptions and tests
+
+Change-Id: I20e1dda110e479e796604991be240021fd51d861
+"
+245,puppet-gnocchi,ce404cc09073cbc586d3f7d1848a7f3c243edaef,"apache+mod_wsgi: Disable SSL by default
+
+During the previous cycle, a warning message was added to inform users
+of this change.
+
+Now the default value is updated so that SSL is disabled by default.
+
+Change-Id: I7f32413d452e98306906002461ae0b4304d284ca
+"
+246,puppet-gnocchi,bdde282558bf0de3226ffcfffffbd7c2091e2bd7,"Add support for [statsd] creator
+
+Change-Id: I719ff8386c7ea73cbaeae4d7db8cc6ed82b8cf79
+"
+247,puppet-gnocchi,4bd702bc91d285536966b390f96a9917fc5be32a,"statsd: Add support for host and port
+
+This change introduces support for the following two parameters.
+ - [statsd] host
+ - [statsd] port
+
+Change-Id: Ia4e4a5d5ae40a7d4a358569d9caacb07ff391d6a
+"
+248,puppet-gnocchi,a6ca19ef5a386913dbbb1dc71d9a382685d10762,"api: Remove deprecated middleware option
+
+... because it was deprecated during Yoga cycle[1] and has had no
+effect since then.
+
+[1] be05efdc44c488e36491c9653f4188364e9c0f4e
+Change-Id: I473ccd52df065864027b6b88b49a9eece66ba1ac
+"
+249,puppet-gnocchi,a7c94d05df3107069163409c52f57fa5a215c152,"Make sure archive_policy_name is cleared by default
+
+The archive_policy_name parameter currently defaults to undef, which
+leaves the parameter unmaintained. This change ensures the parameter is
+cleared by default, as it is not set in the default configuration files
+provided by packages.
+
+Change-Id: I5a7b757307e5eae4f24f9c501a869d0693fc496b
+"
+250,puppet-mistral,128dbc9566265a4ef5cbf336a23ccb07ced487d3,"Use standard parameter description format for wsgi::apache
+
+Currently parameter description of the <module>::wsgi::apache classes
+are formatted differently in individual modules, and this is making
+the maintenance effort quite difficult.
+
+This change updates the description format following the standard one
+we are globally using in our modules to reduce undesired differences
+between modules.
+
+Change-Id: Id3eaa905c19cbe245ffc3e1283469b3f35086450
+"
+251,puppet-mistral,85c6df8100dc9308c5a0d5a60e008348733f89f5,"Add Apache WSGI logging parameters for pipe/syslog
+
+Add parameters for advanced logging configurations in Apache to
+support piped logging and support for syslog (via mod_syslog
+available in Apache >= 2.5.0)
+
+Co-Authored-By: Andy Botting <andy@andybotting.com>
+Change-Id: I220b2335e682083dfa71375324b2f230f0ca5621
+"
+252,puppet-mistral,a6810cd771ad24449c41ffa3e5fca176e41957d5,"Remove deprecated mistral::coordination_* parameters
+
+... because these were deprecated during Xena cycle[1] favor of
+the independent mistral::coordination class.
+
+[1] 298c6ec174780d97966d1724107910ab88d26def
+
+Change-Id: Idde1ac828eb1be5dacf2f9e6d050aac097c5e910
+"
+253,puppet-mistral,4f339c4575b318d171487e07543392b16c6c1aa9,"Adapt to new type validation in puppetlabs-apache
+
+The puppetlabs-apache module is enforcing more strict data type
+validation[1].
+
+This change updates the default values to adapt to that change.
+
+[1] https://github.com/puppetlabs/puppetlabs-apache/commit/f41251e336fa3e7c31c19968ccee74121cf71e47
+
+Closes-Bug: #1983300
+Depends-on: https://review.opendev.org/851652
+Change-Id: I86e06f1eb4aacbdbc70a0e9353e467617400fd0c
+"
+254,puppet-mistral,2c082fc561e8d470afb5b1ac72a2dfc6e4a59838,"Remove deprecated mistral::engine parameters
+
+These parameters were deprecated during Yoga cycle[1] in favor of
+the new independent mistral::execution_expiration_policy class.
+
+[1] 0b8ca269cb7d966818bcdaee8b0b112d492b7e51
+
+Change-Id: Iad14d98440632f3587e672c047ca09a246258ca8
+"
+255,puppet-mistral,bf0f7ec1729eb409e550e0e57a3e487aa37f611e,"Expose headers option of apache::vhost
+
+The headers option in apache::vhost is required in some case, for
+example when adding the X-XSS-Protection header. This change allows
+customizing the option for the api vhost.
+
+This change also adds support for request_headers so that both request
+headers and response headers can customized.
+
+Change-Id: Ic8154cb670c821ccf06c33721ac73f89c25d78c8
+"
+256,puppet-mistral,acb2f110940e2f3774a9f9ae71971af24e4a6eb9,"Fix typos in parameter descriptions
+
+Change-Id: Idc7bc6f427e89b88f0f0b873cf723795544676d5
+"
+257,puppet-mistral,8cf73d99effdb42723e6cd76e491d966318be64a,"apache+mod_wsgi: Disable SSL by default
+
+During the previous cycle, a warning message was added to inform users
+of this change.
+
+Now the default value is updated so that SSL is disabled by default.
+
+Change-Id: Icd5632d624c215a699450ae3af5cb71fc3e44cd6
+"
+258,puppet-mistral,1766928671a70d11e90d8df60f293c81b672b65a,"Refactor mistral::notifier
+
+Change-Id: I3438cc6d9b473ff774fc8e68a3f9df65c792bfc6
+"
+259,puppet-mistral,0b8ca269cb7d966818bcdaee8b0b112d492b7e51,"Support more [execution_expiration_policy] parameters
+
+Change-Id: I3fb67451dea1a9834002a466e4bc206869527fbb
+"
+260,puppet-mistral,0c6feacaf36654e8a6a5c9d844d657ca4c1c7e39,"Add tunable parameters of mistral-engine
+
+This change introduces support for some tunable parameters of
+the mistral-engine service.
+
+Change-Id: I9f67af2855b6b423c3d5cfbf69f2ff7747aef7d0
+"
+261,puppet-magnum,4f5faa2f018937a6ce6b26b9ccfaa437588bf601,"Add cinder class to manage cinder config
+
+Add a new class magnum::cinder to manage [cinder] section of magnum
+config
+
+Change-Id: I46f86fcc27002f76028014e42dc485ba292d56c5
+"
+262,puppet-magnum,4f55ae389def5bd71a54284a3dd3b7717f949710,"Add x509 class to manage x509 config
+
+Add a new class magnum::x509 to manage x509 section of magnum config
+
+Change-Id: I7774507d112b1cf94e0240d78f67f7c186ef5b30
+"
+263,puppet-magnum,cfcb342c81f1197d381891a5f174f4e1bd5e6cd5,"Add Apache WSGI logging parameters for pipe/syslog
+
+Add parameters for advanced logging configurations in Apache to
+support piped logging and support for syslog (via mod_syslog
+available in Apache >= 2.5.0)
+
+Co-Authored-By: Andy Botting <andy@andybotting.com>
+Change-Id: Id657139568a70be87b7d7f2a9d8fa0b6f1aa2307
+"
+264,puppet-magnum,28fe574fed5f1e6de764cdefc41865cec5eca3de,"Adapt to new type validation in puppetlabs-apache
+
+The puppetlabs-apache module is enforcing more strict data type
+validation[1].
+
+This change updates the default values to adapt to that change.
+
+[1] https://github.com/puppetlabs/puppetlabs-apache/commit/f41251e336fa3e7c31c19968ccee74121cf71e47
+
+Closes-Bug: #1983300
+Depends-on: https://review.opendev.org/851652
+Change-Id: I0c686d7c2d90aa94648ef4a8f9b86bd05e6d498b
+"
+265,puppet-magnum,743aabc19dd22b5d61bfe53e2090c46f699efb58,"Merge ""Expose headers option of apache::vhost"""
+266,puppet-magnum,e178968dd62da19233575721f762cfe43d050199,"Expose headers option of apache::vhost
+
+The headers option in apache::vhost is required in some case, for
+example when adding the X-XSS-Protection header. This change allows
+customizing the option for the api vhost.
+
+This change also adds support for request_headers so that both request
+headers and response headers can customized.
+
+Change-Id: I84ec512b7dbed382f5d86b30f92de526ba0753eb
+"
+267,puppet-magnum,9c7cec7df3f7a68fd1d95b9383c41b9d13f13177,"Fix typos in parameter descriptions and tests
+
+Change-Id: I0594a367d1587e3b450a97c4a4548b902225f501
+"
+268,puppet-magnum,4138ad9c272e53d89aeba61083a372fab8d873ae,"Conductor: Do not include the authtoken class
+
+... because keystone_authtoken parameters are used not by conductor
+but by api service.
+
+Change-Id: Ib5bc3d81d2782751a02d092380347fdf77d52334
+"
+269,puppet-magnum,14a901dee033810ac3218f43eeba52873d76e5e3,"keystone_auth: Require the password parameter
+
+The keystone_auth parameters are required so that magnum can interact
+with the other OpenStack services. This change ensures the parameter
+is configured.
+
+Change-Id: I745298661d6fc2b6d3f92da0edc8c6430b29a7ee
+"
+270,puppet-magnum,662b9122e5f924e5166edc8a7fff33b8abb6cf7c,"keystone_auth: Support ssl parameters
+
+This change adds support for SSL parameters of [keystone_auth] section.
+
+Note:
+Management of [keystone_auth] parameters is removed from the authtoken
+class. However this is effectively same, because Magnum reads
+[keystone_authtoken] parameters in case [keystone_auth] parameters are
+not set.
+
+Change-Id: I3acc6a64b7789633ab068d8bbdcb2b9c11f2fb2d
+"
+271,puppet-magnum,5dd01c5b778457aa342d8372c5b78ba62689f2ea,"Avoid hard-coding api versions
+
+Change-Id: Ic3b2bc4defcefc6375504ff5912e34247ca6a7bc
+"
+272,puppet-magnum,075e120be1cad2202af762af50482a70d5d239a4,"Fix reference to magnum::clients parameters
+
+The magnum::clients::* classes uses magnum::clients parameters by
+default but reference is broken unless the classes are included in
+a proper order. This change ensures the reference works, by adding
+inheritance between classes.
+
+Closes-Bug: #1964452
+Change-Id: I5da05b9d3ba2635db7f9170d8e3cab6bf21f8511
+"
+273,puppet-openstacklib,22ed18fff41949bb6aa4c3448ca09d7eb36c6f3f,"Remove redundant include of apache::mod::*
+
+The puppetlabs-apache module includes the classes for required modules
+automatically based on the parameters used in apache::vhost.
+
+apache::mod::wsgi
+https://github.com/puppetlabs/puppetlabs-apache/commit/efffa854f
+(available since 1.1.0)
+
+apache::mod::ssl
+https://github.com/puppetlabs/puppetlabs-apache/commit/ee37f2146
+(available since 0.3.0)
+
+Change-Id: I6fd1ba6b721940ff96f977782e1e15df6191413d
+"
+274,puppet-openstacklib,8334afc2a6967093e061cf605e087777a594ee03,"Adapt to new type validation in puppetlabs-apache
+
+The puppetlabs-apache module is enforcing more strict data type
+validation[1]. This change updates the default values to adapt to that
+change.
+
+Note that we still need to fix the unit tests as these are affected by
+the change in default values. We can fix these once the new release is
+made in the puppetlabs-apache module.
+
+[1] https://github.com/puppetlabs/puppetlabs-apache/commit/f41251e336fa3e7c31c19968ccee74121cf71e47
+
+Closes-Bug: #1983300
+Change-Id: Ic6f65fdcb8953e0307d8a9d34cecb7aa1821a018
+"
+275,puppet-openstacklib,78c6e4cb5bb80490b2733e5932230cb8852e9d29,"Disallow duplicate policy rules with the same key
+
+json never accepts defining multiple records with the same key. This
+change modifies the resource name to detect duplicate items defined
+with the same key, instead of silently ignore some of them.
+
+Change-Id: I8b18015f4789f97cf07706ad6b3c99ce1eaedaf9
+"
+276,puppet-openstacklib,b109d66934f9bc23e9609307473819c0f7cf2e4e,"Hide differences when updating clouds.yaml
+
+The clouds.yaml file includes credentials to access OpenStack APIs, so
+differences should be hidden from output.
+
+Change-Id: I7728df4bae694fe560e2e2b90ee4bb480f03a43c
+"
+277,puppet-watcher,9667d6a1666500138dbf048e70aa19da405319a3,"Remove deprecated watcher::api::watcher_clients_*
+
+... because these were deprecated during Yoga cycle[1][2][3].
+
+[1] c507b55112d09c80f1598a28fee40c522ff26a14
+[2] 3fe4b7d3a0ae0c7f76471a5c230b71caa7f242ef
+[3] 16bcc44238bd018c527c87c4cd0542f5cadc5774
+
+Change-Id: If96c5ac9016f799977218b24d9103e8efab093b7
+"
+278,puppet-watcher,4faa43474205a9b3787af5e969e407f8320bddb5,"Add Apache WSGI logging parameters for pipe/syslog
+
+Add parameters for advanced logging configurations in Apache to
+support piped logging and support for syslog (via mod_syslog
+available in Apache >= 2.5.0)
+
+Co-Authored-By: Andy Botting <andy@andybotting.com>
+Change-Id: Iaf3e13cbda1cf5fe25f8c4b9fb945f13fa4f30f3
+"
+279,puppet-watcher,aac84a5108f83c1dfe656a25c415eb94f0125007,"Remove deprecated watcher::api::watcher_api_* parameters
+
+... because these were deprecated during Yoga cycle[1].
+
+[1] 2a689b750a7842e903f7bd9834f442c11d7b9941
+
+Change-Id: Id4916a8bde771a1d122fa78f19833d5d21c34a1e
+"
+280,puppet-watcher,0f8a4befef1a7e43a3b4e552e746416ceddea6f9,"Stop hard-coding default of [api] port
+
+... because the current hard-coded value is same as the default value
+in Watcher itself.
+
+Change-Id: I62ba8903caa91f11b265142bee12b2046d3cccf0
+"
+281,puppet-watcher,388e3a2dfb652c2946e0ac1c04dc0c58ba00e622,"Stop listening at 0.0.0.0 by default
+
+Usage of 0.0.0.0 exposes API endpoint to all networks and can cause
+unexpected leakage. This change updates the default to use more
+restricted address (127.0.0.1, which is the default defined in Watcher
+itself) unless the address is given by a user explicitly.
+
+Change-Id: Ibc895cf2b06d3b0c1b2073d8d6aa90d7d6f299d2
+"
+282,puppet-watcher,652a0199d4b164e40372342dd0966b44cee61712,"Adapt to new type validation in puppetlabs-apache
+
+The puppetlabs-apache module is enforcing more strict data type
+validation[1].
+
+This change updates the default values to adapt to that change.
+
+[1] https://github.com/puppetlabs/puppetlabs-apache/commit/f41251e336fa3e7c31c19968ccee74121cf71e47
+
+Closes-Bug: #1983300
+Depends-on: https://review.opendev.org/851652
+Change-Id: I463c2a8cd1b08330633f676ee0f4e66eb62c51d9
+"
+283,puppet-watcher,fd5376481ff43b53fbade39237900b25ce6adf44,"Expose headers option of apache::vhost
+
+The headers option in apache::vhost is required in some case, for
+example when adding the X-XSS-Protection header. This change allows
+customizing the option for the api vhost.
+
+This change also adds support for request_headers so that both request
+headers and response headers can customized.
+
+Change-Id: I3f0777ec48dd0196ad82b902ab2c3f54cf170717
+"
+284,puppet-watcher,858c3d50e4c6a85c7bf5cddc638be7a2978e09e5,"Do not validate the deprecated parameter
+
+The watcher::api::watcher_client_password parameter was deprecated
+during Yoga cycle in favor of the new watcher::watcher_clients_auth
+class[1]. Thus the parameter should not be validated.
+
+[1] 16bcc44238bd018c527c87c4cd0542f5cadc5774
+
+Closes-Bug: #1973316
+Change-Id: Ied515e3ba52d9fb9bd96ea24149fa7f6c44db9c5
+"
+285,puppet-watcher,959248c2031c7e10e76144e6f3880ed2bb6e054a,"apache+mod_wsgi: Disable SSL by default
+
+During the previous cycle, a warning message was added to inform users
+of this change.
+
+Now the default value is updated so that SSL is disabled by default.
+
+Change-Id: I72ddec25f8a7d747ab2816f2b76aae2f07ccfeba
+"
+286,puppet-watcher,978502cbdc84e8c9eef0ec99dcd9077e9e2a9f3e,"Globally support system scope credentials
+
+After spending huge effort to understand the exact requirements to
+enforce SRBAC, we learned it's very difficult to find the required
+scope in each credential. This requires understanding implementation of
+client-side as well as server-side, and requirement might be different
+according to the deployment architecture or features used.
+
+Instead of implementing support based on the actual implementation,
+this introduces support for system scope credentials to all places
+where keystone user credential is defined, and make all credential
+configurations consistent.
+
+Change-Id: I1515d077c7cdd3cddb805a0b68199ee913975704
+"
+287,puppet-watcher,16bcc44238bd018c527c87c4cd0542f5cadc5774,"Create a separate class for watcher_clients_auth parameters
+
+This change introduces a separate class for watcher_clients_auth
+parameters, which are currently managed by watcher::api, so that
+we follow the best practise to create a class per config section.
+
+Change-Id: I5fb1bb6ceca65c53c6d513db6683dc11f9b42635
+"
+288,puppet-oslo,978b7ef3cfd7690ee91a91aac9d794c7fc848a59,"Merge ""cache: Support array value for tls_allowed_ciphers"""
+289,puppet-oslo,7e187f637a5f80c4ded88deaae4699aadb228d3f,"Add common implementation to manage [os_brick] options
+
+The os-brick library now supports its own lock_path configuration. This
+adds the defined resource type to manage the option so that we can
+reuse this implementation in some modules.
+
+Depends-on: https://review.opendev.org/c/openstack/os-brick/+/849324
+Change-Id: Iae1c155692fec845a8cab0ae284eeeaaf3336962
+"
+290,puppet-oslo,6f502efdc1caef69aa33db5f2946b81f63a8d09f,"Fox wrong format of [cache] backend_argument
+
+This option is not a ListOpt but a MultiStrOpt. So an array values
+should NOT be converted to the colon-separated list format.
+
+Closes-Bug: #1997603
+Change-Id: If346affd48013f4f553a5fddc93524a8408cc605
+"
+291,puppet-oslo,053264927508064e7c832c88b080dec8b85a290e,"cache: Support array value for tls_allowed_ciphers
+
+The [oslo_cache] tls_allowed_ciphers option takes a colon-seprated
+list. This change allows usage of a native array value to set
+the value so that users can more easily compose up the value without
+considering the actual value format.
+
+Change-Id: I5c295c747a0f19757e3b3c7eaf990b32d7e1af11
+"
+292,puppet-oslo,60afb3379b8241f9c870187dc718d5846205e2ed,"coordination: Deprecate support of the etcd3 driver
+
+The etcd3 driver of tooz has been deprecated. This change deprecates
+its support in the puppet modules so that we can remove the support in
+a future release.
+
+Depends-on: https://review.opendev.org/833107
+Change-Id: I3cb9d3321957341d2110178ed7b67bfe3f265a38
+"
+293,puppet-oslo,5590e9b16406c8d3683b47af7c69891a561abcaa,"Remove deprecated oslo::db::use_tpool
+
+The parameter was deprecated during Yoga cycle[1] and is no longer used
+by the other modules.
+
+[1] af6514829c48a4a6c06d06abc66552e4424fdc81
+
+Change-Id: I9c15808bc1725be7ec6e24b37c066c089990e85e
+"
+294,puppet-oslo,49de918c2537ff35c5c88587eb2ee15861630165,"privsep: Add support for the remaining parameters
+
+This change adds support for the following two parameters of
+the oslo.privsep library, so that all options can be configured by
+the oslo::privsep defined resource type.
+
+ - thread_pool_size
+ - logger_name
+
+Change-Id: I88eb0a5a1d3fd795a2c29b7be4d6e5722a330c45
+"
+295,puppet-oslo,fc72a83bccebd211466bdeb6e1e1d7c2cc3b22f5,"cache: Ensure pymemcache library is installed
+
+The pymemcache library should be installed when pymemcache backend is
+used but this library is not required by the oslo.cache library or
+its dependencies and should be installed additionally.
+
+Closes-Bug: #1988205
+Change-Id: I9422af416e74c53e09f6216bcbeab234337ccbae
+"
+296,puppet-oslo,513573850b24220a51f2fe51f0bb087eefab4438,"Fix typos is parameter descriptions
+
+Change-Id: I3134bd39892f7d1412dd267e4995aaece87523c2
+"
+297,puppet-oslo,9fdd85639e124689802d6a2963e71ddac6fde932,"Merge ""db: Remove MongoDB backend support"""
+298,puppet-oslo,2ad73a71c095bf534ed9f6a5d4356d1843a5d919,"db: Remove MongoDB backend support
+
+Support for MongoDB backend was used by puppet-ceilometer but it is
+no longer used since MongoDB was replaced by Gnocchi.
+
+Because we no longer expect any real use case, this change removes
+the implementation directly with deprecation skipped.
+
+Change-Id: I5203cefe77c6c1410842fa7c530f98761fe65ed4
+"
+299,puppet-oslo,0a7cc71dadfbe4fa04cc31cba4f5aa65cf177647,"db: Remove min_pool_size
+
+... because it was deprecated during Ussuri cycle[1].
+
+[1] 1338b26b02a76735e53968eea1ea28a2cb68a1af
+
+Change-Id: I86ff6b35b7e2ea29799ff98d734b7e9b4b2e0f08
+"
+300,puppet-oslo,61b34264573dd3af6f12fa36d23acec3b0e9abae,"db: remove idle_timeout
+
+... because it was deprecated during Train cycle[1] in favor of the new
+connection_recycle_time parameter.
+
+[1] 3eb0e709473d53bc9a26c672c10486828d84d50f
+
+Change-Id: Iecd45f2e551eb46d3d8b839e5911898591272705
+"
+301,puppet-oslo,30d3b687931dfc2fcda42d08891ebbcf027698cb,"Remove allow_insecure_clients
+
+... because it was deprecated during Wallaby cycle[1].
+
+[1] c08a99f05cacb37e18554dd07f35ebf0a2ba3178
+
+Change-Id: I4a76fb16e4fbb3711db5c86ab35000334e95c124
+"
+302,puppet-oslo,4fcbddc632a3cd081154ff561afe8cf10c55c906,"Fix typo in warning message
+
+Change-Id: I53e794088bfac13785776b6265cc0f23e1c20d91
+"
+303,puppet-oslo,d3623fe039106100c6d18b0e1398d0c13cd955b8,"db: Fix deprecation warning about use_tpool
+
+Currently the warning log is shown when the parameter is NOT set,
+because of the wrong if condition.
+
+Change-Id: I462592ca7d3d2654246cd890c6097e97bd967707
+"
+304,puppet-oslo,efd11469933af2b0aadc54546ce611b92c66391e,"log: Accept array for default_log_levels
+
+Currently the default_log_levels parameter accepts only hash or string.
+This change adds support for an array value, so that users can use
+an array of 'logger=LEVEL' strings.
+
+Change-Id: I8c4358128438700430645df132882ec46a8885b9
+"
+305,puppet-oslo,19862b0f1879f41ef364d0fdac07df9415bdf2d3,"Split oslo::service defined type
+
+The oslo::service defined type was added a long ago but has never been
+used by any other modules so far. The main blocker is that the type
+manages not only common service parameters but also wsgi/ssl parameters
+which are specific to api services.
+
+This change splits the defined type to smaller modules so that we can
+reuse the implementation.
+
+Because the defined type is not used by any other modules at this
+moment, and we don't expect direct usage of these resource type(*1),
+this change is backword-incompatible.
+
+(*1)
+Technically it can be used but cause multiple conflicts.
+
+Change-Id: If524155bf2d0dda964c6b451d7b26f36481514f5
+"
+306,puppet-ceph,75c5a7c3f46ba033e80d209e8777f685275e285c,"rgw: Support Barbican integration settings
+
+Change-Id: I8fef857c55610f33b33a3423a8ec8cebbdde078b
+"
+307,puppet-ceph,1800c1b530a8f18f69e65d91da37560d078967e9,"rgw: Add support for rgw_enable_apis
+
+... so that users can enable only specific APIs in Ceph object gateway.
+
+Change-Id: I80184a403322e0db6706603aeadb2257b2dd1a35
+"
+308,puppet-ceph,dbee5bacf3c058d770dcb1364a1dd2a8b45b8a0b,"rgw: support more Swift-related options
+
+This change improves the support coverage of radosgw options, which are
+related to Swift API.
+
+Change-Id: I1d544ebcbd77b44c1772d842e021a07e243997d6
+"
+309,puppet-ceph,a41c255ab08540147fe11cf8dc04277d17115279,"rgw: Add suport for the beast frontend library
+
+The beast frontend library has been supported since Mimic and will
+replace the civetweb library which was deprecated in Pacific.
+
+This also fixes the rgw_frontneds parameter so that the reasonable
+default value is selected according to the frontend type selected.
+
+Change-Id: I2faac0151165aa296ac2df3a0b9a1255654947ef
+"
+310,puppet-ceph,152b6f6d27c85d003beb2bbb2a8666e556bb8606,"Remove support for upstart
+
+... because this module no longer supports Ubuntu 14.04 or CentOS 6.
+
+This also removes the unit tests with Ubuntu 14.04.
+
+Change-Id: Ib2bf73ba379b61f96c5faf3712c15aa39c0a301e
+"
+311,puppet-ceph,cedbe9151966ac14a732ac9eb9a213494cb16a5f,"rgw: Refactor the logic to support multiple fronend_type
+
+Change-Id: I5c07540be210e05719581cd722fba9e7eb0eeb47
+"
+312,puppet-ceph,29ca5f47d16824410eb6d1367da574ed60b51bc1,"Use integer for apache::vhost::port
+
+The latest puppetlabs-apache release (8.0.0) no longer accepts string
+values for apache::vhost::port. This updates the default value to use
+integer instead of string, to avoid type validation error.
+
+Related-Bug: #1983300
+Change-Id: Ib5714ba5ae3219fbb0500b8d6adabc87541220f7
+"
+313,puppet-ceph,81a137e29e7af44ba31125eb30130f5f41347d19,"Remove workaround for old p-o-i manifest
+
+Now p-o-i uses the native class parameters thus we can define
+the parameter resources even when the parametes are not set.
+
+Change-Id: Iefc8126f5ffff55e623dfdaa8e791ba4aafb7831
+"
+314,puppet-ceph,039ef5e19abf962c462ac7b8575d7d1a2d75b1d2,"Fix CentOS Stream 9 repo url
+
+Change-Id: Id02b6e67af7a8cab524af86e2d4eab6a6281ed2d
+"
+315,puppet-ceph,e13544a6df8f7571ae8bc8b18d2fe73a1af281aa,"CentOS: Allow fixing repository url for CentOS Stream
+
+URL of SIG repository is different between CentOS and CentOS Stream.
+('-stream' prefixes major version)
+
+This change introduces the `stream` parameter which we already added
+to openstack_extras so that users can use the correct repository
+without defining the whole url by ceph_mirror.
+
+Change-Id: Ibfb4cc4df52cd1318a5497e2ea02c2ca0893331f
+"
+316,puppet-ceph,201e8b16f6e01de841153e0c33119e9efc4f8404,"Deprecated pid_max and remove sysctl module dependency
+
+Change-Id: I39cabf6fc1286c788ba10fc40402db22fdf1652c
+"
+317,puppet-cloudkitty,d89093fa761d7dd3330daac6b766ea0abb44b2cd,"Add Apache WSGI logging parameters for pipe/syslog
+
+Add parameters for advanced logging configurations in Apache to
+support piped logging and support for syslog (via mod_syslog
+available in Apache >= 2.5.0)
+
+Co-Authored-By: Andy Botting <andy@andybotting.com>
+Change-Id: Iee4cf4b3e20d16624b89f6b004cc857ed5288510
+"
+318,puppet-cloudkitty,d3f0a4852a4c198330e7ee39a66e619183104922,"Remove remaining hard-coded OS user/group
+
+This replaces one remaining hard-coded user which was left by
+the previous attempt[1] to remove individual hard-codes.
+
+[1] 4828d650b3c19e96438eaedd10a652b6aaff2aa0
+
+Change-Id: Iba7e9af291621deeca7651ef9f67ddce453180af
+"
+319,puppet-cloudkitty,2072b01aac999554582756ac95cafa63cf4633ae,"Add support for Elasticsearch storage backend
+
+Change-Id: I9b3b74f3c32a43ae982f0c429c95819dc387bf80
+"
+320,puppet-cloudkitty,021f77ca196a9147bc35f3cea1507ebea415c0f4,"Merge ""Adapt to new type validation in puppetlabs-apache"""
+321,puppet-cloudkitty,355805aba1b114d70197713015f8e73490eaa705,"Adapt to new type validation in puppetlabs-apache
+
+The puppetlabs-apache module is enforcing more strict data type
+validation[1].
+
+This change updates the default values to adapt to that change.
+
+[1] https://github.com/puppetlabs/puppetlabs-apache/commit/f41251e336fa3e7c31c19968ccee74121cf71e47
+
+Closes-Bug: #1983300
+Depends-on: https://review.opendev.org/851652
+Change-Id: Idd4918618831ffab98db91fa90ae493775373bc9
+"
+322,puppet-cloudkitty,d4db053e911abd5a55a3c08ee0b5e8e22e6d521f,"Expose headers option of apache::vhost
+
+The headers option in apache::vhost is required in some case, for
+example when adding the X-XSS-Protection header. This change allows
+customizing the option for the api vhost.
+
+This change also adds support for request_headers so that both request
+headers and response headers can customized.
+
+Change-Id: I4ff7ea57f9c1b29b2209506969497b773cef02ec
+"
+323,puppet-cloudkitty,357eaf6147d3441352957d88dca9116b879ef198,"Remove deprecated tenant_fetcher_backend
+
+... because it was deprecated during Victoria cycle[1].
+
+[1] d58a0a25ed2e1b19627bcdb54d81fce63cd3b6b7
+
+Change-Id: I29bbc0bb81d1fbdfd17e82667cee34d786cd1828
+"
+324,puppet-cloudkitty,71ad6471e970c18a7ec6dc0a9391e5bf988a3e78,"Remove deprecated cloudkitty::ui
+
+This class was deprecated during Yoga cycle[1].
+
+[1] 0f89c9ab8fccbe7840dda5ad5309a12784e417ef
+
+Change-Id: I703934b1b5dcecb01cef100a512a4c30fbf63522
+"
+325,puppet-cloudkitty,17f8ee1b319a77222b60dce4bbb890eeb451188b,"Fix typos in parameter descriptions
+
+Change-Id: I865f8778b4efbb84f295ad22b9f9a16828774e44
+"
+326,puppet-cloudkitty,0ddc83eb3e91b976f43896ef78683667b5eee852,"apache+mod_wsgi: Disable SSL by default
+
+During the previous cycle, a warning message was added to inform users
+of this change.
+
+Now the default value is updated so that SSL is disabled by default.
+
+Change-Id: I705dabab19974c2d9323e49051c8952e6d537820
+"
+327,puppet-sahara,d3700691e33dc52b1b45e643d22e94fd041e7489,"Add Apache WSGI logging parameters for pipe/syslog
+
+Add parameters for advanced logging configurations in Apache to
+support piped logging and support for syslog (via mod_syslog
+available in Apache >= 2.5.0)
+
+Co-Authored-By: Andy Botting <andy@andybotting.com>
+Change-Id: If4d8e52c05cb94336318f45fe4a53eaf91a5c880
+"
+328,puppet-sahara,960499168fcaf9a7dff1860302a16f4ec2a0dd9c,"Adapt to new type validation in puppetlabs-apache
+
+The puppetlabs-apache module is enforcing more strict data type
+validation[1].
+
+This change updates the default values to adapt to that change.
+
+[1] https://github.com/puppetlabs/puppetlabs-apache/commit/f41251e336fa3e7c31c19968ccee74121cf71e47
+
+Closes-Bug: #1983300
+Depends-on: https://review.opendev.org/851652
+Change-Id: I043ced8b30b1fc8e2176d201e38bb8b241701641
+"
+329,puppet-sahara,175657f31cca3b3e5482137c60282ea2a4240331,"Expose headers option of apache::vhost
+
+The headers option in apache::vhost is required in some case, for
+example when adding the X-XSS-Protection header. This change allows
+customizing the option for the api vhost.
+
+This change also adds support for request_headers so that both request
+headers and response headers can customized.
+
+Change-Id: I7431b95051d0cb9c35c9bebc07959d6f95b0cd1b
+"
+330,puppet-sahara,9e7929fddc7c29f040cf7a3738f177479a2b6d98,"Support options for Designate integration
+
+This change introduces support for the following two options which are
+used to configure Designate integration.
+
+ - [DEFAULT] use_designate
+ - [DEFAULT] nameservers
+
+Change-Id: I297dadec50b1b65d3c95e8fc6c17ad25b663c12d
+"
+331,puppet-sahara,b25c0d1ce8210ba2973166b9f645c3189713fee8,"Support [DEFAULT] node_domain
+
+Change-Id: Ie778c334afd4919f79db6defcea172e8d1ae33fa
+"
+332,puppet-sahara,bce29527f5fb00a4781286e14aa9dcaf3b09279c,"Avoid hard-coding OS user/group in each manifest
+
+and replace hard-codes by definition in params.pp .
+
+Change-Id: I096218782a372ac7573baf0c42cac83d570fb761
+"
+333,puppet-vitrage,9934f3a4c8534def5ebb8e9415f332eef085a58c,"Add Apache WSGI logging parameters for pipe/syslog
+
+Add parameters for advanced logging configurations in Apache to
+support piped logging and support for syslog (via mod_syslog
+available in Apache >= 2.5.0)
+
+Co-Authored-By: Andy Botting <andy@andybotting.com>
+Change-Id: Ie6b22e3b0035189bd12499bec42d34c4c80dec6d
+"
+334,puppet-vitrage,bc724cdc0bd2ead43502ff990ac0dd16476890bd,"Accept array for [datasource] types
+
+... because the parameter is ListOpt .
+
+Change-Id: I5b46474568e3e6fbe2751e010f00404ba06cbc72
+"
+335,puppet-vitrage,15068f18e89150515c3813801c196a11d67759af,"Adapt to new type validation in puppetlabs-apache
+
+The puppetlabs-apache module is enforcing more strict data type
+validation[1].
+
+This change updates the default values to adapt to that change.
+
+[1] https://github.com/puppetlabs/puppetlabs-apache/commit/f41251e336fa3e7c31c19968ccee74121cf71e47
+
+Closes-Bug: #1983300
+Depends-on: https://review.opendev.org/851652
+Change-Id: Id33d0bb0cd09af5d653c14e50ac6b3c1745593b6
+"
+336,puppet-vitrage,3b3ace515248d6869886710c18a2754852cd8869,"Expose headers option of apache::vhost
+
+The headers option in apache::vhost is required in some case, for
+example when adding the X-XSS-Protection header. This change allows
+customizing the option for the api vhost.
+
+This change also adds support for request_headers so that both request
+headers and response headers can customized.
+
+Change-Id: If7c7341fbe5b61dcbb5762291484ce4097c0239c
+"
+337,puppet-vitrage,57b3dd7c18006efa54952941f0de06601238acf7,"Simplify handling of notifiers option
+
+Change-Id: I74610eddea1514f25951ec6a793e4b2afff6d59f
+"
+338,puppet-vitrage,5aa74207d4e7875afdabc9d50829ff9f2dcdd38b,"Remove deprecated vitrage::auth
+
+... because this class was deprecated during Yoga cycle[1] in favor of
+the new vitrage::service_credentials class.
+
+[1] 9cf7f1dcd9c1acb58122dabaf434bf251189bb0a
+
+Change-Id: Ice74b6655d8715989edece54e40998c809f8341f
+"
+339,puppet-vitrage,ab776eac410ca6146a6f1dfa4c1351aa44e1fd96,"apache+mod_wsgi: Disable SSL by default
+
+During the previous cycle, a warning message was added to inform users
+of this change.
+
+Now the default value is updated so that SSL is disabled by default.
+
+Change-Id: I72c65b9cdc246df06c2ca4f4e70ea9c3ff4fe768
+"
+340,puppet-placement,5f6e5bc3c391639406d13270efa9b4e79fc7a1e8,"Fix inconsistent parameter name of wsgi::apache
+
+The placement::wsgi::apache class takes the api_port parameter to
+determine the TCP port number, but this name is not commonly used while
+the port parameter is used in the other modules. This change fixes
+the parameter name so that we can keep the implementation more
+consistent.
+
+This also fixes minor differences mainly about formatting.
+
+Change-Id: Ifaed2952e3dc49ee5cde2587bd5f8a35205465fb
+"
+341,puppet-placement,a945887286c9cfe4f9dcfb081424236e4d094788,"apache+mod_wsgi: Allow customizing wsgi process options
+
+This change adds the missing capability to customize wsgi process
+options, which is supported by the other modules.
+
+Change-Id: Ia5cff022c1ad4f6402f2e9d4cd039059b176cd93
+"
+342,puppet-placement,497d0a4e457746215ed9bd2f32738fd1707c7796,"Add Apache WSGI logging parameters for pipe/syslog
+
+Add parameters for advanced logging configurations in Apache to
+support piped logging and support for syslog (via mod_syslog
+available in Apache >= 2.5.0)
+
+Co-Authored-By: Andy Botting <andy@andybotting.com>
+Change-Id: Ie2f8feadd568565308210d73c2a89b2beef43697
+"
+343,puppet-placement,4fb0cae9c4d3d70dbb49f1ded2b99cd9cf111a47,"Adapt to new type validation in puppetlabs-apache
+
+The puppetlabs-apache module is enforcing more strict data type
+validation[1].
+
+This change updates the default values to adapt to that change.
+
+[1] https://github.com/puppetlabs/puppetlabs-apache/commit/f41251e336fa3e7c31c19968ccee74121cf71e47
+
+Closes-Bug: #1983300
+Depends-on: https://review.opendev.org/851652
+Change-Id: I8f865d33ad289b605c27de58d3accf6717888df8
+"
+344,puppet-placement,029c455e4cc310cd5a6a5b5c599f8cb20a8d774d,"Expose headers option of apache::vhost
+
+The headers option in apache::vhost is required in some case, for
+example when adding the X-XSS-Protection header. This change allows
+customizing the option for the api vhost.
+
+This change also adds support for request_headers so that both request
+headers and response headers can customized.
+
+Change-Id: I8500d2de47c4f50920336741db5840bc44faca8b
+"
+345,puppet-placement,f64cc66b85163c7e89d009b7277c932d9794f04e,"Remove deprecated placement::wsgi::apache::ensure_package
+
+... because it was deprecated during Xena cycle[1].
+
+[1] 20a4abee20d04800fd2c07429ed2256184a33037
+
+Change-Id: I72fa9fbedb446e430d6b54a05c5d6ae491133852
+"
+346,puppet-placement,d37eed4ff77fe0b85413303c9bfab0ce181a86fc,"api: Remove deprecated host/api parameter
+
+... because these were deprecated during Victoria cycle[1] and had no
+effect since then.
+
+[1] 14a73aff46a2623bf495391a477d4a8402e7273d
+
+Change-Id: I01a966e504af342a26206fd63788ab5de9c832fc
+"
+347,puppet-placement,c3d53a6558cb87ba1adbac46126142e5ffebfafc,"apache+mod_wsgi: Disable SSL by default
+
+During the previous cycle, a warning message was added to inform users
+of this change.
+
+Now the default value is updated so that SSL is disabled by default.
+
+Change-Id: I2853800fb6f8ba3276f7702b292386058d3343e2
+"
+348,puppet-placement,daa79a964dd4e04673222dd031311f23b0b86ad5,"Do not define service resource when service management is disabled
+
+Change-Id: I83d0b85966210da30a2102e9971fc6d5cf806b66
+"
+349,puppet-murano,0a53e1d4ac6296bbaab5704dc87d34db90bf54fa,"Fix dependencies related to openstacklib::policy
+
+Since [1] was merged, not only openstacklib::poliy::base but also
+openstacklib::policy::default is included to manage the policy file.
+This change ensure openstacklib::policy::default is executed after
+the packages are installed.
+
+[1] 740d1bb822e8543535a2fccb4f2eab4b5809422c
+
+Change-Id: I648ae1113f57f5cd085e8240af74a3c5750b58dc
+"
+350,puppet-murano,aa9b0aac05b1e3c9f59e1c609fb293a5e2579141,"Fix some typos in parameter descriptions
+
+Change-Id: I2965b9dee20b62582fa0ce5c22111ee8b0b99761
+"
+351,puppet-murano,e91028fec63ec9054380372d1df88f24e0005c72,"Accept system scope credentials for Keystone API request
+
+This change is the first step to support secure RBAC and allows usage
+of system scope credentials for Keystone API request.
+
+This change covers the following two items.
+ - assignment of system scope roles to system user
+ - credential parameters for authtoken middleware
+
+Depends-on: https://review.opendev.org/804325
+Change-Id: Iac29be6b05aebe3fb62e7d63c88342d715903165
+"
+352,puppet-murano,bfe5a82b50fb146ca2dff7bfe23c8be23b21920d,"Deprecate remaining [database] idle_timeout
+
+... because support by puppet-oslo was deprecated several cycles ago
+by [1] and the parameter has had no effect since then.
+
+[1] 3eb0e709473d53bc9a26c672c10486828d84d50f
+
+Change-Id: I0fa2d0f171113a0cd176138eec8ecffaa584f776
+"
+353,puppet-murano,621d7c54522d5230d4181b2b104d8af18230ebc0,"Remove deprecated database_min_pool_size
+
+... because it was deprecated during Ussuri cycle.
+
+Change-Id: If2f22dc1d121375367d699d884f4a9efb623e45f
+"
+354,puppet-murano,183e14ab35c7cf379546b235ea98983c1c9d0259,"Create a separate class to manage authtoken parameters
+
+Change-Id: Iab27f6be5d1356963a5eec95bfca25e10ebc3508
+"
+355,puppet-murano,37e07910a95137c8a4ab1f6c972071d975809e45,"Remove usage of custom os_package_type fact
+
+Currently we support usage of distro packages only, and this custom
+fact can be simply replaced by the default fact.
+
+Change-Id: Id544dc2bb4f8e7424b259050e44f403c68f80eb8
+"
+356,puppet-tempest,33b1390004e2399761820ca302c9c82775796b88,"Remove cleanup of old parameter usage
+
+The cleanup logic was added during the previous cycle[1], thus can be
+removed now.
+
+[1] 6b9b452e67832cc1d2a19bebdc107f53b7c07721
+
+Change-Id: I0218674acdbe605838b516724309edc279600c67
+"
+357,puppet-tempest,786ed8421df880ed923f4b804b5a9b528ce50b06,"Remove deprecated parameter for whitebox tempest plugin
+
+... because it was deprecated during the previous cycle by [1].
+
+[1] 9f2d6ea65016f65e9ed21df8353fac0fb81ae369
+
+Change-Id: Iacb4a192fbd1573d89f62890bc0ef80998e41cd3
+"
+358,puppet-tempest,9daaffd5c84aca892804f388532dd7cb46679dd8,"Merge ""Fix missing parameters for heat-tempest-plugin"""
+359,puppet-tempest,735a2d271f7965ea9a97cf1db588b15bbf0131ca,"Add basic manila-tempest-plugin options
+
+This change introduces a few basic manila-tempest-plugin options which
+are required to test Manila in integration jobs.
+
+Change-Id: I76fc72f37a9237f023eb58b37f4b67e698c440f9
+"
+360,puppet-tempest,a115820f0050e77637785a301e8ee6a76c81a0e6,"Support manila-tempest-plugin
+
+This change adds the initial support for manila-tempest-plugin, and
+introduces the new manila_available parameter which determines whether
+the plugin package should be installed and enabled.
+
+Change-Id: I116356b39e22625d8ab87d582e3d0cd54d6b85fc
+"
+361,puppet-tempest,1f35ee44f99282a51529c44a5c81a568100e258a,"CentOS: Do not install packages without tempest tests
+
+It turned out the following two packages do not provide any tempest
+tests.
+ - python3-neutron-vpnaas-tests
+ - python3-neutron-dynamic-routing-tests
+
+This change removes these two packages from the list of plugin packages
+installed, because these are not really used.
+
+Change-Id: I55c973ec43bc9cdbc5db8c476d39ae09b9c00fe5
+"
+362,puppet-tempest,68315770395197a3df03247de4ba1d11313084fb,"Fix missing parameters for heat-tempest-plugin
+
+heat-tempest-plugin requires a few parameters in the dedicated
+[heat_plugin] section. This change adds initial support for these
+parameters  so that heat-tempest-plugin tests can be executed properly.
+
+Closes-Bug: #1963659
+Change-Id: I003f421726f3285a8cca7949896eb63cb6025169
+"
+363,puppet-tempest,be17b220504e044411c75b7418a8e56bc2ba7b2b,"Add support for domain parameters
+
+This change allows configuring *_domain_name parameters for the pre-
+created non-admin credentials.
+
+Change-Id: I5af53ea4d1d28cefcf84a3437c34b96bc6a102a2
+"
+364,puppet-tempest,5928ffdd14b309d303dda9bf3ba153d6c192caf1,"Merge ""Allow arbitrary section name for *_id_setter"""
+365,puppet-tempest,7eeb56c8ffa8e26ed33645f6b63f2158872e0791,"Merge ""Deprecate a parameter for whitebox-tempest-plugin"""
+366,puppet-tempest,9f2d6ea65016f65e9ed21df8353fac0fb81ae369,"Deprecate a parameter for whitebox-tempest-plugin
+
+The plugin has never been supported by puppet-tempest. Also, currently
+no distribution provides the package.
+
+Change-Id: Ib87b5f44134adefea92d73dd91276de6773e9bab
+"
+367,puppet-tempest,affbcb0cc621a11aab7ff342f0d9bc965cd0d7b3,"Allow arbitrary section name for *_id_setter
+
+... so that we can set the parameters in different sections.
+(eg. [database] db_flavor_ref instead of [compute] db_flavor_ref )
+
+Implementation to inject parameters to tempset.conf is replaced by
+the tempest_config type and the ini_setting provider, so that we can
+use the consistent implementation to modify tempest.conf .
+
+This change also fixes ""flapping"" of database/db_flavor_ref. Now
+the parameter is removed by the initial tempest_config resource then
+set by the tempest_glance_id_setter, when db_flavor_name is used.
+
+Closes-Bug: #1978848
+Change-Id: Ife2c563213b9b4118d3925192a2ff45253bcee2b
+"
+368,puppet-tempest,7d69a696c0d0aacb11826f9aa067fff4f17911fd,"Accept array value for [dns] nameservers
+
+... because the parameter is a ListOpt.
+
+Change-Id: I8337435e244b74a2d6dcbec513e807c043f779a7
+"
+369,puppet-tempest,dafa9101d9fb61b9e1ba0ed282ed4b53446552f7,"CentOS: Install package for glance-tempest-plugin
+
+Now RDO ships the python3-glance-tests-tempest package, which actually
+provides the glance-tempest-plugin code. This change ensures the plugin
+package is installed when Glance is enabled.
+
+Related-Bug: #1969361
+Change-Id: Ied266b2bf27f4f1cc37c799019d5fa0b79c6749e
+"
+370,puppet-tempest,7b20e48cec6ce1353abfefb47285490b5b266312,"Merge ""Accept array for [network-feature-enabled] api_extensions"""
+371,puppet-tempest,15c9d96fbf77f713015f68b81c3d2b257536528f,"Merge ""Remove clean up for [compute] image_alt_ssh_user"""
+372,puppet-tempest,c86b427cdd85eb154ff6058079b4596267ca6e15,"Merge ""Add support for [scenario] img_disk_format"""
+373,puppet-zaqar,48b9f853383d1e49bd63303c6bc2a78e5334b37e,"Use standard parameter description format for wsgi::apache
+
+Currently parameter description of the <module>::wsgi::apache classes
+are formatted differently in individual modules, and this is making
+the maintenance effort quite difficult.
+
+This change updates the description format following the standard one
+we are globally using in our modules to reduce undesired differences
+between modules.
+
+Change-Id: I73044b81e5ea8b41693718c3f3b900237300698e
+"
+374,puppet-zaqar,a46ebb674bcccd172bc32ef8cab4c07fab6ed800,"Fix typos in parameter descriptions
+
+Change-Id: I79e28bffadce8b140896b7304addf1c6cb9d0ebe
+"
+375,puppet-zaqar,d34f26c31984ecdc07e6dc7e80dbfa5c1ef7c11f,"Add Apache WSGI logging parameters for pipe/syslog
+
+Add parameters for advanced logging configurations in Apache to
+support piped logging and support for syslog (via mod_syslog
+available in Apache >= 2.5.0)
+
+Co-Authored-By: Andy Botting <andy@andybotting.com>
+Change-Id: If07cac9bc41d173baeadbefb4dad3612c32ee369
+"
+376,puppet-zaqar,e803994bbfa603eb0a39e0c86c16313266c3efbb,"Adapt to new type validation in puppetlabs-apache
+
+The puppetlabs-apache module is enforcing more strict data type
+validation[1].
+
+This change updates the default values to adapt to that change.
+
+[1] https://github.com/puppetlabs/puppetlabs-apache/commit/f41251e336fa3e7c31c19968ccee74121cf71e47
+
+Closes-Bug: #1983300
+Depends-on: https://review.opendev.org/851652
+Change-Id: Ic4160b208ff1d728cab2b77c9261cb18deec8c27
+"
+377,puppet-zaqar,5d3e8252d67ce6bd1606e9cf06c5dea6a1803cf7,"Expose headers option of apache::vhost
+
+The headers option in apache::vhost is required in some case, for
+example when adding the X-XSS-Protection header. This change allows
+customizing the option for the api vhost.
+
+This change also adds support for request_headers so that both request
+headers and response headers can customized.
+
+Change-Id: Ie5f2669a8686a3546b652251881615e0e18bf433
+"
+378,puppet-zaqar,ff956c7a5b9c848a99954e8b877bfa94bcd28e34,"Remove deprecated parameters for websocket service user
+
+... because these parameters were deprecated during Yoga cycle[1] and
+have had no effect since then.
+
+[1] 7eeb46e04d61189925dbbaa06d3016a0235d6200
+
+Change-Id: I6b2ee2e3e9fb633f5f3c6fa9b2e4106e5430484e
+"
+379,puppet-zaqar,f25c60a03be766a2612a9b3cba42085cb3e251cb,"Fix missing updates of deprecated parameters
+
+This is follow-up of 7eeb46e04d61189925dbbaa06d3016a0235d6200 and fixes
+the following two points.
+ - tenant_name is deprecated but a proper warning message is missing
+ - password is deprecated and now is optional, but it is still
+   validated
+
+Closes-Bug: #1973315
+Change-Id: I169d42dee4896843e55d4989dc440ad7e7c7ec94
+"
+380,puppet-zaqar,411e1ea3fee268f560292dce2645a3aebf6f0b7b,"apache+mod_wsgi: Disable SSL by default
+
+During the previous cycle, a warning message was added to inform users
+of this change.
+
+Now the default value is updated so that SSL is disabled by default.
+
+Change-Id: I17cd1a7adcc09168d3f53f44787858ef1d89a0a7
+"
+381,puppet-zaqar,b25f7f6277cf0f008fcfebee2a88d96de8418115,"Avoid hard-coding OS user/group in each manifest
+
+and replace hard-codes by definition in params.pp .
+
+Change-Id: Iadd122b33ac826902468541263f87176a556bd30
+"
+382,puppet-tacker,59babeddfe3a13c4252e845ec274b464d64c5358,"Support more parameters to define/tune api behavior
+
+Change-Id: Ic05d0cddfaccab6759b4d587e0fbc0bcff01977b
+"
+383,puppet-tacker,caec9bd63e86d128fd05c39d1a9157fc9fbd0a4a,"Ensure [DEFAULT] auth_strategy is set
+
+This change ensures the [DEFAULT] auth_strategy is set. Otherwise
+setting the parameter to non-default value doesn't take any effect.
+
+Change-Id: I3fddb08c83dc6bbf10d395c8601e9982de79954f
+"
+384,puppet-tacker,85fea36caec3c5325da4a88fddc8c952ac5595db,"Avoid hard-coding OS user/group in each manifest
+
+and replace hard-codes by definition in params.pp .
+
+Change-Id: I58513948f3501a97c04e9fa1474d6e944cf830d2
+"
+385,puppet-tacker,10eda6e7802ee28855ea2a8012b920d63b0b40a2,"Allow customizing api-paste.ini file
+
+This change introduces a new resource type and the corresponding puppet
+parameter to allow managing records in api-paste.ini.
+
+Change-Id: I92df917887da3220dfb7c7ed10fac123f01af1aa
+"
+386,puppet-tacker,f96713663994e49278297db5acf64cedc8473328,"Remove deprecated database_min_pool_size
+
+... because it was deprecated during Ussuri cycle.
+
+Change-Id: I96f9a5df709f2b4ed0fbcbe6a3e3831d99d983c5
+"
+387,puppet-ec2api,d57cc885f1ed94cb81bec70df95f20fa4b3c94d4,"Ensure [DEFAULT] ssl_insecure is removed by default
+
+... instead of leaving the parameter unmanaged.
+
+Change-Id: Ic549c6f05e55d4b1249a2c068935b26cae81401b
+"
+388,puppet-ec2api,1a1b899275627d59a68264fa824a95b0451a59f2,"Fix typos in parameter descriptions
+
+Change-Id: I145c1230a44e352d180a0286865ee1e81ef00c7d
+"
+389,puppet-ec2api,c1b264f37ec1e29a6e27a47a7f3962839d868fa9,"Remove deprecated use_tpool parameter
+
+... because it was deprecated during Yoga cycle[1].
+
+[1] 1b1e2eb80943ffab29b7efc46f5907096806926c
+
+Change-Id: I51c0e0f0519a3802adecc8473640bbb5219d87b6
+"
+390,puppet-ec2api,e3f44b4ef56a8db870bfbbb8285534b7c21b86cd,"Replace deprecated [DEFAULT] ssl_* parameters
+
+The ssl_* parameters in the [DEFAULT] sections were deprecated and
+the [ssl] parameters should be used instead[1].
+
+[1] 2e2940d1e17706b9d6367ff1783bde9d41891bfa
+
+Change-Id: If5ee27626b778bda4d8cb47162691f3cced35955
+"
+391,puppet-ec2api,a72e6fe9496602d03807155dd7a1ee39a243323d,"Deprecate support for [DEFAULT] ssl_insecure
+
+... because the parameter was already removed[1].
+
+The ssl_ca_file parameter is left because it is still used by
+the oslo_service library.
+
+[1] 5fc752ca6fd1588cc04f3073d1c300d985581041
+
+Change-Id: Ia1035589c68790239c6619f4f3f9b33d7b5ae66a
+"
+392,puppet-ec2api,1b1e2eb80943ffab29b7efc46f5907096806926c,"Deprecate use_tpool parameter
+
+The [DEFAULT] use_tpool parameter has been deprecated in favor of
+the new [database] use_tpool parameter. Also, even the new parameter
+has been deprecated by during Xena release[2].
+
+[2] 74c6bf266e0b86ceb4726cad9268f134d423bae8
+
+Change-Id: I93fabb8d131e51c18f4a5220f2f0f47ad318bb58
+"
+393,puppet-ec2api,aae2074b2eab5d8b92b9bd56a8414c571080261d,"Merge ""Add socket keepalive options for the pymemcache backend"""
+394,puppet-ec2api,5cab8110a43628206a7e686e95484b7cceb11603,"Avoid hard-coding OS user/group in each manifest
+
+and replace hard-codes by definition in params.pp .
+
+Change-Id: I9c96dc528b86ab8243fffcf408e09876960f882f
+"
+395,puppet-pacemaker,397fbfd47097260ed75bd34d4e23b8cac335a43f,"Add fence_watchdog (sbd) stonith agent
+
+This commit adds a new stonith agent ""fence_watchdog"", allowing
+operators to define a stonith device called ""watchdog"" (name is
+hard coded in pacemaker) and eventually add this to the clusters
+stonith topology.
+
+Since this is a special dummy stonith device it is exempted from
+having a constraint rule preventing it from running on the same
+cluster nodes that is in charge of monitoring.
+
+The ""watchdog"" resource needs the sbd daemon to be enabled and
+depends on a valid watchdog timer device - either phisical or
+virtual - to perform self-fencing when required.
+
+Change-Id: Id010a392df0047d53dfab1c21cc78021c8c1aabf
+"
+396,puppet-pacemaker,099af1d0dabdb2ddab203eb66136619ab3647db0,"Expose run_arping to control IP collisions detection
+
+The IPaddr2 resource-agent offers the option to run arping
+for IPv4 collision detection.
+This commit exposes the run_arping parameter, allowing operators
+to eventually enable it via hieradata setting:
+
+pacemaker::resource::ip::run_arping: true
+
+
+Change-Id: I912080a8a9b8002e96d5e37f8e3dfda13f4250db
+"
+397,puppet-pacemaker,a0a0fc2fa8872dc60284b31161def2b128ba8966,"Avoid pick_default to detect promoted_max
+
+This fixes the regression caused by [1], and avoid usage of
+pick_default, which converts undef to an empty string ('').
+
+Usage of an empty string causes type validation failure later when
+the pcmk_bundle resource is defined.
+
+[1] c332d43db6b81d44f56a5a4a67d9988df763b4de
+
+Closes-Bug: #1995565
+Change-Id: Ib909f45b237a478119d4f90ce9f7b752668bad9d
+"
+398,puppet-pacemaker,c332d43db6b81d44f56a5a4a67d9988df763b4de,"bundle: Refactor handling of masters/promoted_max
+
+... to avoid the following warning message.
+
+  Warning: Unknown variable: 'used_promoted_max'.
+
+Change-Id: I9a1f5e2c6d5ef655f3dc681bb10c7ff9e4281c49
+"
+399,puppet-pacemaker,8b88f000bc2afa7801740a484fbade67926fcd5b,"Replace hiera by lookup
+
+The hiera function is deprecated and does not work with the latest
+hieradata version 5. It should be replaced by the new lookup
+function[1].
+
+[1] https://puppet.com/docs/puppet/7/hiera_automatic.html
+
+With the lookup function, we can define value type and merge behavior,
+but these are kept default at this moment to limit scope of this change
+to just simple replacement. Adding value type might be useful to make
+sure the value is in expected type (especially when a boolean value is
+expected), but we will revisit that later.
+
+example:
+lookup(<NAME>, [<VALUE TYPE>], [<MERGE BEHAVIOR>], [<DEFAULT VALUE>])
+
+Change-Id: If206d72caf78cb3a524a1b8eb9ad4399ee4e3ce0
+"
+400,puppet-pacemaker,e0fa810d23a564cfb3a840268693d63e6ee7994a,"Do not install fence-agent packages in base manifests
+
+... because the required package is pulled by individual resource
+types to manage stonith resources.
+
+Related-Bug: #1958653
+Change-Id: I5183c6977002a7be0d6f3c03670205bc11334658
+"
+401,puppet-pacemaker,34bf907131041d3f11c6d1ace407651b550afbd1,"Fix duplicate declaration of package resource
+
+This change replaces ensure_resource('package', ... ) by
+ensure_packages, which automatically converts ensure value to avoid
+conflict caused by present vs installed.
+
+Also, the ignored pacemaker::install::ensure is fixed by this change.
+
+Closes-Bug: #1958653
+Change-Id: I0cb2e32bbfcd056f4429b03d7ba67aaff8a5a760
+"
+402,puppet-pacemaker,9f2e6f10a4883041cc3a086ee85be807af6bd4a0,"Only install required/supported fence agents
+
+This change replaces fence-agents-all package to fence-agents-redfish,
+fence-agents-ipmilan, fence-agents-kdump and fence-agents-rhevm.
+
+The same is proposed in
+https://review.opendev.org/c/openstack/tripleo-puppet-elements/+/818184
+
+This change also fixes failure in unit tests, caused by the following
+warning message shown by the pcs command.
+
+Warning: stonith option 'passwd' is deprecated and should not be used,
+use 'password' instead
+
+Closes-Bug: #1955559
+Related-Bug: #1955572
+Signed-off-by: Chandan Kumar (raukadah) <chkumar@redhat.com>
+Change-Id: I8f5c04cea4afb8f46a8da5ab639ac984bac36cca
+"
+403,puppet-pacemaker,e3df586ef75605cf3a047591921fcbfd94419ec8,"Fix idempotency regex during scale-up check
+
+When a new node must be added in the cluster, an Exec resource
+calls pcs, only if the node is not already present in the cluster.
+The current regex doesn't match pcs' output because of a
+unecessary beg-of-line marker, so fix it accordingly.
+
+Change-Id: Ie0f549ba968f4f11b30705cc9c80856186dfccda
+Closes-Bug: #1950294
+"
+404,puppet-pacemaker,d3a119e9e1ef8af57e8aa781122a4e1b3892c655,"Make sure we wait for the cluster before setting resource_default_op
+
+Same as all other resources, we need to make sure the cluster is up
+before trying to create resource defaults ops.
+
+Change-Id: Ic85628f8844ded5584d90b4848d86961902d204c
+"
+405,puppet-pacemaker,c08236d8c70fd8ff5030727749e3b807e2f42dff,"Replace the deprecated is_ipv6_address function
+
+The is_ipv6_address function in puppetlabs-stdlib is deprecated since
+4.13.0[1] and usage of the function shows the warning message.
+
+[1] https://github.com/puppetlabs/puppetlabs-stdlib/commit/6d185bdaa19f698270a0df4b0a0c05618864b955
+
+Change-Id: If4e2277781711ca96b7ddc2bb8d3115107940a4d
+"
+406,puppet-pacemaker,bc4cc7899cb0530b74315a025496a1a8f86cb8d3,"Support fence_kubevirt apiversion parameter
+
+Add apiversion parameter support added in fence_kubevirt via:
+https://github.com/ClusterLabs/fence-agents/pull/433
+
+Change-Id: I837474c42592683dc4fffbe787e00fa2e15efb91
+"
+407,puppet-pacemaker,744f3b78aa4c3eaa3796af459a7ed2c44af941e9,"Add support for fence_kubevirt fencing agent
+
+This adds support for new fence_kubevirt kubevirt (CNV)
+fencing agent, where CNV virtual machines acting as cluster nodes:
+https://github.com/ClusterLabs/fence-agents/pull/412
+
+Change-Id: I18fd2297063c7157d6b743c7fc9c161bf23dca39
+"
+408,puppet-pacemaker,4399c3a8340598e17ac177acac22399a2e906fa5,"Fix up cluster_setup_extras usage
+
+This pairs with https://review.opendev.org/c/openstack/puppet-tripleo/+/739933.
+
+Starting with pcs 0.10 (CentOS/RHEL 8) the arguments to pcs cluster setup changed completely
+in an incompatible way and in fact are ignored by puppet-pacemaker.
+
+This review makes sure ${cluster_setup_extras_real} is taken into account when the cluster
+is set up via pcs 0.10, addressing LP#1886789.
+
+Related-Bug: #1886789
+Change-Id: I1dc3a72a51a4f816bb79986e845798d869223ffe
+"
+409,puppet-vswitch,0dabc235ad32e53906ab99273af9fd0d2814a984,"Merge ""Add support for other_config:vhost-postcopy-support"""
+410,puppet-vswitch,0cb8438f861537d95e80169d1d60dfe2bfd8e492,"Merge ""Allow configuring PMD Auto Load Balancing"""
+411,puppet-vswitch,da254076b8d1d99b3910fdb5e5b16171cc06b000,"Merge ""Ensure boolean values"""
+412,puppet-vswitch,28031fa70052a93d505d5239f8fb6a348386d8cc,"Add support for other_config:vhost-postcopy-support
+
+ovs v2.12.0 introduced the option to enable postcopy support[1]. This
+adds the capability to manage the option.
+
+[1] https://github.com/openvswitch/ovs/commit/30e834dcb5
+Change-Id: Ie295a8207fdac4afb4eff37fe4eb49b3c942ea77
+"
+413,puppet-vswitch,9d5c61630a53192000b68d3548b6c0c64dae8baf,"Allow configuring PMD Auto Load Balancing
+
+This change introduces a few parameters to enable and configure PMD
+Auto Load Balancing feature in ovs-dpdk.
+
+Change-Id: Idec390b4b01a2f79cbd885fd83c8bf902c9816e7
+"
+414,puppet-vswitch,d46e4588870a33d5c3b1bc4288f5049b9dc44dcb,"Remove unused ovs_dkms_package_name
+
+This was used when Debian required the openvswitch-datapath-dkms
+package but the package was removed long time ago.
+
+Installation of that package was disabled by [1]. The logic to install
+the package was completely removed by [2] and now it is no longer used.
+
+[1] f4d19a7a07eb71034f92d283b598f753fc5ec560
+[2] 3ff72b5736d94ff32535ab345df4cb588c95286f
+
+Change-Id: Id4133d74bfed217ca8a58f136d665d76cc233fb0
+"
+415,puppet-vswitch,0dd46d61652afe1e3492ea50bdb208b0d84b7c92,"Ensure boolean values
+
+The current logic to handle the following three parameters expect
+these accept boolean values and can misbehave if non-boolean value is
+passed.
+ - enable_hw_offload
+ - disable_emc
+ - enable_tso
+
+This change introduces additional validation to ensure boolean values
+are passed.
+
+Change-Id: I5eb4a151c74011c7ad451675bdfd8f9616d0770c
+"
+416,puppet-vswitch,b70e038fe526972af73d99fe9f3574bed7a31119,"Remove usage of $::os_service_default
+
+... because it was deprecated during Yoga cycle by [1].
+
+[1] fb9a08d9726b79d2dcca34dab00150a1b62ef529
+
+Change-Id: I16ed985cc1eee3c923bcd1e5ecdc2266658bed8c
+"
+417,puppet-vswitch,f68f987557afebc43a74af9e5390f72de2faac82,"Fix typos in parameter description and test
+
+Change-Id: Ifbf562a2e7876b92d2b54ec5ee99b43e526c6d7a
+"
+418,puppet-vswitch,9cc95cb07dedeefedd462a8d7b40b55f46646d4c,"Merge ""Remove redundant implementation / warning"""
+419,puppet-vswitch,dd7c84fab21ee841a3b24aac788a44758e5132c9,"Remove redundant implementation / warning
+
+This change removes the redundant implementation introduced by
+fb9a08d9726b79d2dcca34dab00150a1b62ef529, which causes duplicate
+warning messages.
+
+Change-Id: I7a3917142854c77d24524654a093be1620101032
+"
+420,puppet-vswitch,bde509f8ad2cb69155bbc01a5d81bc4526054e14,"dpdk: TSO support
+
+This change allows users to enable TSO support[1] in ovs-dpdk datapath.
+
+[1] https://docs.openvswitch.org/en/latest/topics/userspace-tso/
+
+Change-Id: Ib88dbcfc78e703a4249b942938c0f985f826b5b4
+"
+421,puppet-vswitch,8101f92cfaab65af942e1ef9f6aacb23bf983372,"Merge ""dpdk: Create port and bridge after openvswitch service is configured"""
+422,puppet-vswitch,241169515643c880ea59e7ad5ac5035d5f428f24,"dpdk: Create port and bridge after openvswitch service is configured
+
+This change ensures that vs_port resources and vs_bridge resources
+are invoked after the openvswitch service is started, when ovs-dpdk is
+used instead of normal ovs.
+
+Dependency management is refactored to use the autorequire definition
+of resource types.
+
+Change-Id: If2d062823955b9df30d4a980166d7ab0a18f4b5d
+"
+423,puppet-vswitch,55af0b29fb075cf4eb1e3dccde8f0b3c73906fc4,"Remove remaining parameter for Dynamic Kernel Module Support
+
+... because it was deprecated during Yoga cycle[1] and has had no
+effect since then.
+
+[1] 3ff72b5736d94ff32535ab345df4cb588c95286f
+
+Change-Id: I7a24045ee414a0ae81aa7093621ce07d791e5e31
+"
+424,puppet-openstack_extras,5a6ef41d19133505bef972ceb711cd5cb21d9884,"CentOS: Switch default to zed release
+
+Change-Id: I05326c3231cb1ca2186731afa249e1cbdf1184d9
+"
+425,puppet-openstack_extras,bdf0f42d522d79266c3292005866de8ed0285112,"CentOS: Remove deprecated parameters
+
+These parameters were deprecated during the past cycles and have no
+effect since support for CentOS 8 has been completely removed.
+
+Change-Id: I46cf7b3ae2e2d0cc8521653a1eba5ddb20d7e0eb
+"
+426,puppet-openstack_extras,e5b6421c2de46ab8df67d1fd881f2dc463506288,"Ubuntu/Debian: Switch to yoga
+
+Change-Id: If5d114d663459ee44d9191d50a98c4e264e3309b
+"
+427,puppet-openstack_extras,73ae3a60ac571cb0fca65952f86a56b18645bb80,"Remove deprecated manage_priorities
+
+... because it was deprecated during Xena cycle[1].
+
+[1] edf439e71c15a5f50f09957a48148e2c4357aa5a
+
+Change-Id: Ia680bdce8e548996f577e76dbf2823f2ddda5b25
+"
+428,puppet-openstack_extras,98a21c82864805f169739835fc4adb2063557924,"Remove logics for CentOS 8
+
+.... because CentOS 8 (Stream) is no longer supported.
+
+Change-Id: I16fdf7a5685f6dc8371bed3800dfc26d7f1536ec
+"
+429,puppet-openstack_extras,b59c8bb98620932558b25ff0e82f0afc2b4e315f,"CentOS: Purge advanced-virt repository
+
+This is follow-up of 7c456d4b698817e185a11e8cee5cc30aa333cc89 and makes
+sure the advanced-virt repository is purged when disabled.
+
+Related-Bug: #1969484
+Change-Id: I268675a4d17eb63861de5966e5b95434b792dd10
+"
+430,puppet-openstack_extras,bfad5e4dff2204a55d43f5acbfd1c60fa03dfa7a,"Remove deprecated manage_whz
+
+... because it was deprecated several cycles ago[1].
+
+[1] 9b63dc312ee289681106573d542b7c3a1e4a0ead
+
+Change-Id: I60e37d1c555422c65760705377a7f9c469142e3f
+"
+431,puppet-openstack_extras,a3b178709087a5f3da85087fd2299b9d1eee6962,"CentOS: Deprecate the stream parameter
+
+... because now only CentOS Steam 9 is supported.
+
+Change-Id: I9d39f23159505cec8fbcdd055e6c1fed4b995115
+"
+432,puppet-openstack_extras,41f06f8f7b2fdf8a0eb2fe2ae60cf01f5f1a8152,"cs9: Fix URL for OpenStack packages
+
+CentOS Stream 9 packages are hosted at mirror.stream.centos.org instead
+of mirror.centos.org. Also the directory structure is a bit different
+in the new mirror server.
+
+Closes-Bug: #1978332
+Change-Id: Ie8436a527fc308b70a7c3b34fb86a32604f836ff
+"
+433,puppet-openstack_extras,351cd2427675269e1a5f0a6519d115a40d7abbc3,"CentOS: Switch to yoga release
+
+Change-Id: I77f2b1e229dc9b6cd84bc0dddcfbf9582b7312dc
+"
+434,puppet-openstack_extras,7c456d4b698817e185a11e8cee5cc30aa333cc89,"cs9: Do not enable advanced virtualization repository
+
+The advanced virtualization repository is not available for CentOS
+Stream 9. This change disables the repository by default accordingly.
+
+Closes-Bug: #1969484
+Change-Id: If888cf4f37a625f54ba89ae40a4f30e76c11987e
+"
+435,puppet-rally,9ddb9b608d7c618220d7928555bf722fbaf36c2d,"Migrate parameters to the [openstack] section (2)
+
+The [user_context] parameters and the [cleanup] parameters were moved
+to the [openstack] section by [1]. This change updates the parameter
+sections accordingly.
+
+[1] 4f955b08ec34b5144594bc52b086b24941d51323
+
+Change-Id: I7306bf71b02a2d6e783334b7854515725cc05f0e
+"
+436,puppet-rally,3839e246bdf07d42ee0d7520903dd053da3bbe38,"CentOS: Install openstack plugin package
+
+Currently plugins and jobs for OpenStack environment are not included
+by the base rally package but these are provided by the independent
+plugin package. This change ensures the plugin package is installed.
+
+Note that the plugin package is not available in Ubuntu/Debian now so
+the package is still missing in these distributions.
+
+Closes-Bug: #1969113
+Change-Id: I7b3b285f1cb298bbabae012862ae5dc1223bf602
+"
+437,puppet-rally,0c42b114e40df5ce53fe71dbdcf002d93dab8820,"Cinder: Support tuning parameters for backup feature
+
+Change-Id: I0154bcc2f4c4061c8b567ed9e84f2e1497fc0247
+"
+438,puppet-rally,374608c387d6414eddd37b09535db38827a87bc6,"Remove clean up logics for older releases
+
+These logics were added during Yoga cycle by [1]. Because the old
+parameters should be removed by these clean up logic when a deployment
+is upgraded to Yoga, the logics are no longer required in Zed and
+later.
+
+[1] 08640cf6702624e2ad9f2c13ebdcb38201ebe87b
+
+Change-Id: I6b56b05479216eb3249fa016eced0caa7b052875
+"
+439,puppet-rally,2048e60e708b2c1fbb1f572236a524ce2c71059e,"Remove deprecated role parameters
+
+... because these were deprecated during the previous Yoga cycle[1].
+
+[1] 411dffea5d65c5524fb003cf05bb92659e8d057f
+
+Change-Id: I317fb90858e6fcd542735cc50d36670dd8cf5749
+"
+440,puppet-rally,5ab004c528d838fa4d5bb5350a555c21f9874a12,"Add support for octavia_* parameters
+
+Change-Id: I2e64b0864bed786d1c3f2912a3fddb7bdc7c9176
+"
+441,puppet-rally,411dffea5d65c5524fb003cf05bb92659e8d057f,"Deprecate usage of [role] parameters
+
+The parameters under the [role] section were deprecated in 0.5.0[1],
+and were removed in 0.9.0 . These parameters should be now set in
+the [openstack] section and this is supported by the different
+rally::settings::tempest class.
+
+[1] 48b99755826fc4851b0aadad2ea92a4d4b4a5857
+[2] 435401e0089fa4861709d850ecf49aa9ac974d3c
+
+Change-Id: I3080dc51e38bed05b358974ab25f37e3664bf31a
+"
+442,puppet-rally,08640cf6702624e2ad9f2c13ebdcb38201ebe87b,"Migrate parameters to the [openstack] section
+
+The parameters in the [benchmark] section and the [tempest] section
+were deprecated and have been migrated to the [openstack] section[1].
+This change updates the parameters used to define parameters under
+the new section.
+
+[1] e9539a16fe2e110d7b60a0f0dc95debf715fed36
+
+Change-Id: I0bfabb0d2585a2093c6385325b69322b3041c022
+"
+443,puppet-rally,3776bf1fd356b6335e7e6b0ad2e9f32296f1ba9e,"Remove deprecated database_min_pool_size
+
+... because it was deprecated during Ussuri cycle.
+
+Change-Id: Ia97a8bf53140ea9553e8438578f217ac55af1108
+"
+444,puppet-rally,cfcf315f180cd3b3b584af76bca634cb99f5480a,"Remove ineffective pick functions
+
+The rally class doesn't have any database parameters thus the logic
+to pick these parameters are never used.
+
+Change-Id: I77dbb47ebe0af89b8dede09b3f675c740eb7bc0c
+"
+445,puppet-ovn,1bfe785fd5773ab52bbe892d48ba3af5428add60,"Add support for SSL connections to NB/SB DB
+
+To allow ovn-northd to connect over SSL, the key, cert and cacert needs
+to be set.
+
+Co-Authored-By: Jake Yip <jake.yip@ardc.edu.au>
+Change-Id: I574992748506e357af383588fb89b45203dee738
+"
+446,puppet-ovn,889de8b44dd24fae3c7942735a46e7a3d3aa9dbd,"Add support for clustered DB
+
+For a cluster db, nb_db and sb_db should be set to the cluster
+addresses[1] instead of default local unix socket.
+
+[1]
+e.g. ssl:192.0.2.1:6645,ssl:192.0.2.2:6645,ssl:192.0.2.3:6645
+
+Change-Id: I8f3a8ae0b7c3803726568cf4a1a132a874d00aa9
+"
+447,puppet-ovn,db18c169114496de48904d501b9d20be79671310,"Merge ""Remove logic to support $::os_service_default"""
+448,puppet-ovn,cb9fed3f7aca11dc1b4d6a3867ae4d367b53b671,"Remove logic to support $::os_service_default
+
+... because support for $::os_service_default was deprecated[1] during
+the previous cycle.
+
+[1] 5c809de01630ee7eede500106143810ca57b58b5
+
+Change-Id: Idb92e3d4f52eefabca992c027f1576700fc63234
+"
+449,puppet-ovn,bd2256daeae7ef1a1344cdb172e0f4422ceba706,"Add an extra space to align variables in class ovn::controller
+
+Add an extra space to align variables in class ovn::controller
+
+Change-Id: I40afe284da3b6c0b6f7d6af813a24801f8f40654
+"
+450,puppet-ovn,b5d38dcbd4cc8a56cc0d028f982accf23a19b15c,"Add support for ovn-ofctrl-wait-before-clear
+
+Support was added for this option [1] to avoid dataplane downtime
+during ovn upgrades where schema changes have happened. This
+adds the ability for us to configure it.
+
+[1] https://patchwork.ozlabs.org/project/ovn/patch/20220808182845.2746916-2-mmichels@redhat.com/
+
+Change-Id: Ia3112b9a219b90af718c49776da49078449f09a2
+"
+451,puppet-ovn,a377b3649499532a8b59df5d2334bd6c28dc538b,"Remove redundant resource order
+
+The puppet-vswitch module already makes sure that the vs_config
+resource automatically requires the openvswitch service. Thus defining
+the same order is not necessary.
+
+Change-Id: I8825a7438ba20be97da71acabd57604e7948e130
+"
+452,puppet-ovn,7c1c3312fd2eed7a7f282d72d56cf6ffd1bc2587,"Fix options unmanged by default
+
+The following options are not managed unless the corresponding
+parameters are set.
+
+ - external_ids:ovn-cms-options
+ - external_ids:ovn-chassis-mac-mappings
+
+This change ensures these are purged by default, to avoid leaving old
+settings.
+
+Change-Id: Id98eb9b2da1248b6e49015c8588ceb901362ce72
+"
+453,puppet-ovn,054a60c360f6ef9a06c146131f502444b8a9f0d0,"Add support for external_ids:ovn-encap-tos
+
+... which is available since v21.12.0[1].
+
+[1] https://github.com/ovn-org/ovn/commit/9f2eb5cdb6d67fc8c7e6f477bc4bdc94cfbca028
+
+Change-Id: I33931579b15a1629007dbe3a3d48433739b0ce56
+"
+454,puppet-ovn,59ffa355e9e1e4f391cdfa87d6bc0c3d7e722dd6,"Ensure ovn-bridge-datapath-type is removed by default
+
+This is follow-up of 5c809de01630ee7eede500106143810ca57b58b5 and
+ensures the ovn-bridge-datapath-type option is removed by default.
+Current Puppet does not ensure the value in case a nil value is passed
+thus setting value => undef has no effect.
+
+Change-Id: Ia7e85756882606912e06a6742cd35517b568dffe
+"
+455,puppet-ovn,4f58f3ccd36f46dc20556653d5304ec1fe9c3865,"Merge ""Use native property to set mac table size"""
+456,puppet-ovn,7e15fdd138f6d7bdea68ea614d276627e2181ac3,"Refactor generation of northd options
+
+This change refactors the logic to generate northd options.
+The main change is to split individual options to a separate string and
+concatenate the arrays of options to get the all options.
+
+Change-Id: I4094214cb790497bbab36968fe97d93366898e67
+"
+457,puppet-ovn,289fa3955634aa8a9607484c77d1c343592874c9,"Use native property to set mac table size
+
+Related-Bug: #1958873
+Depends-on: https://review.opendev.org/850086
+Change-Id: Ic9ed651720dc6089cb81a6b303695e62883ad7bd
+"
+458,puppet-ovn,9620b38cf0956c09c086c44033b1a021bbc7617b,"Stop converting integer/boolean in vs_config
+
+Now the vs_config resource type accepts integer or boolean and we don't
+need to convert these types to strings.
+
+Depends-on: https://review.opendev.org/823244
+Change-Id: Id1d2d6eda7747ae7a751214860eed560a5a32499
+"
+459,puppet-ovn,ad6d4bdbe9b2bb26e8dfaef10120b1476ffc8240,"Fix validation of datapath_type
+
+Commit 5c809de01630ee7eede500106143810ca57b58b5 updated default value
+of $datapath_type but the validation logic was not properly updated.
+This change fixes the logic so that it properly fail with the new
+default value (undef).
+
+Change-Id: If44a90a817bf1fd5d5b9bd15fa915243a048a196
+"
+460,puppet-openstack-cookiecutter,51dee31bfa3ef26111fa5cb5c0c99fd7c7e02491,"Fix dependencies related to openstacklib::policy
+
+Since [1] was merged, not only openstacklib::poliy::base but also
+openstacklib::policy::default is included to manage the policy file.
+This change ensure openstacklib::policy::default is executed after
+the packages are installed.
+
+[1] 740d1bb822e8543535a2fccb4f2eab4b5809422c
+
+Change-Id: Ia100cbf628590218dfa4afa051b0fa8acd024a5a
+"
+461,puppet-openstack-cookiecutter,23acf5956dc4a3dc2931be95f9752eeca27cc79c,"Simplify definition to ensure keystone resource creation
+
+Use the whole resource type instead of its individual resources, to
+rely on interface instead of implementation of the dependent module.
+
+Change-Id: I00b501ff5a9e0411445c253febb7f60f31f8babf
+"
+462,puppet-openstack-cookiecutter,333acdd95607d81b21e56762dea96ae9a6b3db17,"Allow customizing project/system roles
+
+Change-Id: Id3b65ff4dcc973b74298ea91f9da7cbafa0f5da7
+"
+463,puppet-openstack-cookiecutter,740d1bb822e8543535a2fccb4f2eab4b5809422c,"Allow purging policy files
+
+This change introduces the new purge_config parameter to the policy
+class so that any policy rules not managed by puppet manifests can be
+cleared.
+
+Change-Id: I1c0739759c43996def7777c4f9aec667d45c2afc
+Co-Authored-By: Martin Schuppert <mschuppert@redhat.com>
+Depends-On: https://review.opendev.org/802305
+"
+464,puppet-openstack-cookiecutter,6a070a817f516eab832cb94a18d1ed87e24aa402,"Use consistent service description
+
+Change-Id: I0a0271139563e2c75cc54fa8957a2a51f2dd0606
+"
+465,puppet-openstack-cookiecutter,dda85763464c387768bcd2c11b0c681fb55aaf71,"Add support for [keystone_authtoken] system_scope
+
+Change-Id: I07bf595085fda652f059bfc9dd5d9330d5ed3278
+"
+466,puppet-openstack-cookiecutter,e6891d5f9ba38c5e5adfa1a5cd2fc491e14544b3,"Skip dependency on keystone endpoint if endpoint is not configured
+
+Change-Id: I198635c5d867d80c40cc43a0ba783aa559d28e51
+"
+467,puppet-qdr,9799862f8112ea40687c3924bb88670319d7d116,"Fix type validation of qdr::listener_port
+
+Currently qdr::listener_port is set to a string by default and triggers
+the following warning.
+
+validate_legacy(validate_re) expects an Integer value, got String at
+[""/etc/puppetlabs/code/modules/qdr/manifests/init.pp"", 198]:
+
+This change fixes type validation logic about the parameter to get rid
+of the warning.
+
+Change-Id: I78203816bd91c8efe0673045fdc6956c83044053
+"
+468,puppet-qdr,94a6b90a6dc72ea9053130ebe7e18eeb331194d6,"Drop Fedora support
+
+Fedora support is never tested, and has been unmaintained for a while.
+Because we don't expect any actual user using OpenStack on Fedora, this
+change drops support for Fedora directly.
+
+Change-Id: Id0f6bf8e1e1f622c957477a8895ac99584176f33
+"
+469,puppet-qdr,6f47b4c6a52c44252c67448d8a175682b08bc8fa,"Fix lint errors with the latest lint packages
+
+This change fixes the following lint errors discovered since we removed
+pin of lint packages.
+
+manifests/init.pp:218:WARNING: absolute class name reference
+manifests/init.pp:219:WARNING: absolute class name reference
+manifests/init.pp:220:WARNING: absolute class name reference
+
+Change-Id: I13332d9c2a91d2b10494ec9f77652cc564d454b2
+"

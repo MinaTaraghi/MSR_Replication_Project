@@ -1,0 +1,15 @@
+,name,c2,files,pp_files,forked
+0,kostyor-cli,0.0,27,0,0
+1,virtlet,0.0,536,0,0
+2,k8s-devbox,0.0,30,0,0
+3,ccp-pipeline-libs,0.0,7,0,0
+4,ccp-docker-jenkins,0.0,30,0,0
+5,ccp-docker-gerrit,0.0,11,0,0
+6,stepler,0.0,495,0,0
+7,ccp-docker-opencontrail,0.0,15,0,0
+8,mk-lab-salt-model,0.0,421,0,0
+9,statkube,0.0,33,0,0
+10,tcp-qa,0.0,454,0,0
+11,k8s-externalipcontroller,0.0,72,0,0
+12,rabbitmq-autocluster,0.0,55,0,0
+13,compliance,0.0,1018,0,0

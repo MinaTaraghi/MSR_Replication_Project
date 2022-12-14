@@ -1,0 +1,1540 @@
+,file_,XCM
+0,profiles/manifests/common/sudo.pp,Initial commit
+1,profiles/manifests/puppet/agent.pp,Initial commit
+2,profiles/manifests/common/packages.pp,Initial commit
+3,profiles/manifests/common/users.pp,Initial commit
+4,profiles/manifests/common/users/install.pp,Initial commit
+5,profiles/manifests/common/users/shells.pp,Initial commit
+6,profiles/manifests/deploy.pp,Initial commit
+7,profiles/manifests/firewall/default.pp,Initial commit
+8,profiles/manifests/firewall/deploy.pp,Initial commit
+9,profiles/manifests/firewall/foreman.pp,Initial commit
+10,profiles/manifests/firewall/gitlab.pp,Initial commit
+11,profiles/manifests/firewall/ldap.pp,Initial commit
+12,profiles/manifests/firewall/post.pp,Initial commit
+13,profiles/manifests/firewall/pre.pp,Initial commit
+14,profiles/manifests/firewall/puppet.pp,Initial commit
+15,profiles/manifests/firewall/purge.pp,Initial commit
+16,profiles/manifests/foreman/proxy.pp,Initial commit
+17,profiles/manifests/foreman/server.pp,Initial commit
+18,profiles/manifests/ftp/server.pp,Initial commit
+19,profiles/manifests/hiera.pp,Initial commit
+20,profiles/manifests/init.pp,Initial commit
+21,profiles/manifests/install.pp,Initial commit
+22,profiles/manifests/lldp.pp,Initial commit
+23,profiles/manifests/ntp/client.pp,Initial commit
+24,profiles/manifests/openstack/cinder.pp,Initial commit
+25,profiles/manifests/openstack/keystone.pp,Initial commit
+26,profiles/manifests/openstack/neutron/client.pp,Initial commit
+27,profiles/manifests/openstack/neutron/server.pp,Initial commit
+28,profiles/manifests/openstack/nova/compute.pp,Initial commit
+29,profiles/manifests/openstack/nova/controller.pp,Initial commit
+30,profiles/manifests/puppet/bootstrap_ca.pp,Initial commit
+31,profiles/manifests/puppet/ca.pp,Initial commit
+32,profiles/manifests/puppet/db.pp,Initial commit
+33,profiles/manifests/puppet/master.pp,Initial commit
+34,profiles/manifests/redis.pp,Initial commit
+35,profiles/manifests/ssh/server.pp,Initial commit
+36,profiles/manifests/yum/default.pp,Initial commit
+37,profiles/manifests/yum/foreman.pp,Initial commit
+38,profiles/tests/init.pp,Initial commit
+39,roles/manifests/openstack/pmlc_controller.pp,Add roles for pmlc versions of openstack boxen
+40,roles/manifests/openstack/pmlc_ceph_osd.pp,Add roles for pmlc versions of openstack boxen
+41,roles/manifests/openstack/pmlc_compute.pp,Add roles for pmlc versions of openstack boxen
+42,roles/manifests/openstack/pmlc_mongo.pp,Add roles for pmlc versions of openstack boxen
+43,roles/manifests/deploy.pp,Initial commit
+44,roles/manifests/default.pp,Initial commit
+45,roles/manifests/foreman/bootstrap_server.pp,Initial commit
+46,roles/manifests/foreman/proxy.pp,Initial commit
+47,roles/manifests/foreman/server.pp,Initial commit
+48,roles/manifests/ftp/server.pp,Initial commit
+49,roles/manifests/init.pp,Initial commit
+50,roles/manifests/openstack/ceph_osd.pp,Initial commit
+51,roles/manifests/openstack/compute.pp,Initial commit
+52,roles/manifests/openstack/controller.pp,Initial commit
+53,roles/manifests/openstack/mongo.pp,Initial commit
+54,roles/manifests/puppet/ca.pp,Initial commit
+55,roles/manifests/puppet/db.pp,Initial commit
+56,roles/manifests/puppet/master.pp,Initial commit
+57,roles/tests/init.pp,Initial commit
+58,pmlc_nova/manifests/init.pp,Initial commit
+59,pmlc_nova/manifests/params.pp,Initial commit
+60,pmlc_nova/manifests/compute/config.pp,Initial commit
+61,pmlc_nova/manifests/compute.pp,Initial commit
+62,pmlc_nova/manifests/compute/install.pp,Initial commit
+63,pmlc_nova/manifests/compute/service.pp,Initial commit
+64,pmlc_nova/manifests/controller.pp,Initial commit
+65,pmlc_nova/manifests/controller/config.pp,Initial commit
+66,pmlc_nova/manifests/controller/install.pp,Initial commit
+67,pmlc_nova/manifests/controller/service.pp,Initial commit
+68,pmlc_nova/tests/init.pp,Initial commit
+69,fuel-plugin-celebrer/deployment_scripts/puppet/manifests/server.pp,Update server.pp
+70,fuel-plugin-celebrer/deployment_scripts/puppet/modules/celebrer/manifests/dashboard.pp,Add dashboard
+71,fuel-plugin-celebrer/deployment_scripts/puppet/modules/celebrer/manifests/params.pp,Update params.pp
+72,fuel-plugin-celebrer/deployment_scripts/puppet/modules/celebrer/manifests/client.pp,Integrate python client
+73,fuel-plugin-celebrer/deployment_scripts/puppet/manifests/ha.pp,Adding HA-proxy supports.
+74,fuel-plugin-celebrer/deployment_scripts/puppet/modules/celebrer/manifests/keystone/auth.pp,Create auth.pp
+75,fuel-plugin-celebrer/deployment_scripts/puppet/manifests/keystone.pp,Adding keystone supports.
+76,fuel-plugin-celebrer/deployment_scripts/puppet/modules/celebrer/manifests/init.pp,Update init.pp
+77,fuel-plugin-celebrer/deployment_scripts/puppet/modules/celebrer/manifests/db.pp,Update db.pp
+78,fuel-plugin-celebrer/deployment_scripts/puppet/manifests/agent.pp,Update agent.pp
+79,fuel-plugin-celebrer/deployment_scripts/puppet/modules/celebrer/manifests/agent.pp,Migrate to v2.0.0 FuelPlugin package version
+80,pmlc_neutron/manifests/server/config.pp,Initial commit
+81,pmlc_neutron/manifests/client/config.pp,Initial commit
+82,pmlc_neutron/manifests/client/service.pp,Initial commit
+83,pmlc_neutron/manifests/init.pp,Initial commit
+84,pmlc_neutron/manifests/params.pp,Initial commit
+85,pmlc_neutron/manifests/server/service.pp,Initial commit
+86,pmlc_neutron/manifests/client.pp,Initial commit
+87,pmlc_neutron/manifests/client/install.pp,Initial commit
+88,pmlc_neutron/manifests/server.pp,Initial commit
+89,pmlc_neutron/manifests/server/install.pp,Initial commit
+90,pmlc_neutron/tests/init.pp,Initial commit
+91,fuel-plugin-standalone-ceph/deployment_scripts/hosts.pp,add ssl part2
+92,fuel-plugin-standalone-ceph/deployment_scripts/modules/standalone-ceph/manifests/hosts.pp,add ssl part2
+93,fuel-plugin-standalone-ceph/deployment_scripts/modules/ceph_override/manifests/ceph/radosgw_keystone.pp,"Plugin refactored to support MOS 9.0
+
+Change-Id: If4bdf9868fd7a3e9a7fc3797ca454912877be179"
+94,fuel-plugin-standalone-ceph/deployment_scripts/modules/ceph_override/manifests/openstack_haproxy/ssl_keys_saving.pp,add ssl part1
+95,fuel-plugin-standalone-ceph/deployment_scripts/ssl_keys_saving.pp,add ssl part1
+96,fuel-plugin-standalone-ceph/deployment_scripts/ceph-mon-firewall.pp,"Plugin refactored to support MOS 9.0
+
+Change-Id: If4bdf9868fd7a3e9a7fc3797ca454912877be179"
+97,fuel-plugin-standalone-ceph/deployment_scripts/ceph-mon-hiera-override.pp,"Plugin refactored to support MOS 9.0
+
+Change-Id: If4bdf9868fd7a3e9a7fc3797ca454912877be179"
+98,fuel-plugin-standalone-ceph/deployment_scripts/cluster-haproxy.pp,"Added rados gw on ceph mons
+
+Change-Id: Ie0f828a7304ff867562daf986e88ce2a23cab805"
+99,fuel-plugin-standalone-ceph/deployment_scripts/cluster.pp,"Added rados gw on ceph mons
+
+Change-Id: Ie0f828a7304ff867562daf986e88ce2a23cab805"
+100,fuel-plugin-standalone-ceph/deployment_scripts/controller-firewall.pp,"Fixes for radosgw and haproxy stats
+
+- radosgw manifest should enable mod_proxy
+  before attempting to start apache
+- Open port 10000 on controllers so that
+  haproxy_backend_status resources can operate
+  from ceph-mon role
+
+Change-Id: I09c2ad1c6d00702f855dd04d0b9be82fc887b7b8"
+101,fuel-plugin-standalone-ceph/deployment_scripts/enable_rados.pp,"Plugin refactored to support MOS 9.0
+
+Change-Id: If4bdf9868fd7a3e9a7fc3797ca454912877be179"
+102,fuel-plugin-standalone-ceph/deployment_scripts/hiera-override.pp,"Development snapshot
+
+  * Change name to standalone-ceph
+  * Deployment groups and their order are correct.
+  * Some issue with ceph/init.pp (hardcoded role name)"
+103,fuel-plugin-standalone-ceph/deployment_scripts/modules/ceph_override/manifests/ceph/enable_rados.pp,"Plugin refactored to support MOS 9.0
+
+Change-Id: If4bdf9868fd7a3e9a7fc3797ca454912877be179"
+104,fuel-plugin-standalone-ceph/deployment_scripts/modules/ceph_override/manifests/ceph/mon.pp,"Plugin refactored to support MOS 9.0
+
+Change-Id: If4bdf9868fd7a3e9a7fc3797ca454912877be179"
+105,fuel-plugin-standalone-ceph/deployment_scripts/modules/ceph_override/manifests/conf.pp,"Removed Ceph module from plugin.
+
+- Ceph init.pp and conf.pp are copied from
+  original ceph module and extended with support
+  of standalone Ceph mon
+
+Change-Id: I7d6c88a48408fe609f368e1ee4de642916916720"
+106,fuel-plugin-standalone-ceph/deployment_scripts/modules/ceph_override/manifests/init.pp,"Removed Ceph module from plugin.
+
+- Ceph init.pp and conf.pp are copied from
+  original ceph module and extended with support
+  of standalone Ceph mon
+
+Change-Id: I7d6c88a48408fe609f368e1ee4de642916916720"
+107,fuel-plugin-standalone-ceph/deployment_scripts/modules/ceph_override/manifests/openstack_haproxy/openstack_haproxy_radosgw.pp,"Plugin refactored to support MOS 9.0
+
+Change-Id: If4bdf9868fd7a3e9a7fc3797ca454912877be179"
+108,fuel-plugin-standalone-ceph/deployment_scripts/mon.pp,"Development snapshot
+
+  * Change name to standalone-ceph
+  * Deployment groups and their order are correct.
+  * Some issue with ceph/init.pp (hardcoded role name)"
+109,fuel-plugin-standalone-ceph/deployment_scripts/openstack-haproxy-radosgw.pp,"Added rados gw on ceph mons
+
+Change-Id: Ie0f828a7304ff867562daf986e88ce2a23cab805"
+110,fuel-plugin-standalone-ceph/deployment_scripts/rados-pki.pp,"Added Ceph keys generation for keystone revocation
+
+Change-Id: If9848be5669e01ce71fcc1398baf8a84a0711c87"
+111,fuel-plugin-standalone-ceph/deployment_scripts/radosgw.pp,"Added rados gw on ceph mons
+
+Change-Id: Ie0f828a7304ff867562daf986e88ce2a23cab805"
+112,fuel-plugin-standalone-ceph/deployment_scripts/radosgw_keystone.pp,"Plugin refactored to support MOS 9.0
+
+Change-Id: If4bdf9868fd7a3e9a7fc3797ca454912877be179"
+113,fuel-plugin-standalone-ceph/deployment_scripts/ceph_client.pp,"Added rados gw on ceph mons
+
+Change-Id: Ie0f828a7304ff867562daf986e88ce2a23cab805"
+114,fuel-plugin-standalone-ceph/deployment_scripts/modules/ceph/examples/site.pp,"Development snapshot
+
+  * Change name to standalone-ceph
+  * Deployment groups and their order are correct.
+  * Some issue with ceph/init.pp (hardcoded role name)"
+115,fuel-plugin-standalone-ceph/deployment_scripts/modules/ceph/manifests/conf.pp,"Development snapshot
+
+  * Change name to standalone-ceph
+  * Deployment groups and their order are correct.
+  * Some issue with ceph/init.pp (hardcoded role name)"
+116,fuel-plugin-standalone-ceph/deployment_scripts/modules/ceph/manifests/ephemeral.pp,"Development snapshot
+
+  * Change name to standalone-ceph
+  * Deployment groups and their order are correct.
+  * Some issue with ceph/init.pp (hardcoded role name)"
+117,fuel-plugin-standalone-ceph/deployment_scripts/modules/ceph/manifests/init.pp,"Development snapshot
+
+  * Change name to standalone-ceph
+  * Deployment groups and their order are correct.
+  * Some issue with ceph/init.pp (hardcoded role name)"
+118,fuel-plugin-standalone-ceph/deployment_scripts/modules/ceph/manifests/keystone.pp,"Development snapshot
+
+  * Change name to standalone-ceph
+  * Deployment groups and their order are correct.
+  * Some issue with ceph/init.pp (hardcoded role name)"
+119,fuel-plugin-standalone-ceph/deployment_scripts/modules/ceph/manifests/mon.pp,"Development snapshot
+
+  * Change name to standalone-ceph
+  * Deployment groups and their order are correct.
+  * Some issue with ceph/init.pp (hardcoded role name)"
+120,fuel-plugin-standalone-ceph/deployment_scripts/modules/ceph/manifests/nova_compute.pp,"Development snapshot
+
+  * Change name to standalone-ceph
+  * Deployment groups and their order are correct.
+  * Some issue with ceph/init.pp (hardcoded role name)"
+121,fuel-plugin-standalone-ceph/deployment_scripts/modules/ceph/manifests/osds.pp,"Development snapshot
+
+  * Change name to standalone-ceph
+  * Deployment groups and their order are correct.
+  * Some issue with ceph/init.pp (hardcoded role name)"
+122,fuel-plugin-standalone-ceph/deployment_scripts/modules/ceph/manifests/osds/osd.pp,"Development snapshot
+
+  * Change name to standalone-ceph
+  * Deployment groups and their order are correct.
+  * Some issue with ceph/init.pp (hardcoded role name)"
+123,fuel-plugin-standalone-ceph/deployment_scripts/modules/ceph/manifests/params.pp,"Development snapshot
+
+  * Change name to standalone-ceph
+  * Deployment groups and their order are correct.
+  * Some issue with ceph/init.pp (hardcoded role name)"
+124,fuel-plugin-standalone-ceph/deployment_scripts/modules/ceph/manifests/pool.pp,"Development snapshot
+
+  * Change name to standalone-ceph
+  * Deployment groups and their order are correct.
+  * Some issue with ceph/init.pp (hardcoded role name)"
+125,fuel-plugin-standalone-ceph/deployment_scripts/modules/ceph/manifests/radosgw.pp,"Development snapshot
+
+  * Change name to standalone-ceph
+  * Deployment groups and their order are correct.
+  * Some issue with ceph/init.pp (hardcoded role name)"
+126,fuel-plugin-standalone-ceph/deployment_scripts/modules/ceph/manifests/ssh.pp,"Development snapshot
+
+  * Change name to standalone-ceph
+  * Deployment groups and their order are correct.
+  * Some issue with ceph/init.pp (hardcoded role name)"
+127,fuel-plugin-external-ceph/deployment_scripts/puppet/modules/external_ceph/manifests/volumes_ephemeral.pp,9.0 Port
+128,fuel-plugin-external-ceph/deployment_scripts/puppet/modules/external_ceph/manifests/conf.pp,9.0 Port
+129,fuel-plugin-external-ceph/deployment_scripts/conf.pp,"Basic integration with cinder, ephemeral
+
+Change-Id: Id3c65aa62d575c7ba698b20ba729a7b3b0303ec0"
+130,fuel-plugin-external-ceph/deployment_scripts/images.pp,"Added integration with external glance
+
+Change-Id: I4fb1693f25dd01d5108eb70d2f40b9a31ac5b049"
+131,fuel-plugin-external-ceph/deployment_scripts/puppet/modules/external_ceph/manifests/images.pp,9.0 Port
+132,fuel-plugin-external-ceph/deployment_scripts/puppet/modules/external_ceph/manifests/radosgw_keystone.pp,9.0 Port
+133,fuel-plugin-external-ceph/deployment_scripts/puppet/modules/external_ceph/manifests/volumes_controller.pp,9.0 Port
+134,fuel-plugin-external-ceph/deployment_scripts/puppet/modules/external_ceph/manifests/volumes_types.pp,9.0 Port
+135,fuel-plugin-external-ceph/deployment_scripts/radosgw-keystone.pp,"Implemented radosgw deployment
+
+Change-Id: Ia1d9678479ec6b606d4a6fb0d1188541f7875da7"
+136,fuel-plugin-external-ceph/deployment_scripts/volumes-and-ephemeral-compute.pp,"Basic integration with cinder, ephemeral
+
+Change-Id: Id3c65aa62d575c7ba698b20ba729a7b3b0303ec0"
+137,fuel-plugin-external-ceph/deployment_scripts/volumes-controller.pp,"Basic integration with cinder, ephemeral
+
+Change-Id: Id3c65aa62d575c7ba698b20ba729a7b3b0303ec0"
+138,fuel-plugin-external-ceph/deployment_scripts/volumes-types.pp,"Made cinder integration multibackend-aware
+
+Change-Id: I3636642678dc4cb388fa64aac92af3051599826a"
+139,fuel-plugin-external-ceph/deployment_scripts/radosgw.pp,"Implemented radosgw deployment
+
+Change-Id: Ia1d9678479ec6b606d4a6fb0d1188541f7875da7"
+140,fuel-plugin-external-ceph/deployment_scripts/volumes.pp,"Basic integration with cinder, ephemeral
+
+Change-Id: Id3c65aa62d575c7ba698b20ba729a7b3b0303ec0"
+141,pmlc_cinder/manifests/config.pp,Initial commit
+142,pmlc_cinder/manifests/init.pp,Initial commit
+143,pmlc_cinder/manifests/install.pp,Initial commit
+144,pmlc_cinder/manifests/params.pp,Initial commit
+145,pmlc_cinder/manifests/service.pp,Initial commit
+146,pmlc_cinder/tests/init.pp,Initial commit
+147,pmlc_keystone/manifests/config.pp,Initial commit
+148,pmlc_keystone/manifests/init.pp,Initial commit
+149,pmlc_keystone/manifests/params.pp,Initial commit
+150,pmlc_keystone/manifests/install.pp,Initial commit
+151,pmlc_keystone/manifests/service.pp,Initial commit
+152,pmlc_keystone/tests/init.pp,Initial commit
+153,puppet-deployapp/manifests/config.pp,Initial Commit
+154,puppet-deployapp/manifests/init.pp,Initial Commit
+155,puppet-deployapp/manifests/install.pp,Initial Commit
+156,puppet-deployapp/manifests/install/apache.pp,Initial Commit
+157,puppet-deployapp/manifests/install/files.pp,Initial Commit
+158,puppet-deployapp/manifests/install/ruby.pp,Initial Commit
+159,puppet-deployapp/manifests/install/user.pp,Initial Commit
+160,puppet-deployapp/manifests/install/yum.pp,Initial Commit
+161,puppet-deployapp/manifests/params.pp,Initial Commit
+162,puppet-deployapp/tests/init.pp,Initial Commit
+163,puppet-foreman_proxy/manifests/config.pp,initial commit
+164,puppet-foreman_proxy/manifests/init.pp,initial commit
+165,puppet-foreman_proxy/manifests/install.pp,initial commit
+166,puppet-foreman_proxy/manifests/params.pp,initial commit
+167,puppet-foreman_proxy/manifests/plugin.pp,initial commit
+168,puppet-foreman_proxy/manifests/plugin/abrt.pp,initial commit
+169,puppet-foreman_proxy/manifests/plugin/abrt/params.pp,initial commit
+170,puppet-foreman_proxy/manifests/plugin/chef.pp,initial commit
+171,puppet-foreman_proxy/manifests/plugin/chef/params.pp,initial commit
+172,puppet-foreman_proxy/manifests/plugin/openscap.pp,initial commit
+173,puppet-foreman_proxy/manifests/plugin/openscap/params.pp,initial commit
+174,puppet-foreman_proxy/manifests/plugin/pulp.pp,initial commit
+175,puppet-foreman_proxy/manifests/plugin/pulp/params.pp,initial commit
+176,puppet-foreman_proxy/manifests/plugin/salt.pp,initial commit
+177,puppet-foreman_proxy/manifests/plugin/salt/params.pp,initial commit
+178,puppet-foreman_proxy/manifests/proxydhcp.pp,initial commit
+179,puppet-foreman_proxy/manifests/proxydns.pp,initial commit
+180,puppet-foreman_proxy/manifests/puppetca.pp,initial commit
+181,puppet-foreman_proxy/manifests/register.pp,initial commit
+182,puppet-foreman_proxy/manifests/service.pp,initial commit
+183,puppet-foreman_proxy/manifests/settings_file.pp,initial commit
+184,puppet-foreman_proxy/manifests/tftp.pp,initial commit
+185,puppet-foreman_proxy/manifests/tftp/copy_file.pp,initial commit
+186,puppet-foreman_proxy/manifests/tftp/sync_file.pp,initial commit
+187,fuel-plugin-openldap/deployment_scripts/modules/openldap/manifests/slave/configure.pp,"Plugin refactoring
+
+* Plugin conveted to package versiom 3.0.0
+* Removed ubuntu LDAP packeges
+* Keystone configuration is implemented but not apllied due to possibele
+  issue with LDAP updateref parameter support
+
+Change-Id: Id918ad82ede5bfa5db0e6028760b4333d5c7a5c5"
+188,fuel-plugin-openldap/deployment_scripts/modules/openldap/manifests/master/configure.pp,"Plugin refactoring
+
+* Plugin conveted to package versiom 3.0.0
+* Removed ubuntu LDAP packeges
+* Keystone configuration is implemented but not apllied due to possibele
+  issue with LDAP updateref parameter support
+
+Change-Id: Id918ad82ede5bfa5db0e6028760b4333d5c7a5c5"
+189,fuel-plugin-openldap/deployment_scripts/openldap_slave.pp,"Plugin refactoring
+
+* Plugin conveted to package versiom 3.0.0
+* Removed ubuntu LDAP packeges
+* Keystone configuration is implemented but not apllied due to possibele
+  issue with LDAP updateref parameter support
+
+Change-Id: Id918ad82ede5bfa5db0e6028760b4333d5c7a5c5"
+190,fuel-plugin-openldap/deployment_scripts/openldap/manifests/controller.pp,First glance changes and fancy changes
+191,fuel-plugin-openldap/deployment_scripts/openldap/manifests/openldap_master.pp,First glance changes and fancy changes
+192,fuel-plugin-openldap/deployment_scripts/openldap/modules/openldap/manifests/firewall.pp,First glance changes and fancy changes
+193,fuel-plugin-openldap/deployment_scripts/openldap/modules/openldap/manifests/init.pp,First glance changes and fancy changes
+194,fuel-plugin-openldap/deployment_scripts/openldap/modules/openldap/manifests/install.pp,First glance changes and fancy changes
+195,fuel-plugin-openldap/deployment_scripts/openldap/modules/openldap/manifests/logging.pp,First glance changes and fancy changes
+196,fuel-plugin-openldap/deployment_scripts/openldap/modules/openldap/manifests/master/configure.pp,First glance changes and fancy changes
+197,fuel-plugin-openldap/deployment_scripts/openldap/modules/openldap/manifests/master/dit.pp,First glance changes and fancy changes
+198,fuel-plugin-openldap/deployment_scripts/openldap/modules/openldap/manifests/master/key_infra.pp,First glance changes and fancy changes
+199,fuel-plugin-openldap/deployment_scripts/openldap/modules/openldap/manifests/openldap_master.pp,First glance changes and fancy changes
+200,fuel-plugin-openldap/deployment_scripts/openldap/modules/openldap/manifests/openldap_slave.pp,First glance changes and fancy changes
+201,fuel-plugin-openldap/deployment_scripts/openldap/modules/openldap/manifests/slave/cacert.pp,First glance changes and fancy changes
+202,fuel-plugin-openldap/deployment_scripts/openldap/modules/openldap/manifests/slave/configure.pp,First glance changes and fancy changes
+203,fuel-plugin-openldap/deployment_scripts/openldap/modules/openldap/manifests/slave/keystone_config.pp,First glance changes and fancy changes
+204,fuel-plugin-openldap/deployment_scripts/openldap/modules/openldap/manifests/slave/keystone_params.pp,First glance changes and fancy changes
+205,fuel-plugin-openldap/deployment_scripts/modules/openldap/manifests/firewall.pp,"Plugin refactoring
+
+* Plugin conveted to package versiom 3.0.0
+* Removed ubuntu LDAP packeges
+* Keystone configuration is implemented but not apllied due to possibele
+  issue with LDAP updateref parameter support
+
+Change-Id: Id918ad82ede5bfa5db0e6028760b4333d5c7a5c5"
+206,fuel-plugin-openldap/deployment_scripts/modules/openldap/manifests/init.pp,"Plugin refactoring
+
+* Plugin conveted to package versiom 3.0.0
+* Removed ubuntu LDAP packeges
+* Keystone configuration is implemented but not apllied due to possibele
+  issue with LDAP updateref parameter support
+
+Change-Id: Id918ad82ede5bfa5db0e6028760b4333d5c7a5c5"
+207,fuel-plugin-openldap/deployment_scripts/modules/openldap/manifests/install.pp,"Plugin refactoring
+
+* Plugin conveted to package versiom 3.0.0
+* Removed ubuntu LDAP packeges
+* Keystone configuration is implemented but not apllied due to possibele
+  issue with LDAP updateref parameter support
+
+Change-Id: Id918ad82ede5bfa5db0e6028760b4333d5c7a5c5"
+208,fuel-plugin-openldap/deployment_scripts/modules/openldap/manifests/logging.pp,"Plugin refactoring
+
+* Plugin conveted to package versiom 3.0.0
+* Removed ubuntu LDAP packeges
+* Keystone configuration is implemented but not apllied due to possibele
+  issue with LDAP updateref parameter support
+
+Change-Id: Id918ad82ede5bfa5db0e6028760b4333d5c7a5c5"
+209,fuel-plugin-openldap/deployment_scripts/modules/openldap/manifests/master/dit.pp,"Plugin refactoring
+
+* Plugin conveted to package versiom 3.0.0
+* Removed ubuntu LDAP packeges
+* Keystone configuration is implemented but not apllied due to possibele
+  issue with LDAP updateref parameter support
+
+Change-Id: Id918ad82ede5bfa5db0e6028760b4333d5c7a5c5"
+210,fuel-plugin-openldap/deployment_scripts/modules/openldap/manifests/master/key_infra.pp,"Plugin refactoring
+
+* Plugin conveted to package versiom 3.0.0
+* Removed ubuntu LDAP packeges
+* Keystone configuration is implemented but not apllied due to possibele
+  issue with LDAP updateref parameter support
+
+Change-Id: Id918ad82ede5bfa5db0e6028760b4333d5c7a5c5"
+211,fuel-plugin-openldap/deployment_scripts/modules/openldap/manifests/openldap_ks.pp,"Plugin refactoring
+
+* Plugin conveted to package versiom 3.0.0
+* Removed ubuntu LDAP packeges
+* Keystone configuration is implemented but not apllied due to possibele
+  issue with LDAP updateref parameter support
+
+Change-Id: Id918ad82ede5bfa5db0e6028760b4333d5c7a5c5"
+212,fuel-plugin-openldap/deployment_scripts/modules/openldap/manifests/openldap_master.pp,"Plugin refactoring
+
+* Plugin conveted to package versiom 3.0.0
+* Removed ubuntu LDAP packeges
+* Keystone configuration is implemented but not apllied due to possibele
+  issue with LDAP updateref parameter support
+
+Change-Id: Id918ad82ede5bfa5db0e6028760b4333d5c7a5c5"
+213,fuel-plugin-openldap/deployment_scripts/modules/openldap/manifests/openldap_slave.pp,"Plugin refactoring
+
+* Plugin conveted to package versiom 3.0.0
+* Removed ubuntu LDAP packeges
+* Keystone configuration is implemented but not apllied due to possibele
+  issue with LDAP updateref parameter support
+
+Change-Id: Id918ad82ede5bfa5db0e6028760b4333d5c7a5c5"
+214,fuel-plugin-openldap/deployment_scripts/modules/openldap/manifests/slave/cacert.pp,"Plugin refactoring
+
+* Plugin conveted to package versiom 3.0.0
+* Removed ubuntu LDAP packeges
+* Keystone configuration is implemented but not apllied due to possibele
+  issue with LDAP updateref parameter support
+
+Change-Id: Id918ad82ede5bfa5db0e6028760b4333d5c7a5c5"
+215,fuel-plugin-openldap/deployment_scripts/modules/openldap/manifests/slave/keystone_config.pp,"Plugin refactoring
+
+* Plugin conveted to package versiom 3.0.0
+* Removed ubuntu LDAP packeges
+* Keystone configuration is implemented but not apllied due to possibele
+  issue with LDAP updateref parameter support
+
+Change-Id: Id918ad82ede5bfa5db0e6028760b4333d5c7a5c5"
+216,fuel-plugin-openldap/deployment_scripts/modules/openldap/manifests/slave/keystone_params.pp,"Plugin refactoring
+
+* Plugin conveted to package versiom 3.0.0
+* Removed ubuntu LDAP packeges
+* Keystone configuration is implemented but not apllied due to possibele
+  issue with LDAP updateref parameter support
+
+Change-Id: Id918ad82ede5bfa5db0e6028760b4333d5c7a5c5"
+217,fuel-plugin-openldap/deployment_scripts/openldap_ks.pp,"Plugin refactoring
+
+* Plugin conveted to package versiom 3.0.0
+* Removed ubuntu LDAP packeges
+* Keystone configuration is implemented but not apllied due to possibele
+  issue with LDAP updateref parameter support
+
+Change-Id: Id918ad82ede5bfa5db0e6028760b4333d5c7a5c5"
+218,fuel-plugin-openldap/deployment_scripts/openldap_master.pp,"Plugin refactoring
+
+* Plugin conveted to package versiom 3.0.0
+* Removed ubuntu LDAP packeges
+* Keystone configuration is implemented but not apllied due to possibele
+  issue with LDAP updateref parameter support
+
+Change-Id: Id918ad82ede5bfa5db0e6028760b4333d5c7a5c5"
+219,fuel-plugin-openldap/deployment_scripts/puppet/manifests/controller.pp,First glance changes and fancy changes
+220,fuel-plugin-openldap/deployment_scripts/puppet/manifests/openldap_master.pp,First glance changes and fancy changes
+221,fuel-plugin-openldap/deployment_scripts/puppet/modules/plugin_sscc_openldap/manifests/firewall.pp,First glance changes and fancy changes
+222,fuel-plugin-openldap/deployment_scripts/puppet/modules/plugin_sscc_openldap/manifests/init.pp,First glance changes and fancy changes
+223,fuel-plugin-openldap/deployment_scripts/puppet/modules/plugin_sscc_openldap/manifests/install.pp,First glance changes and fancy changes
+224,fuel-plugin-openldap/deployment_scripts/puppet/modules/plugin_sscc_openldap/manifests/logging.pp,First glance changes and fancy changes
+225,fuel-plugin-openldap/deployment_scripts/puppet/modules/plugin_sscc_openldap/manifests/master/configure.pp,First glance changes and fancy changes
+226,fuel-plugin-openldap/deployment_scripts/puppet/modules/plugin_sscc_openldap/manifests/master/dit.pp,First glance changes and fancy changes
+227,fuel-plugin-openldap/deployment_scripts/puppet/modules/plugin_sscc_openldap/manifests/master/key_infra.pp,First glance changes and fancy changes
+228,fuel-plugin-openldap/deployment_scripts/puppet/modules/plugin_sscc_openldap/manifests/openldap_master.pp,First glance changes and fancy changes
+229,fuel-plugin-openldap/deployment_scripts/puppet/modules/plugin_sscc_openldap/manifests/openldap_slave.pp,First glance changes and fancy changes
+230,fuel-plugin-openldap/deployment_scripts/puppet/modules/plugin_sscc_openldap/manifests/slave/cacert.pp,First glance changes and fancy changes
+231,fuel-plugin-openldap/deployment_scripts/puppet/modules/plugin_sscc_openldap/manifests/slave/configure.pp,First glance changes and fancy changes
+232,fuel-plugin-openldap/deployment_scripts/puppet/modules/plugin_sscc_openldap/manifests/slave/keystone_config.pp,First glance changes and fancy changes
+233,fuel-plugin-openldap/deployment_scripts/puppet/modules/plugin_sscc_openldap/manifests/slave/keystone_params.pp,First glance changes and fancy changes
+234,fuel-plugin-openldap/deployment_scripts/puppet/modules/firewall/manifests/init.pp,unneeded modules removed
+235,fuel-plugin-openldap/deployment_scripts/puppet/modules/firewall/manifests/linux.pp,unneeded modules removed
+236,fuel-plugin-openldap/deployment_scripts/puppet/modules/firewall/manifests/linux/archlinux.pp,unneeded modules removed
+237,fuel-plugin-openldap/deployment_scripts/puppet/modules/firewall/manifests/linux/debian.pp,unneeded modules removed
+238,fuel-plugin-openldap/deployment_scripts/puppet/modules/firewall/manifests/linux/gentoo.pp,unneeded modules removed
+239,fuel-plugin-openldap/deployment_scripts/puppet/modules/firewall/manifests/linux/redhat.pp,unneeded modules removed
+240,fuel-plugin-openldap/deployment_scripts/puppet/modules/firewall/manifests/params.pp,unneeded modules removed
+241,fuel-plugin-openldap/deployment_scripts/puppet/modules/stdlib/examples/file_line.pp,unneeded modules removed
+242,fuel-plugin-openldap/deployment_scripts/puppet/modules/stdlib/examples/has_interface_with.pp,unneeded modules removed
+243,fuel-plugin-openldap/deployment_scripts/puppet/modules/stdlib/examples/has_ip_address.pp,unneeded modules removed
+244,fuel-plugin-openldap/deployment_scripts/puppet/modules/stdlib/examples/has_ip_network.pp,unneeded modules removed
+245,fuel-plugin-openldap/deployment_scripts/puppet/modules/stdlib/examples/init.pp,unneeded modules removed
+246,fuel-plugin-openldap/deployment_scripts/puppet/modules/stdlib/manifests/init.pp,unneeded modules removed
+247,fuel-plugin-openldap/deployment_scripts/puppet/modules/stdlib/manifests/stages.pp,unneeded modules removed
+248,fuel-plugin-lcm/deployment_scripts/puppet/manifests/check_stats.pp,Initial data
+249,fuel-plugin-lcm/deployment_scripts/puppet/manifests/database.pp,Initial data
+250,fuel-plugin-lcm/deployment_scripts/puppet/manifests/foreman.pp,Initial data
+251,fuel-plugin-lcm/deployment_scripts/puppet/manifests/haproxy.pp,Initial data
+252,fuel-plugin-lcm/deployment_scripts/puppet/manifests/hiera.pp,Initial data
+253,fuel-plugin-lcm/deployment_scripts/puppet/manifests/keepalived.pp,Initial data
+254,fuel-plugin-lcm/deployment_scripts/puppet/manifests/lcm_update_hosts.pp,Initial data
+255,fuel-plugin-lcm/deployment_scripts/puppet/manifests/nsm.pp,Initial data
+256,fuel-plugin-lcm/deployment_scripts/puppet/manifests/puppet.pp,Initial data
+257,fuel-plugin-lcm/deployment_scripts/puppet/manifests/r10k_deploy.pp,Initial data
+258,fuel-plugin-lcm/deployment_scripts/puppet/manifests/r10k_init.pp,Initial data
+259,fuel-plugin-lcm/deployment_scripts/puppet/manifests/r10k_webhook.pp,Initial data
+260,fuel-plugin-lcm/deployment_scripts/puppet/modules/plugin_lcm/manifests/init.pp,Initial data
+261,fuel-plugin-lcm/deployment_scripts/puppet/modules/plugin_lcm/manifests/puppet_master_status.pp,Initial data
+262,fuel-plugin-lcm/deployment_scripts/puppet/modules/plugin_lcm/manifests/tasks/check_stats.pp,Initial data
+263,fuel-plugin-lcm/deployment_scripts/puppet/modules/plugin_lcm/manifests/tasks/database.pp,Initial data
+264,fuel-plugin-lcm/deployment_scripts/puppet/modules/plugin_lcm/manifests/tasks/foreman.pp,Initial data
+265,fuel-plugin-lcm/deployment_scripts/puppet/modules/plugin_lcm/manifests/tasks/haproxy.pp,Initial data
+266,fuel-plugin-lcm/deployment_scripts/puppet/modules/plugin_lcm/manifests/tasks/hiera.pp,Initial data
+267,fuel-plugin-lcm/deployment_scripts/puppet/modules/plugin_lcm/manifests/tasks/keepalived.pp,Initial data
+268,fuel-plugin-lcm/deployment_scripts/puppet/modules/plugin_lcm/manifests/tasks/lcm_update_hosts.pp,Initial data
+269,fuel-plugin-lcm/deployment_scripts/puppet/modules/plugin_lcm/manifests/tasks/nsm.pp,Initial data
+270,fuel-plugin-lcm/deployment_scripts/puppet/modules/plugin_lcm/manifests/tasks/puppet.pp,Initial data
+271,fuel-plugin-lcm/deployment_scripts/puppet/modules/plugin_lcm/manifests/tasks/r10k_deploy.pp,Initial data
+272,fuel-plugin-lcm/deployment_scripts/puppet/modules/plugin_lcm/manifests/tasks/r10k_init.pp,Initial data
+273,fuel-plugin-lcm/deployment_scripts/puppet/modules/plugin_lcm/manifests/tasks/r10k_webhook.pp,Initial data
+274,fuel-plugin-lcm/deployment_scripts/puppet/modules/plugin_lcm/manifests/wrapper/firewall.pp,Initial data
+275,fuel-plugin-lcm/deployment_scripts/puppet/modules/r10k/manifests/config.pp,Initial data
+276,fuel-plugin-lcm/deployment_scripts/puppet/modules/r10k/manifests/init.pp,Initial data
+277,fuel-plugin-lcm/deployment_scripts/puppet/modules/r10k/manifests/make_env.pp,Initial data
+278,fuel-plugin-lcm/deployment_scripts/puppet/modules/r10k_webhook/manifests/config.pp,Initial data
+279,fuel-plugin-lcm/deployment_scripts/puppet/modules/r10k_webhook/manifests/init.pp,Initial data
+280,fuel-plugin-lcm/deployment_scripts/puppet/modules/r10k_webhook/manifests/install.pp,Initial data
+281,fuel-plugin-lcm/deployment_scripts/puppet/modules/r10k_webhook/manifests/install/apache.pp,Initial data
+282,fuel-plugin-lcm/deployment_scripts/puppet/modules/r10k_webhook/manifests/install/files.pp,Initial data
+283,fuel-plugin-lcm/deployment_scripts/puppet/modules/r10k_webhook/manifests/install/ruby.pp,Initial data
+284,fuel-plugin-lcm/deployment_scripts/puppet/modules/r10k_webhook/manifests/install/user.pp,Initial data
+285,fuel-plugin-lcm/deployment_scripts/puppet/modules/r10k_webhook/manifests/install/yum.pp,Initial data
+286,fuel-plugin-lcm/deployment_scripts/puppet/modules/r10k_webhook/manifests/params.pp,Initial data
+287,fuel-plugin-swift/deployment_scripts/puppet/manifests/controller.pp,"Add rebalance script and cron job
+
+  - $swift_nodes are only storage nodes now
+  - Haproxy on controller nodes has standalone swift as backend so standalone swift works out of box now
+  - Add configuration options to Fuel UI
+
+Change-Id: I30f2f4889b06f92d0b5ed4101beb6b794700d3d0"
+288,fuel-plugin-swift/deployment_scripts/puppet/manifests/rebalance_cronjob.pp,Add rebalance_cronjob.pp
+289,fuel-plugin-swift/deployment_scripts/puppet/modules/standalone_swift/manifests/controller.pp,"Add rebalance script and cron job
+
+  - $swift_nodes are only storage nodes now
+  - Haproxy on controller nodes has standalone swift as backend so standalone swift works out of box now
+  - Add configuration options to Fuel UI
+
+Change-Id: I30f2f4889b06f92d0b5ed4101beb6b794700d3d0"
+290,fuel-plugin-swift/deployment_scripts/puppet/modules/standalone_swift/manifests/init.pp,"Configure swift draft site.pp
+
+  - So far does not work, installation relies on keystone configuration.
+  - Need to add swift, keystone puppet modules to the pugin.
+
+Add standalone_swift puppet module
+Improving init.pp
+
+  - Add filter_nodes_nonstrict function
+  - Move code from site.pp to init.pp in puppet module
+  - Fix problems in init.pp
+
+Change-Id: I32592477aa6a5466fd1e2b5e11dd214ba8a58f41"
+291,fuel-plugin-swift/deployment_scripts/puppet/manifests/site.pp,Update tasks.yaml
+292,fuel-plugin-swift/deployment_scripts/puppet/modules/standalone_swift/tests/init.pp,"Configure swift draft site.pp
+
+  - So far does not work, installation relies on keystone configuration.
+  - Need to add swift, keystone puppet modules to the pugin.
+
+Add standalone_swift puppet module
+Improving init.pp
+
+  - Add filter_nodes_nonstrict function
+  - Move code from site.pp to init.pp in puppet module
+  - Fix problems in init.pp
+
+Change-Id: I32592477aa6a5466fd1e2b5e11dd214ba8a58f41"
+293,puppet-sudo/manifests/allow.pp,Initial commit.
+294,puppet-sudo/manifests/conf.pp,Initial commit.
+295,puppet-sudo/manifests/configs.pp,Initial commit.
+296,puppet-sudo/manifests/init.pp,Initial commit.
+297,puppet-sudo/manifests/package.pp,Initial commit.
+298,puppet-sudo/manifests/package/aix.pp,Initial commit.
+299,puppet-sudo/manifests/package/solaris.pp,Initial commit.
+300,puppet-sudo/manifests/params.pp,Initial commit.
+301,puppet-sudo/tests/init.pp,Initial commit.
+302,fuel-plugin-backup/deployment_scripts/backup/modules/backup_ceph/manifests/backup_ceph.pp,"Backup moved to post-deployment
+
+Removed Custom role
+Made changes to run backup_ceph.sh on primary_controller node"
+303,fuel-plugin-backup/deployment_scripts/backup/modules/backup_etc/manifests/backup_etc.pp,"Added backup mysql, etc, fuel modules"
+304,fuel-plugin-backup/deployment_scripts/backup/modules/backup_fuel/manifests/backup_fuel.pp,"Added backup mysql, etc, fuel modules"
+305,fuel-plugin-backup/deployment_scripts/backup/modules/backup_mysql/manifests/backup_mysql.pp,"Backup moved to post-deployment
+
+Removed Custom role
+Made changes to run backup_ceph.sh on primary_controller node"
+306,fuel-plugin-backup/deployment_scripts/backup/modules/ceph_backup/manifests/backup_mysql.pp,Added mysql-backup tasks and plugin structure
+307,fuel-plugin-backup/deployment_scripts/backup/modules/ceph_backup/manifests/deploy_hiera_override.pp,Added mysql-backup tasks and plugin structure
+308,fuel-plugin-backup/deployment_scripts/backup/modules/mysql_backup/manifests/backup_mysql.pp,Added mysql-backup tasks and plugin structure
+309,fuel-plugin-backup/deployment_scripts/backup/modules/mysql_backup/manifests/deploy_hiera_override.pp,Added mysql-backup tasks and plugin structure
+310,solar-resources/resources/apache_puppet/1.0.0/actions/remove.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+311,solar-resources/resources/apache_puppet/1.0.0/actions/run.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+312,solar-resources/resources/apache_puppet/actions/remove.pp,"Add apache puppet resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+313,solar-resources/resources/apache_puppet/actions/run.pp,"Add apache puppet resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+314,solar-resources/resources/ceph_mon/1.0.0/actions/run.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+315,solar-resources/resources/ceph_mon/1.0.0/actions/test.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+316,solar-resources/resources/ceph_mon/actions/run.pp,Add ceph_mon resource and example
+317,solar-resources/resources/ceph_mon/actions/test.pp,Add ceph_mon resource and example
+318,solar-resources/resources/cinder_api_puppet/1.0.0/actions/remove.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+319,solar-resources/resources/cinder_api_puppet/1.0.0/actions/run.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+320,solar-resources/resources/cinder_api_puppet/1.0.0/actions/update.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+321,solar-resources/resources/cinder_api_puppet/actions/remove.pp,"Add cinder api puppet resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+322,solar-resources/resources/cinder_api_puppet/actions/run.pp,"Add cinder api puppet resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+323,solar-resources/resources/cinder_api_puppet/actions/update.pp,Add and fix update actions. changing db_port should work now
+324,solar-resources/resources/cinder_glance_puppet/1.0.0/actions/remove.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+325,solar-resources/resources/cinder_glance_puppet/1.0.0/actions/run.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+326,solar-resources/resources/cinder_glance_puppet/actions/remove.pp,"Add cinder_glance resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+327,solar-resources/resources/cinder_glance_puppet/actions/run.pp,"Add cinder_glance resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+328,solar-resources/resources/cinder_puppet/1.0.0/actions/remove.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+329,solar-resources/resources/cinder_puppet/1.0.0/actions/run.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+330,solar-resources/resources/cinder_puppet/actions/remove.pp,"Add cinder puppet resource
+
+Populate from autogenerated parameters
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+331,solar-resources/resources/cinder_puppet/actions/run.pp,"Add cinder puppet resource
+
+Populate from autogenerated parameters
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+332,solar-resources/resources/cinder_scheduler_puppet/1.0.0/actions/remove.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+333,solar-resources/resources/cinder_scheduler_puppet/1.0.0/actions/run.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+334,solar-resources/resources/cinder_scheduler_puppet/1.0.0/actions/update.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+335,solar-resources/resources/cinder_scheduler_puppet/actions/remove.pp,"Add cinder scheduler puppet resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+336,solar-resources/resources/cinder_scheduler_puppet/actions/run.pp,"Add cinder scheduler puppet resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+337,solar-resources/resources/cinder_scheduler_puppet/actions/update.pp,Add and fix update actions. changing db_port should work now
+338,solar-resources/resources/cinder_volume_puppet/1.0.0/actions/remove.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+339,solar-resources/resources/cinder_volume_puppet/1.0.0/actions/run.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+340,solar-resources/resources/cinder_volume_puppet/1.0.0/actions/update.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+341,solar-resources/resources/cinder_volume_puppet/actions/remove.pp,"Add cinder volume puppet resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+342,solar-resources/resources/cinder_volume_puppet/actions/run.pp,"Add cinder volume puppet resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+343,solar-resources/resources/cinder_volume_puppet/actions/update.pp,Add and fix update actions. changing db_port should work now
+344,solar-resources/resources/glance_puppet/1.0.0/actions/remove.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+345,solar-resources/resources/glance_puppet/1.0.0/actions/run.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+346,solar-resources/resources/glance_puppet/1.0.0/actions/update.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+347,solar-resources/resources/glance_puppet/actions/remove.pp,"Glance-puppet, not fully working yet"
+348,solar-resources/resources/glance_puppet/actions/run.pp,"Glance-puppet, not fully working yet"
+349,solar-resources/resources/glance_puppet/actions/update.pp,"Glance-puppet, not fully working yet"
+350,solar-resources/resources/glance_registry_puppet/1.0.0/actions/remove.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+351,solar-resources/resources/glance_registry_puppet/1.0.0/actions/run.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+352,solar-resources/resources/glance_registry_puppet/1.0.0/actions/update.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+353,solar-resources/resources/glance_registry_puppet/actions/remove.pp,"Add glance registry puppet resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+354,solar-resources/resources/glance_registry_puppet/actions/run.pp,"Add glance registry puppet resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+355,solar-resources/resources/glance_registry_puppet/actions/update.pp,"Add glance registry puppet resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+356,solar-resources/resources/keystone_puppet/1.0.0/actions/remove.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+357,solar-resources/resources/keystone_puppet/1.0.0/actions/run.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+358,solar-resources/resources/keystone_puppet/1.0.0/actions/update.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+359,solar-resources/resources/keystone_puppet/actions/remove.pp,Puppet: added port to keystone
+360,solar-resources/resources/keystone_puppet/actions/run.pp,Keystone can now be deployed using Puppet
+361,solar-resources/resources/keystone_puppet/actions/update.pp,Puppet: added port to keystone
+362,solar-resources/resources/neutron_agents_dhcp_puppet/1.0.0/actions/remove.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+363,solar-resources/resources/neutron_agents_dhcp_puppet/1.0.0/actions/run.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+364,solar-resources/resources/neutron_agents_dhcp_puppet/actions/remove.pp,"Add neutron DHCP agent resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+365,solar-resources/resources/neutron_agents_dhcp_puppet/actions/run.pp,"Add neutron DHCP agent resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+366,solar-resources/resources/neutron_agents_l3_puppet/1.0.0/actions/remove.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+367,solar-resources/resources/neutron_agents_l3_puppet/1.0.0/actions/run.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+368,solar-resources/resources/neutron_agents_l3_puppet/actions/remove.pp,"Add neutron L3 agent resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+369,solar-resources/resources/neutron_agents_l3_puppet/actions/run.pp,"Add neutron L3 agent resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+370,solar-resources/resources/neutron_agents_metadata_puppet/1.0.0/actions/remove.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+371,solar-resources/resources/neutron_agents_metadata_puppet/1.0.0/actions/run.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+372,solar-resources/resources/neutron_agents_metadata_puppet/actions/remove.pp,"Add neutron metadata agent resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+373,solar-resources/resources/neutron_agents_metadata_puppet/actions/run.pp,"Add neutron metadata agent resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+374,solar-resources/resources/neutron_agents_ml2_ovs_puppet/1.0.0/actions/remove.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+375,solar-resources/resources/neutron_agents_ml2_ovs_puppet/1.0.0/actions/run.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+376,solar-resources/resources/neutron_agents_ml2_ovs_puppet/actions/remove.pp,"Add neutron agent ovs with ml2 plugin resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+377,solar-resources/resources/neutron_agents_ml2_ovs_puppet/actions/run.pp,"Add neutron agent ovs with ml2 plugin resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+378,solar-resources/resources/neutron_plugins_ml2_puppet/1.0.0/actions/remove.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+379,solar-resources/resources/neutron_plugins_ml2_puppet/1.0.0/actions/run.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+380,solar-resources/resources/neutron_plugins_ml2_puppet/actions/remove.pp,"Add neutron ml2 plugin resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+381,solar-resources/resources/neutron_plugins_ml2_puppet/actions/run.pp,"Add neutron ml2 plugin resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+382,solar-resources/resources/neutron_puppet/1.0.0/actions/remove.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+383,solar-resources/resources/neutron_puppet/1.0.0/actions/run.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+384,solar-resources/resources/neutron_puppet/actions/remove.pp,neutron_puppet works now with upstream openstack manifests
+385,solar-resources/resources/neutron_puppet/actions/run.pp,neutron_puppet works now with upstream openstack manifests
+386,solar-resources/resources/neutron_server_puppet/1.0.0/actions/remove.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+387,solar-resources/resources/neutron_server_puppet/1.0.0/actions/run.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+388,solar-resources/resources/neutron_server_puppet/actions/remove.pp,"Decouple neutron resource
+
+* Use neutron base and API(server) resources
+* Add db and db user for neutron composition layer
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+389,solar-resources/resources/neutron_server_puppet/actions/run.pp,"Decouple neutron resource
+
+* Use neutron base and API(server) resources
+* Add db and db user for neutron composition layer
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+390,solar-resources/resources/node_network_puppet/1.0.0/actions/remove.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+391,solar-resources/resources/node_network_puppet/1.0.0/actions/run.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+392,solar-resources/resources/node_network_puppet/actions/remove.pp,"Add node_network puppet resource
+
+WIP
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+393,solar-resources/resources/node_network_puppet/actions/run.pp,"Add node_network puppet resource
+
+WIP
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+394,solar-resources/resources/nova_api_puppet/1.0.0/actions/remove.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+395,solar-resources/resources/nova_api_puppet/1.0.0/actions/run.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+396,solar-resources/resources/nova_api_puppet/1.0.0/actions/update.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+397,solar-resources/resources/nova_api_puppet/actions/remove.pp,change path
+398,solar-resources/resources/nova_api_puppet/actions/run.pp,change path
+399,solar-resources/resources/nova_api_puppet/actions/update.pp,Add and fix update actions. changing db_port should work now
+400,solar-resources/resources/nova_compute_libvirt_puppet/1.0.0/actions/remove.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+401,solar-resources/resources/nova_compute_libvirt_puppet/1.0.0/actions/run.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+402,solar-resources/resources/nova_compute_libvirt_puppet/1.0.0/actions/update.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+403,solar-resources/resources/nova_compute_libvirt_puppet/actions/remove.pp,"Add nova comp libvirt resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+404,solar-resources/resources/nova_compute_libvirt_puppet/actions/run.pp,"Add nova comp libvirt resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+405,solar-resources/resources/nova_compute_libvirt_puppet/actions/update.pp,Added update action to nova_compute_libvirt_puppet
+406,solar-resources/resources/nova_compute_puppet/1.0.0/actions/remove.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+407,solar-resources/resources/nova_compute_puppet/1.0.0/actions/run.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+408,solar-resources/resources/nova_compute_puppet/1.0.0/actions/update.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+409,solar-resources/resources/nova_compute_puppet/actions/remove.pp,"Add nova compute resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+410,solar-resources/resources/nova_compute_puppet/actions/run.pp,"Add nova compute resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+411,solar-resources/resources/nova_compute_puppet/actions/update.pp,Add update action for nova_compute
+412,solar-resources/resources/nova_conductor_puppet/1.0.0/actions/remove.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+413,solar-resources/resources/nova_conductor_puppet/1.0.0/actions/run.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+414,solar-resources/resources/nova_conductor_puppet/1.0.0/actions/update.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+415,solar-resources/resources/nova_conductor_puppet/actions/remove.pp,"Add nova conductor resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+416,solar-resources/resources/nova_conductor_puppet/actions/run.pp,"Add nova conductor resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+417,solar-resources/resources/nova_conductor_puppet/actions/update.pp,Add and fix update actions. changing db_port should work now
+418,solar-resources/resources/nova_generic_service_puppet/1.0.0/actions/remove.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+419,solar-resources/resources/nova_generic_service_puppet/1.0.0/actions/run.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+420,solar-resources/resources/nova_generic_service_puppet/1.0.0/actions/update.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+421,solar-resources/resources/nova_generic_service_puppet/actions/remove.pp,"Fix nova_generic_service resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+422,solar-resources/resources/nova_generic_service_puppet/actions/run.pp,"Fix nova_generic_service resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+423,solar-resources/resources/nova_generic_service_puppet/actions/update.pp,Add and fix update actions. changing db_port should work now
+424,solar-resources/resources/nova_neutron_puppet/1.0.0/actions/remove.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+425,solar-resources/resources/nova_neutron_puppet/1.0.0/actions/run.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+426,solar-resources/resources/nova_neutron_puppet/actions/remove.pp,"Add nova_neutron resource.
+
+Includes configuration only classes for nova compute:
+nova::network::neutron and nova::compute::neutron
+Combined into the single resource as the latter one
+is too small (it has only 2 conf params)
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+427,solar-resources/resources/nova_neutron_puppet/actions/run.pp,"Add nova_neutron resource.
+
+Includes configuration only classes for nova compute:
+nova::network::neutron and nova::compute::neutron
+Combined into the single resource as the latter one
+is too small (it has only 2 conf params)
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+428,solar-resources/resources/nova_puppet/1.0.0/actions/remove.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+429,solar-resources/resources/nova_puppet/1.0.0/actions/run.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+430,solar-resources/resources/nova_puppet/actions/remove.pp,"Create nova base puppet resource
+
+Also align composition layer:
+- rename nova_api to nova_puppet
+- adjust connections
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+431,solar-resources/resources/nova_puppet/actions/run.pp,"Create nova base puppet resource
+
+Also align composition layer:
+- rename nova_api to nova_puppet
+- adjust connections
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+432,solar-resources/resources/rabbitmq_service/1.0.0/actions/remove.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+433,solar-resources/resources/rabbitmq_service/1.0.0/actions/run.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76"
+434,solar-resources/resources/rabbitmq_service/actions/remove.pp,Rabbimtq service from puppet
+435,solar-resources/resources/rabbitmq_service/actions/run.pp,Rabbimtq service from puppet
+436,solar-resources/resources/neutron_server_puppet/actions/update.pp,Add and fix update actions. changing db_port should work now
+437,solar-resources/resources/nova_puppet/actions/update.pp,Add and fix update actions. changing db_port should work now
+438,solar-resources/resources/cinder_puppet/actions/update.pp,Add and fix update actions. changing db_port should work now
+439,solar-resources/resources/nova_generic_service/actions/remove.pp,"Add nova generic service resource
+
+* The generic service resource may be used
+to deploy multiple nova services like vncproxy,
+scheduler, consoleauth etc.
+* Add composition layer for the scheduler service
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+440,solar-resources/resources/nova_generic_service/actions/run.pp,"Add nova generic service resource
+
+* The generic service resource may be used
+to deploy multiple nova services like vncproxy,
+scheduler, consoleauth etc.
+* Add composition layer for the scheduler service
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+441,solar-resources/resources/neutron_agents_ovs_puppet/actions/remove.pp,"Add neutron OVS agent resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+442,solar-resources/resources/neutron_agents_ovs_puppet/actions/run.pp,"Add neutron OVS agent resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+443,solar-resources/resources/neutron_plugins_ovs_puppet/actions/remove.pp,"Add neutron ovs plugin resource
+
+* Add compostion layer for OVS plugin with GRE
+* Fix neutron tags, use_ssl input
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+444,solar-resources/resources/neutron_plugins_ovs_puppet/actions/run.pp,"Add neutron ovs plugin resource
+
+* Add compostion layer for OVS plugin with GRE
+* Fix neutron tags, use_ssl input
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+445,solar-resources/resources/nova_api/actions/remove.pp,nova-api resource
+446,solar-resources/resources/nova_api/actions/run.pp,nova-api resource
+447,solar-resources/resources/keystone_puppet/puppet/examples/apache_dropin.pp,Keystone can now be deployed using Puppet
+448,solar-resources/resources/keystone_puppet/puppet/examples/apache_with_paths.pp,Keystone can now be deployed using Puppet
+449,solar-resources/resources/keystone_puppet/puppet/examples/ldap_full.pp,Keystone can now be deployed using Puppet
+450,solar-resources/resources/keystone_puppet/puppet/examples/ldap_identity.pp,Keystone can now be deployed using Puppet
+451,solar-resources/resources/keystone_puppet/puppet/manifests/client.pp,Keystone can now be deployed using Puppet
+452,solar-resources/resources/keystone_puppet/puppet/manifests/config.pp,Keystone can now be deployed using Puppet
+453,solar-resources/resources/keystone_puppet/puppet/manifests/db/mysql.pp,Keystone can now be deployed using Puppet
+454,solar-resources/resources/keystone_puppet/puppet/manifests/db/mysql/host_access.pp,Keystone can now be deployed using Puppet
+455,solar-resources/resources/keystone_puppet/puppet/manifests/db/postgresql.pp,Keystone can now be deployed using Puppet
+456,solar-resources/resources/keystone_puppet/puppet/manifests/db/sync.pp,Keystone can now be deployed using Puppet
+457,solar-resources/resources/keystone_puppet/puppet/manifests/dev/install.pp,Keystone can now be deployed using Puppet
+458,solar-resources/resources/keystone_puppet/puppet/manifests/endpoint.pp,Keystone can now be deployed using Puppet
+459,solar-resources/resources/keystone_puppet/puppet/manifests/init.pp,Keystone can now be deployed using Puppet
+460,solar-resources/resources/keystone_puppet/puppet/manifests/ldap.pp,Keystone can now be deployed using Puppet
+461,solar-resources/resources/keystone_puppet/puppet/manifests/params.pp,Keystone can now be deployed using Puppet
+462,solar-resources/resources/keystone_puppet/puppet/manifests/python.pp,Keystone can now be deployed using Puppet
+463,solar-resources/resources/keystone_puppet/puppet/manifests/roles/admin.pp,Keystone can now be deployed using Puppet
+464,solar-resources/resources/keystone_puppet/puppet/manifests/wsgi/apache.pp,Keystone can now be deployed using Puppet
+465,solar-resources/resources/keystone_puppet/puppet/tests/site.pp,Keystone can now be deployed using Puppet
+466,solar-resources/resources/puppet_inifile/actions/remove.pp,Puppet: Keystone remove action is working now
+467,solar-resources/resources/puppet_inifile/actions/run.pp,Keystone can now be deployed using Puppet
+468,solar-resources/resources/puppet_inifile/puppet/tests/ini_setting.pp,Keystone can now be deployed using Puppet
+469,solar-resources/resources/puppet_inifile/puppet/tests/ini_subsetting.pp,Keystone can now be deployed using Puppet
+470,solar-resources/resources/puppet_mysql/actions/remove.pp,Puppet: Keystone remove action is working now
+471,solar-resources/resources/puppet_mysql/actions/run.pp,Keystone can now be deployed using Puppet
+472,solar-resources/resources/puppet_mysql/puppet/examples/site.pp,Keystone can now be deployed using Puppet
+473,solar-resources/resources/puppet_mysql/puppet/examples/test.pp,Keystone can now be deployed using Puppet
+474,solar-resources/resources/puppet_mysql/puppet/manifests/backup.pp,Keystone can now be deployed using Puppet
+475,solar-resources/resources/puppet_mysql/puppet/manifests/config.pp,Keystone can now be deployed using Puppet
+476,solar-resources/resources/puppet_mysql/puppet/manifests/db.pp,Keystone can now be deployed using Puppet
+477,solar-resources/resources/puppet_mysql/puppet/manifests/init.pp,Keystone can now be deployed using Puppet
+478,solar-resources/resources/puppet_mysql/puppet/manifests/java.pp,Keystone can now be deployed using Puppet
+479,solar-resources/resources/puppet_mysql/puppet/manifests/params.pp,Keystone can now be deployed using Puppet
+480,solar-resources/resources/puppet_mysql/puppet/manifests/password.pp,Keystone can now be deployed using Puppet
+481,solar-resources/resources/puppet_mysql/puppet/manifests/python.pp,Keystone can now be deployed using Puppet
+482,solar-resources/resources/puppet_mysql/puppet/manifests/replicator.pp,Keystone can now be deployed using Puppet
+483,solar-resources/resources/puppet_mysql/puppet/manifests/ruby.pp,Keystone can now be deployed using Puppet
+484,solar-resources/resources/puppet_mysql/puppet/manifests/server.pp,Keystone can now be deployed using Puppet
+485,solar-resources/resources/puppet_mysql/puppet/manifests/server/account_security.pp,Keystone can now be deployed using Puppet
+486,solar-resources/resources/puppet_mysql/puppet/manifests/server/monitor.pp,Keystone can now be deployed using Puppet
+487,solar-resources/resources/puppet_mysql/puppet/manifests/server/mysqltuner.pp,Keystone can now be deployed using Puppet
+488,solar-resources/resources/puppet_mysql/puppet/spec/fixtures/manifests/site.pp,Keystone can now be deployed using Puppet
+489,solar-resources/resources/puppet_mysql/puppet/tests/backup.pp,Keystone can now be deployed using Puppet
+490,solar-resources/resources/puppet_mysql/puppet/tests/init.pp,Keystone can now be deployed using Puppet
+491,solar-resources/resources/puppet_mysql/puppet/tests/java.pp,Keystone can now be deployed using Puppet
+492,solar-resources/resources/puppet_mysql/puppet/tests/python.pp,Keystone can now be deployed using Puppet
+493,solar-resources/resources/puppet_mysql/puppet/tests/ruby.pp,Keystone can now be deployed using Puppet
+494,solar-resources/resources/puppet_mysql/puppet/tests/server.pp,Keystone can now be deployed using Puppet
+495,solar-resources/resources/puppet_stdlib/actions/remove.pp,Puppet: Keystone remove action is working now
+496,solar-resources/resources/puppet_stdlib/actions/run.pp,Keystone can now be deployed using Puppet
+497,solar-resources/resources/puppet_stdlib/puppet/manifests/init.pp,Keystone can now be deployed using Puppet
+498,solar-resources/resources/puppet_stdlib/puppet/manifests/stages.pp,Keystone can now be deployed using Puppet
+499,solar-resources/resources/puppet_stdlib/puppet/tests/file_line.pp,Keystone can now be deployed using Puppet
+500,solar-resources/resources/puppet_stdlib/puppet/tests/has_interface_with.pp,Keystone can now be deployed using Puppet
+501,solar-resources/resources/puppet_stdlib/puppet/tests/has_ip_address.pp,Keystone can now be deployed using Puppet
+502,solar-resources/resources/puppet_stdlib/puppet/tests/has_ip_network.pp,Keystone can now be deployed using Puppet
+503,solar-resources/resources/puppet_stdlib/puppet/tests/init.pp,Keystone can now be deployed using Puppet
+504,puppet-savanna/examples/site.pp,"Basic structure, preparing environment, Savanna installation, database"
+505,puppet-savanna/inifile/spec/fixtures/modules/inherit_test1/manifests/init.pp,manifest v 0.1 based on nova manifests from puppetlabs
+506,puppet-savanna/inifile/tests/ini_setting.pp,manifest v 0.1 based on nova manifests from puppetlabs
+507,puppet-savanna/inifile/tests/ini_subsetting.pp,manifest v 0.1 based on nova manifests from puppetlabs
+508,puppet-savanna/keystone/manifests/client.pp,manifest v 0.1 based on nova manifests from puppetlabs
+509,puppet-savanna/keystone/manifests/db/mysql.pp,manifest v 0.1 based on nova manifests from puppetlabs
+510,puppet-savanna/keystone/manifests/db/mysql/host_access.pp,manifest v 0.1 based on nova manifests from puppetlabs
+511,puppet-savanna/keystone/manifests/db/postgresql.pp,manifest v 0.1 based on nova manifests from puppetlabs
+512,puppet-savanna/keystone/manifests/dev/install.pp,manifest v 0.1 based on nova manifests from puppetlabs
+513,puppet-savanna/keystone/manifests/endpoint.pp,manifest v 0.1 based on nova manifests from puppetlabs
+514,puppet-savanna/keystone/manifests/init.pp,manifest v 0.1 based on nova manifests from puppetlabs
+515,puppet-savanna/keystone/manifests/ldap.pp,manifest v 0.1 based on nova manifests from puppetlabs
+516,puppet-savanna/keystone/manifests/params.pp,manifest v 0.1 based on nova manifests from puppetlabs
+517,puppet-savanna/keystone/manifests/python.pp,manifest v 0.1 based on nova manifests from puppetlabs
+518,puppet-savanna/keystone/manifests/roles/admin.pp,manifest v 0.1 based on nova manifests from puppetlabs
+519,puppet-savanna/keystone/tests/site.pp,manifest v 0.1 based on nova manifests from puppetlabs
+520,puppet-savanna/manifests/config.pp,"Basic structure, preparing environment, Savanna installation, database"
+521,puppet-savanna/manifests/db.pp,"Basic structure, preparing environment, Savanna installation, database"
+522,puppet-savanna/manifests/environment.pp,"Basic structure, preparing environment, Savanna installation, database"
+523,puppet-savanna/manifests/final.pp,"Basic structure, preparing environment, Savanna installation, database"
+524,puppet-savanna/manifests/init.pp,"Basic structure, preparing environment, Savanna installation, database"
+525,puppet-savanna/manifests/install.pp,"Basic structure, preparing environment, Savanna installation, database"
+526,puppet-savanna/manifests/params.pp,"Basic structure, preparing environment, Savanna installation, database"
+527,puppet-savanna/mysql/manifests/backup.pp,manifest v 0.1 based on nova manifests from puppetlabs
+528,puppet-savanna/mysql/manifests/config.pp,manifest v 0.1 based on nova manifests from puppetlabs
+529,puppet-savanna/mysql/manifests/db.pp,manifest v 0.1 based on nova manifests from puppetlabs
+530,puppet-savanna/mysql/manifests/db_new.pp,manifest v 0.1 based on nova manifests from puppetlabs
+531,puppet-savanna/mysql/manifests/init.pp,manifest v 0.1 based on nova manifests from puppetlabs
+532,puppet-savanna/mysql/manifests/java.pp,manifest v 0.1 based on nova manifests from puppetlabs
+533,puppet-savanna/mysql/manifests/params.pp,manifest v 0.1 based on nova manifests from puppetlabs
+534,puppet-savanna/mysql/manifests/perl.pp,manifest v 0.1 based on nova manifests from puppetlabs
+535,puppet-savanna/mysql/manifests/php.pp,manifest v 0.1 based on nova manifests from puppetlabs
+536,puppet-savanna/mysql/manifests/python.pp,manifest v 0.1 based on nova manifests from puppetlabs
+537,puppet-savanna/mysql/manifests/ruby.pp,manifest v 0.1 based on nova manifests from puppetlabs
+538,puppet-savanna/mysql/manifests/server.pp,manifest v 0.1 based on nova manifests from puppetlabs
+539,puppet-savanna/mysql/manifests/server/account_security.pp,manifest v 0.1 based on nova manifests from puppetlabs
+540,puppet-savanna/mysql/manifests/server/config.pp,manifest v 0.1 based on nova manifests from puppetlabs
+541,puppet-savanna/mysql/manifests/server/monitor.pp,manifest v 0.1 based on nova manifests from puppetlabs
+542,puppet-savanna/mysql/manifests/server/mysqltuner.pp,manifest v 0.1 based on nova manifests from puppetlabs
+543,puppet-savanna/mysql/tests/backup.pp,manifest v 0.1 based on nova manifests from puppetlabs
+544,puppet-savanna/mysql/tests/init.pp,manifest v 0.1 based on nova manifests from puppetlabs
+545,puppet-savanna/mysql/tests/java.pp,manifest v 0.1 based on nova manifests from puppetlabs
+546,puppet-savanna/mysql/tests/mysql_database.pp,manifest v 0.1 based on nova manifests from puppetlabs
+547,puppet-savanna/mysql/tests/mysql_grant.pp,manifest v 0.1 based on nova manifests from puppetlabs
+548,puppet-savanna/mysql/tests/mysql_user.pp,manifest v 0.1 based on nova manifests from puppetlabs
+549,puppet-savanna/mysql/tests/perl.pp,manifest v 0.1 based on nova manifests from puppetlabs
+550,puppet-savanna/mysql/tests/python.pp,manifest v 0.1 based on nova manifests from puppetlabs
+551,puppet-savanna/mysql/tests/ruby.pp,manifest v 0.1 based on nova manifests from puppetlabs
+552,puppet-savanna/mysql/tests/server.pp,manifest v 0.1 based on nova manifests from puppetlabs
+553,puppet-savanna/mysql/tests/server/account_security.pp,manifest v 0.1 based on nova manifests from puppetlabs
+554,puppet-savanna/mysql/tests/server/config.pp,manifest v 0.1 based on nova manifests from puppetlabs
+555,puppet-savanna/openstack/manifests/custom_repos.pp,manifest v 0.1 based on nova manifests from puppetlabs
+556,puppet-savanna/savanna/examples/site.pp,manifest v 0.1 based on nova manifests from puppetlabs
+557,puppet-savanna/savanna/manifests/api.pp,manifest v 0.1 based on nova manifests from puppetlabs
+558,puppet-savanna/savanna/manifests/db/mysql.pp,manifest v 0.1 based on nova manifests from puppetlabs
+559,puppet-savanna/savanna/manifests/db/mysql/host_access.pp,manifest v 0.1 based on nova manifests from puppetlabs
+560,puppet-savanna/savanna/manifests/init.pp,manifest v 0.1 based on nova manifests from puppetlabs
+561,puppet-savanna/savanna/manifests/params.pp,manifest v 0.1 based on nova manifests from puppetlabs
+562,puppet-savanna/stdlib/manifests/init.pp,manifest v 0.1 based on nova manifests from puppetlabs
+563,puppet-savanna/stdlib/manifests/stages.pp,manifest v 0.1 based on nova manifests from puppetlabs
+564,puppet-savanna/stdlib/spec/fixtures/manifests/site.pp,manifest v 0.1 based on nova manifests from puppetlabs
+565,puppet-savanna/stdlib/tests/file_line.pp,manifest v 0.1 based on nova manifests from puppetlabs
+566,puppet-savanna/stdlib/tests/has_interface_with.pp,manifest v 0.1 based on nova manifests from puppetlabs
+567,puppet-savanna/stdlib/tests/has_ip_address.pp,manifest v 0.1 based on nova manifests from puppetlabs
+568,puppet-savanna/stdlib/tests/has_ip_network.pp,manifest v 0.1 based on nova manifests from puppetlabs
+569,puppet-savanna/stdlib/tests/init.pp,manifest v 0.1 based on nova manifests from puppetlabs
+570,fuel-plugin-etckeeper/deployment_scripts/etckeeper_commit.pp,"Add userguide and fix commit task
+
+This change adds the userguide to the plugin. Additionally this change
+fixes deployment failures due to no pendinding changes when the commit
+task is run."
+571,fuel-plugin-vxlan-vlan-7/deployment_scripts/configure-ml2-compute.pp,"Refactoring #1
+
+1) Cosmetic metadata changes
+2) Functional fixes for puppet manifests.
+
+This refactoring step provides minimal changes from original version.
+Right way to change values in ml2_conf.ini is to make hiera override.
+This step will be proposed later.
+
+Type: refactor
+Task: MOSS-331Refactoring 1"
+572,fuel-plugin-vxlan-vlan-7/deployment_scripts/configure-ml2-controller.pp,"Refactoring #1
+
+1) Cosmetic metadata changes
+2) Functional fixes for puppet manifests.
+
+This refactoring step provides minimal changes from original version.
+Right way to change values in ml2_conf.ini is to make hiera override.
+This step will be proposed later.
+
+Type: refactor
+Task: MOSS-331Refactoring 1"
+573,solar/f2s/resources/apache/actions/run.pp,Save generated resources with inputs
+574,solar/f2s/resources/api-proxy/actions/run.pp,Save generated resources with inputs
+575,solar/f2s/resources/ceilometer-compute/actions/run.pp,Save generated resources with inputs
+576,solar/f2s/resources/ceilometer-controller/actions/run.pp,Save generated resources with inputs
+577,solar/f2s/resources/ceilometer-keystone/actions/run.pp,Save generated resources with inputs
+578,solar/f2s/resources/ceilometer-radosgw-user/actions/run.pp,Save generated resources with inputs
+579,solar/f2s/resources/ceph-compute/actions/run.pp,Save generated resources with inputs
+580,solar/f2s/resources/ceph-mon/actions/run.pp,Save generated resources with inputs
+581,solar/f2s/resources/ceph-radosgw/actions/run.pp,Save generated resources with inputs
+582,solar/f2s/resources/ceph_create_pools/actions/run.pp,Save generated resources with inputs
+583,solar/f2s/resources/cinder-db/actions/run.pp,Save generated resources with inputs
+584,solar/f2s/resources/cinder-keystone/actions/run.pp,Save generated resources with inputs
+585,solar/f2s/resources/cluster-haproxy/actions/run.pp,Save generated resources with inputs
+586,solar/f2s/resources/cluster-vrouter/actions/run.pp,Save generated resources with inputs
+587,solar/f2s/resources/cluster/actions/run.pp,Save generated resources with inputs
+588,solar/f2s/resources/cluster_health/actions/run.pp,Save generated resources with inputs
+589,solar/f2s/resources/configure_default_route/actions/run.pp,Save generated resources with inputs
+590,solar/f2s/resources/connectivity_tests/actions/run.pp,Save generated resources with inputs
+591,solar/f2s/resources/conntrackd/actions/run.pp,Save generated resources with inputs
+592,solar/f2s/resources/controller_remaining_tasks/actions/run.pp,Save generated resources with inputs
+593,solar/f2s/resources/database/actions/run.pp,Save generated resources with inputs
+594,solar/f2s/resources/disable_keystone_service_token/actions/run.pp,Save generated resources with inputs
+595,solar/f2s/resources/dns-client/actions/run.pp,Save generated resources with inputs
+596,solar/f2s/resources/dns-server/actions/run.pp,Save generated resources with inputs
+597,solar/f2s/resources/dump_rabbitmq_definitions/actions/run.pp,Save generated resources with inputs
+598,solar/f2s/resources/enable_cinder_volume_service/actions/run.pp,Save generated resources with inputs
+599,solar/f2s/resources/enable_nova_compute_service/actions/run.pp,Save generated resources with inputs
+600,solar/f2s/resources/enable_rados/actions/run.pp,Save generated resources with inputs
+601,solar/f2s/resources/firewall/actions/run.pp,Save generated resources with inputs
+602,solar/f2s/resources/fuel_pkgs/actions/run.pp,Save generated resources with inputs
+603,solar/f2s/resources/generate_vms/actions/run.pp,Save generated resources with inputs
+604,solar/f2s/resources/glance-db/actions/run.pp,Save generated resources with inputs
+605,solar/f2s/resources/glance-keystone/actions/run.pp,Save generated resources with inputs
+606,solar/f2s/resources/glance/actions/run.pp,Save generated resources with inputs
+607,solar/f2s/resources/globals/actions/run.pp,Save generated resources with inputs
+608,solar/f2s/resources/heat-db/actions/run.pp,Save generated resources with inputs
+609,solar/f2s/resources/heat-keystone/actions/run.pp,Save generated resources with inputs
+610,solar/f2s/resources/heat/actions/run.pp,Save generated resources with inputs
+611,solar/f2s/resources/hiera/actions/run.pp,Save generated resources with inputs
+612,solar/f2s/resources/horizon/actions/run.pp,Save generated resources with inputs
+613,solar/f2s/resources/hosts/actions/run.pp,Save generated resources with inputs
+614,solar/f2s/resources/ironic-api/actions/run.pp,Save generated resources with inputs
+615,solar/f2s/resources/ironic-compute/actions/run.pp,Save generated resources with inputs
+616,solar/f2s/resources/ironic-conductor/actions/run.pp,Save generated resources with inputs
+617,solar/f2s/resources/ironic-db/actions/run.pp,Save generated resources with inputs
+618,solar/f2s/resources/ironic-keystone/actions/run.pp,Save generated resources with inputs
+619,solar/f2s/resources/keystone-db/actions/run.pp,Save generated resources with inputs
+620,solar/f2s/resources/keystone/actions/run.pp,Save generated resources with inputs
+621,solar/f2s/resources/logging/actions/run.pp,Save generated resources with inputs
+622,solar/f2s/resources/memcached/actions/run.pp,Save generated resources with inputs
+623,solar/f2s/resources/murano-db/actions/run.pp,Save generated resources with inputs
+624,solar/f2s/resources/murano-keystone/actions/run.pp,Save generated resources with inputs
+625,solar/f2s/resources/murano-rabbitmq/actions/run.pp,Fix inputs in resources
+626,solar/f2s/resources/murano/actions/run.pp,Save generated resources with inputs
+627,solar/f2s/resources/netconfig/actions/run.pp,Save generated resources with inputs
+628,solar/f2s/resources/neutron-db/actions/run.pp,Save generated resources with inputs
+629,solar/f2s/resources/neutron-keystone/actions/run.pp,Save generated resources with inputs
+630,solar/f2s/resources/nova-db/actions/run.pp,Save generated resources with inputs
+631,solar/f2s/resources/nova-keystone/actions/run.pp,Save generated resources with inputs
+632,solar/f2s/resources/ntp-check/actions/run.pp,Save generated resources with inputs
+633,solar/f2s/resources/ntp-client/actions/run.pp,Save generated resources with inputs
+634,solar/f2s/resources/ntp-server/actions/run.pp,Save generated resources with inputs
+635,solar/f2s/resources/openstack-cinder/actions/run.pp,Save generated resources with inputs
+636,solar/f2s/resources/openstack-controller/actions/run.pp,Save generated resources with inputs
+637,solar/f2s/resources/openstack-haproxy-ceilometer/actions/run.pp,Save generated resources with inputs
+638,solar/f2s/resources/openstack-haproxy-cinder/actions/run.pp,Save generated resources with inputs
+639,solar/f2s/resources/openstack-haproxy-glance/actions/run.pp,Save generated resources with inputs
+640,solar/f2s/resources/openstack-haproxy-heat/actions/run.pp,Save generated resources with inputs
+641,solar/f2s/resources/openstack-haproxy-horizon/actions/run.pp,Save generated resources with inputs
+642,solar/f2s/resources/openstack-haproxy-ironic/actions/run.pp,Save generated resources with inputs
+643,solar/f2s/resources/openstack-haproxy-keystone/actions/run.pp,Save generated resources with inputs
+644,solar/f2s/resources/openstack-haproxy-murano/actions/run.pp,Save generated resources with inputs
+645,solar/f2s/resources/openstack-haproxy-mysqld/actions/run.pp,Save generated resources with inputs
+646,solar/f2s/resources/openstack-haproxy-neutron/actions/run.pp,Save generated resources with inputs
+647,solar/f2s/resources/openstack-haproxy-nova/actions/run.pp,Save generated resources with inputs
+648,solar/f2s/resources/openstack-haproxy-radosgw/actions/run.pp,Save generated resources with inputs
+649,solar/f2s/resources/openstack-haproxy-sahara/actions/run.pp,Save generated resources with inputs
+650,solar/f2s/resources/openstack-haproxy-stats/actions/run.pp,Save generated resources with inputs
+651,solar/f2s/resources/openstack-haproxy-swift/actions/run.pp,Save generated resources with inputs
+652,solar/f2s/resources/openstack-haproxy/actions/run.pp,Save generated resources with inputs
+653,solar/f2s/resources/openstack-network-agents-dhcp/actions/run.pp,Save generated resources with inputs
+654,solar/f2s/resources/openstack-network-agents-l3/actions/run.pp,Save generated resources with inputs
+655,solar/f2s/resources/openstack-network-agents-metadata/actions/run.pp,Save generated resources with inputs
+656,solar/f2s/resources/openstack-network-common-config/actions/run.pp,Save generated resources with inputs
+657,solar/f2s/resources/openstack-network-compute-nova/actions/run.pp,Save generated resources with inputs
+658,solar/f2s/resources/openstack-network-networks/actions/run.pp,Save generated resources with inputs
+659,solar/f2s/resources/openstack-network-plugins-l2/actions/run.pp,Save generated resources with inputs
+660,solar/f2s/resources/openstack-network-routers/actions/run.pp,Save generated resources with inputs
+661,solar/f2s/resources/openstack-network-server-config/actions/run.pp,Save generated resources with inputs
+662,solar/f2s/resources/openstack-network-server-nova/actions/run.pp,Save generated resources with inputs
+663,solar/f2s/resources/pre_hiera_config/actions/run.pp,Save generated resources with inputs
+664,solar/f2s/resources/public_vip_ping/actions/run.pp,Save generated resources with inputs
+665,solar/f2s/resources/rabbitmq/actions/run.pp,Save generated resources with inputs
+666,solar/f2s/resources/role_data/managers/globals.pp,Add manager globals.pp
+667,solar/f2s/resources/sahara-db/actions/run.pp,Save generated resources with inputs
+668,solar/f2s/resources/sahara-keystone/actions/run.pp,Save generated resources with inputs
+669,solar/f2s/resources/sahara/actions/run.pp,Save generated resources with inputs
+670,solar/f2s/resources/ssl-add-trust-chain/actions/run.pp,Save generated resources with inputs
+671,solar/f2s/resources/ssl-keys-saving/actions/run.pp,Save generated resources with inputs
+672,solar/f2s/resources/swift-keystone/actions/run.pp,Save generated resources with inputs
+673,solar/f2s/resources/swift-rebalance-cron/actions/run.pp,Save generated resources with inputs
+674,solar/f2s/resources/swift/actions/run.pp,Save generated resources with inputs
+675,solar/f2s/resources/tools/actions/run.pp,Save generated resources with inputs
+676,solar/f2s/resources/top-role-ceph-osd/actions/run.pp,Save generated resources with inputs
+677,solar/f2s/resources/top-role-cinder-vmware/actions/run.pp,Save generated resources with inputs
+678,solar/f2s/resources/top-role-cinder/actions/run.pp,Save generated resources with inputs
+679,solar/f2s/resources/top-role-compute-vmware/actions/run.pp,Save generated resources with inputs
+680,solar/f2s/resources/top-role-compute/actions/run.pp,Save generated resources with inputs
+681,solar/f2s/resources/top-role-mongo/actions/run.pp,Save generated resources with inputs
+682,solar/f2s/resources/top-role-primary-mongo/actions/run.pp,Save generated resources with inputs
+683,solar/f2s/resources/umm/actions/run.pp,Save generated resources with inputs
+684,solar/f2s/resources/update_hosts/actions/run.pp,Save generated resources with inputs
+685,solar/f2s/resources/updatedb/actions/run.pp,Save generated resources with inputs
+686,solar/f2s/resources/virtual_ips/actions/run.pp,Save generated resources with inputs
+687,solar/f2s/resources/vmware-vcenter/actions/run.pp,Save generated resources with inputs
+688,solar/f2s/resources/workloads_collector_add/actions/run.pp,Save generated resources with inputs
+689,solar/resources/apache_puppet/actions/run.pp,"Add apache puppet resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+690,solar/resources/cinder_api_puppet/actions/run.pp,"Add cinder api puppet resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+691,solar/resources/cinder_api_puppet/actions/update.pp,Add and fix update actions. changing db_port should work now
+692,solar/resources/cinder_glance_puppet/actions/run.pp,"Add cinder_glance resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+693,solar/resources/cinder_puppet/actions/run.pp,"Add cinder puppet resource
+
+Populate from autogenerated parameters
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+694,solar/resources/cinder_scheduler_puppet/actions/run.pp,"Add cinder scheduler puppet resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+695,solar/resources/cinder_scheduler_puppet/actions/update.pp,Add and fix update actions. changing db_port should work now
+696,solar/resources/cinder_volume_puppet/actions/run.pp,"Add cinder volume puppet resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+697,solar/resources/cinder_volume_puppet/actions/update.pp,Add and fix update actions. changing db_port should work now
+698,solar/resources/glance_puppet/actions/run.pp,"Glance-puppet, not fully working yet"
+699,solar/resources/glance_puppet/actions/update.pp,"Glance-puppet, not fully working yet"
+700,solar/resources/glance_registry_puppet/actions/run.pp,"Add glance registry puppet resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+701,solar/resources/glance_registry_puppet/actions/update.pp,"Add glance registry puppet resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+702,solar/resources/keystone_puppet/actions/run.pp,Keystone can now be deployed using Puppet
+703,solar/resources/keystone_puppet/actions/update.pp,Puppet: added port to keystone
+704,solar/resources/neutron_agents_dhcp_puppet/actions/run.pp,"Add neutron DHCP agent resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+705,solar/resources/neutron_agents_l3_puppet/actions/run.pp,"Add neutron L3 agent resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+706,solar/resources/neutron_agents_metadata_puppet/actions/run.pp,"Add neutron metadata agent resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+707,solar/resources/neutron_agents_ml2_ovs_puppet/actions/run.pp,"Add neutron agent ovs with ml2 plugin resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+708,solar/resources/neutron_plugins_ml2_puppet/actions/run.pp,"Add neutron ml2 plugin resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+709,solar/resources/neutron_puppet/actions/run.pp,neutron_puppet works now with upstream openstack manifests
+710,solar/resources/neutron_server_puppet/actions/run.pp,"Decouple neutron resource
+
+* Use neutron base and API(server) resources
+* Add db and db user for neutron composition layer
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+711,solar/resources/node_network_puppet/actions/run.pp,"Add node_network puppet resource
+
+WIP
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+712,solar/resources/nova_api_puppet/actions/run.pp,change path
+713,solar/resources/nova_api_puppet/actions/update.pp,Add and fix update actions. changing db_port should work now
+714,solar/resources/nova_compute_libvirt_puppet/actions/run.pp,"Add nova comp libvirt resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+715,solar/resources/nova_compute_libvirt_puppet/actions/update.pp,Added update action to nova_compute_libvirt_puppet
+716,solar/resources/nova_compute_puppet/actions/run.pp,"Add nova compute resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+717,solar/resources/nova_compute_puppet/actions/update.pp,Add update action for nova_compute
+718,solar/resources/nova_conductor_puppet/actions/run.pp,"Add nova conductor resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+719,solar/resources/nova_conductor_puppet/actions/update.pp,Add and fix update actions. changing db_port should work now
+720,solar/resources/nova_generic_service_puppet/actions/remove.pp,"Fix nova_generic_service resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+721,solar/resources/nova_generic_service_puppet/actions/run.pp,"Fix nova_generic_service resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+722,solar/resources/nova_generic_service_puppet/actions/update.pp,Add and fix update actions. changing db_port should work now
+723,solar/resources/nova_neutron_puppet/actions/run.pp,"Add nova_neutron resource.
+
+Includes configuration only classes for nova compute:
+nova::network::neutron and nova::compute::neutron
+Combined into the single resource as the latter one
+is too small (it has only 2 conf params)
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+724,solar/resources/nova_puppet/actions/run.pp,"Create nova base puppet resource
+
+Also align composition layer:
+- rename nova_api to nova_puppet
+- adjust connections
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+725,solar/resources/rabbitmq_service/actions/run.pp,Rabbimtq service from puppet
+726,solar/resources/neutron_server_puppet/actions/update.pp,Add and fix update actions. changing db_port should work now
+727,solar/resources/nova_puppet/actions/update.pp,Add and fix update actions. changing db_port should work now
+728,solar/resources/cinder_puppet/actions/update.pp,Add and fix update actions. changing db_port should work now
+729,solar/resources/ceph_mon/actions/run.pp,Add ceph_mon resource and example
+730,solar/resources/ceph_mon/actions/test.pp,Add ceph_mon resource and example
+731,solar/resources/node_network_puppet/actions/remove.pp,"Add node_network puppet resource
+
+WIP
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+732,solar/resources/nova_generic_service/actions/remove.pp,"Add nova generic service resource
+
+* The generic service resource may be used
+to deploy multiple nova services like vncproxy,
+scheduler, consoleauth etc.
+* Add composition layer for the scheduler service
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+733,solar/resources/nova_generic_service/actions/run.pp,"Add nova generic service resource
+
+* The generic service resource may be used
+to deploy multiple nova services like vncproxy,
+scheduler, consoleauth etc.
+* Add composition layer for the scheduler service
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+734,solar/resources/neutron_agents_ovs_puppet/actions/remove.pp,"Add neutron OVS agent resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+735,solar/resources/neutron_agents_ovs_puppet/actions/run.pp,"Add neutron OVS agent resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+736,solar/resources/neutron_plugins_ovs_puppet/actions/remove.pp,"Add neutron ovs plugin resource
+
+* Add compostion layer for OVS plugin with GRE
+* Fix neutron tags, use_ssl input
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+737,solar/resources/neutron_plugins_ovs_puppet/actions/run.pp,"Add neutron ovs plugin resource
+
+* Add compostion layer for OVS plugin with GRE
+* Fix neutron tags, use_ssl input
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+738,solar/resources/neutron_agents_ml2_ovs_puppet/actions/remove.pp,"Add neutron agent ovs with ml2 plugin resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+739,solar/resources/neutron_plugins_ml2_puppet/actions/remove.pp,"Add neutron ml2 plugin resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+740,solar/resources/neutron_agents_metadata_puppet/actions/remove.pp,"Add neutron metadata agent resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+741,solar/resources/neutron_agents_l3_puppet/actions/remove.pp,"Add neutron L3 agent resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+742,solar/resources/neutron_agents_dhcp_puppet/actions/remove.pp,"Add neutron DHCP agent resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+743,solar/resources/neutron_server_puppet/actions/remove.pp,"Decouple neutron resource
+
+* Use neutron base and API(server) resources
+* Add db and db user for neutron composition layer
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+744,solar/resources/neutron_puppet/actions/remove.pp,neutron_puppet works now with upstream openstack manifests
+745,solar/resources/apache_puppet/actions/remove.pp,"Add apache puppet resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+746,solar/resources/cinder_glance_puppet/actions/remove.pp,"Add cinder_glance resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+747,solar/resources/nova_neutron_puppet/actions/remove.pp,"Add nova_neutron resource.
+
+Includes configuration only classes for nova compute:
+nova::network::neutron and nova::compute::neutron
+Combined into the single resource as the latter one
+is too small (it has only 2 conf params)
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+748,solar/resources/nova_compute_libvirt_puppet/actions/remove.pp,"Add nova comp libvirt resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+749,solar/resources/nova_compute_puppet/actions/remove.pp,"Add nova compute resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+750,solar/resources/nova_conductor_puppet/actions/remove.pp,"Add nova conductor resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+751,solar/resources/nova_api_puppet/actions/remove.pp,change path
+752,solar/resources/nova_puppet/actions/remove.pp,"Create nova base puppet resource
+
+Also align composition layer:
+- rename nova_api to nova_puppet
+- adjust connections
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+753,solar/resources/glance_puppet/actions/remove.pp,"Glance-puppet, not fully working yet"
+754,solar/resources/glance_registry_puppet/actions/remove.pp,"Add glance registry puppet resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+755,solar/resources/cinder_volume_puppet/actions/remove.pp,"Add cinder volume puppet resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+756,solar/resources/cinder_scheduler_puppet/actions/remove.pp,"Add cinder scheduler puppet resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+757,solar/resources/cinder_api_puppet/actions/remove.pp,"Add cinder api puppet resource
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+758,solar/resources/cinder_puppet/actions/remove.pp,"Add cinder puppet resource
+
+Populate from autogenerated parameters
+
+Signed-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>"
+759,solar/resources/rabbitmq_service/actions/remove.pp,Rabbimtq service from puppet
+760,solar/resources/nova_api/actions/remove.pp,nova-api resource
+761,solar/resources/nova_api/actions/run.pp,nova-api resource
+762,solar/resources/keystone_puppet/actions/remove.pp,Puppet: added port to keystone
+763,solar/resources/keystone_puppet/puppet/examples/apache_dropin.pp,Keystone can now be deployed using Puppet
+764,solar/resources/keystone_puppet/puppet/examples/apache_with_paths.pp,Keystone can now be deployed using Puppet
+765,solar/resources/keystone_puppet/puppet/examples/ldap_full.pp,Keystone can now be deployed using Puppet
+766,solar/resources/keystone_puppet/puppet/examples/ldap_identity.pp,Keystone can now be deployed using Puppet
+767,solar/resources/keystone_puppet/puppet/manifests/client.pp,Keystone can now be deployed using Puppet
+768,solar/resources/keystone_puppet/puppet/manifests/config.pp,Keystone can now be deployed using Puppet
+769,solar/resources/keystone_puppet/puppet/manifests/db/mysql.pp,Keystone can now be deployed using Puppet
+770,solar/resources/keystone_puppet/puppet/manifests/db/mysql/host_access.pp,Keystone can now be deployed using Puppet
+771,solar/resources/keystone_puppet/puppet/manifests/db/postgresql.pp,Keystone can now be deployed using Puppet
+772,solar/resources/keystone_puppet/puppet/manifests/db/sync.pp,Keystone can now be deployed using Puppet
+773,solar/resources/keystone_puppet/puppet/manifests/dev/install.pp,Keystone can now be deployed using Puppet
+774,solar/resources/keystone_puppet/puppet/manifests/endpoint.pp,Keystone can now be deployed using Puppet
+775,solar/resources/keystone_puppet/puppet/manifests/init.pp,Keystone can now be deployed using Puppet
+776,solar/resources/keystone_puppet/puppet/manifests/ldap.pp,Keystone can now be deployed using Puppet
+777,solar/resources/keystone_puppet/puppet/manifests/params.pp,Keystone can now be deployed using Puppet
+778,solar/resources/keystone_puppet/puppet/manifests/python.pp,Keystone can now be deployed using Puppet
+779,solar/resources/keystone_puppet/puppet/manifests/roles/admin.pp,Keystone can now be deployed using Puppet
+780,solar/resources/keystone_puppet/puppet/manifests/wsgi/apache.pp,Keystone can now be deployed using Puppet
+781,solar/resources/keystone_puppet/puppet/tests/site.pp,Keystone can now be deployed using Puppet
+782,solar/resources/puppet_inifile/actions/remove.pp,Puppet: Keystone remove action is working now
+783,solar/resources/puppet_inifile/actions/run.pp,Keystone can now be deployed using Puppet
+784,solar/resources/puppet_inifile/puppet/tests/ini_setting.pp,Keystone can now be deployed using Puppet
+785,solar/resources/puppet_inifile/puppet/tests/ini_subsetting.pp,Keystone can now be deployed using Puppet
+786,solar/resources/puppet_mysql/actions/remove.pp,Puppet: Keystone remove action is working now
+787,solar/resources/puppet_mysql/actions/run.pp,Keystone can now be deployed using Puppet
+788,solar/resources/puppet_mysql/puppet/examples/site.pp,Keystone can now be deployed using Puppet
+789,solar/resources/puppet_mysql/puppet/examples/test.pp,Keystone can now be deployed using Puppet
+790,solar/resources/puppet_mysql/puppet/manifests/backup.pp,Keystone can now be deployed using Puppet
+791,solar/resources/puppet_mysql/puppet/manifests/config.pp,Keystone can now be deployed using Puppet
+792,solar/resources/puppet_mysql/puppet/manifests/db.pp,Keystone can now be deployed using Puppet
+793,solar/resources/puppet_mysql/puppet/manifests/init.pp,Keystone can now be deployed using Puppet
+794,solar/resources/puppet_mysql/puppet/manifests/java.pp,Keystone can now be deployed using Puppet
+795,solar/resources/puppet_mysql/puppet/manifests/params.pp,Keystone can now be deployed using Puppet
+796,solar/resources/puppet_mysql/puppet/manifests/password.pp,Keystone can now be deployed using Puppet
+797,solar/resources/puppet_mysql/puppet/manifests/python.pp,Keystone can now be deployed using Puppet
+798,solar/resources/puppet_mysql/puppet/manifests/replicator.pp,Keystone can now be deployed using Puppet
+799,solar/resources/puppet_mysql/puppet/manifests/ruby.pp,Keystone can now be deployed using Puppet
+800,solar/resources/puppet_mysql/puppet/manifests/server.pp,Keystone can now be deployed using Puppet
+801,solar/resources/puppet_mysql/puppet/manifests/server/account_security.pp,Keystone can now be deployed using Puppet
+802,solar/resources/puppet_mysql/puppet/manifests/server/monitor.pp,Keystone can now be deployed using Puppet
+803,solar/resources/puppet_mysql/puppet/manifests/server/mysqltuner.pp,Keystone can now be deployed using Puppet
+804,solar/resources/puppet_mysql/puppet/spec/fixtures/manifests/site.pp,Keystone can now be deployed using Puppet
+805,solar/resources/puppet_mysql/puppet/tests/backup.pp,Keystone can now be deployed using Puppet
+806,solar/resources/puppet_mysql/puppet/tests/init.pp,Keystone can now be deployed using Puppet
+807,solar/resources/puppet_mysql/puppet/tests/java.pp,Keystone can now be deployed using Puppet
+808,solar/resources/puppet_mysql/puppet/tests/python.pp,Keystone can now be deployed using Puppet
+809,solar/resources/puppet_mysql/puppet/tests/ruby.pp,Keystone can now be deployed using Puppet
+810,solar/resources/puppet_mysql/puppet/tests/server.pp,Keystone can now be deployed using Puppet
+811,solar/resources/puppet_stdlib/actions/remove.pp,Puppet: Keystone remove action is working now
+812,solar/resources/puppet_stdlib/actions/run.pp,Keystone can now be deployed using Puppet
+813,solar/resources/puppet_stdlib/puppet/manifests/init.pp,Keystone can now be deployed using Puppet
+814,solar/resources/puppet_stdlib/puppet/manifests/stages.pp,Keystone can now be deployed using Puppet
+815,solar/resources/puppet_stdlib/puppet/tests/file_line.pp,Keystone can now be deployed using Puppet
+816,solar/resources/puppet_stdlib/puppet/tests/has_interface_with.pp,Keystone can now be deployed using Puppet
+817,solar/resources/puppet_stdlib/puppet/tests/has_ip_address.pp,Keystone can now be deployed using Puppet
+818,solar/resources/puppet_stdlib/puppet/tests/has_ip_network.pp,Keystone can now be deployed using Puppet
+819,solar/resources/puppet_stdlib/puppet/tests/init.pp,Keystone can now be deployed using Puppet

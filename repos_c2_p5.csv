@@ -1,0 +1,15 @@
+,name,c2,files,pp_files,forked
+0,puppet-control-template,0.07142857142857142,42,3,0
+1,profiles,0.7358490566037735,53,39,0
+2,roles,0.6333333333333333,30,19,0
+3,pmlc_nova,0.55,20,11,0
+4,pmlc_cinder,0.46153846153846156,13,6,0
+5,pmlc_neutron,0.5,22,11,0
+6,pmlc_keystone,0.4,15,6,0
+7,puppet-foreman_proxy,0.34782608695652173,69,24,0
+8,puppet-deployapp,0.4,25,10,0
+9,tools-sustaining,0.0,58,0,0
+10,zabbix-configuration-files,0.0,5,0,0
+11,bareon-api,0.0,44,0,0
+12,solar-qa,0.0,0,0,1
+13,puppet-kafka,0.0,0,0,1

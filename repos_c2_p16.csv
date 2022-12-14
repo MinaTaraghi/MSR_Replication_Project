@@ -1,0 +1,12 @@
+,name,c2,files,pp_files,forked
+0,container-cloud-cli,0.0,3,0,0
+1,lens-extension-cc,0.0,194,0,0
+2,helm-charts,0.0,15,0,0
+3,cri-dockerd,0.0,4736,0,0
+4,prodsec,0.0,0,0,1
+5,oscalkit,0.0,0,0,1
+6,security,0.0,18,0,0
+7,mcc-on-equinix-terraform-templates,0.0,36,0,0
+8,mosk-triliovault,0.0,40,0,0
+9,mcc-api,0.0,3460,0,0
+10,openstack-refapp,0.0,29,0,0

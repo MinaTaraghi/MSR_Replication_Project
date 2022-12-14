@@ -1,0 +1,15 @@
+,name,c2,files,pp_files,forked
+0,puppetlabs-swift,0.0,0,0,1
+1,puppetlabs-sysctl,0.0,0,0,1
+2,puppetlabs-vcsrepo,0.0,0,0,1
+3,puppetlabs-xinetd,0.0,0,0,1
+4,openstack-lbaas-cli,0.0,33,0,0
+5,openstack-horizon,0.0,0,0,1
+6,nova,0.0,0,0,1
+7,swift-encrypt,0.0,300,0,0
+8,puppetlabs-cinder,0.0,0,0,1
+9,openstack-lbaas-horizon,0.0,1,0,0
+10,fuel,0.0,1,0,0
+11,astute,0.0,1,0,0
+12,devops,0.0,1,0,0
+13,murano-tests,0.0,33,0,0

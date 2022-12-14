@@ -1,0 +1,71 @@
+,file_,XCM,defect_status
+0,profiles/manifests/common/sudo.pp,Initial commit,0
+1,profiles/manifests/puppet/agent.pp,Initial commit,0
+2,profiles/manifests/ssh/server.pp,Initial commit,0
+3,roles/manifests/openstack/pmlc_controller.pp,Add roles for pmlc versions of openstack boxen,0
+4,roles/manifests/openstack/pmlc_compute.pp,Add roles for pmlc versions of openstack boxen,0
+5,roles/manifests/deploy.pp,Initial commit,0
+6,roles/manifests/ftp/server.pp,Initial commit,0
+7,pmlc_nova/manifests/init.pp,Initial commit,1
+8,pmlc_nova/manifests/compute/service.pp,Initial commit,0
+9,fuel-plugin-celebrer/deployment_scripts/puppet/manifests/server.pp,Update server.pp,0
+10,fuel-plugin-celebrer/deployment_scripts/puppet/modules/celebrer/manifests/params.pp,Update params.pp,0
+11,fuel-plugin-celebrer/deployment_scripts/puppet/manifests/ha.pp,Adding HA-proxy supports.,1
+12,fuel-plugin-celebrer/deployment_scripts/puppet/modules/celebrer/manifests/keystone/auth.pp,Create auth.pp,0
+13,fuel-plugin-celebrer/deployment_scripts/puppet/manifests/keystone.pp,Adding keystone supports.,0
+14,fuel-plugin-celebrer/deployment_scripts/puppet/modules/celebrer/manifests/init.pp,Update init.pp,0
+15,fuel-plugin-celebrer/deployment_scripts/puppet/modules/celebrer/manifests/db.pp,Update db.pp,0
+16,fuel-plugin-celebrer/deployment_scripts/puppet/manifests/agent.pp,Update agent.pp,0
+17,fuel-plugin-celebrer/deployment_scripts/puppet/modules/celebrer/manifests/agent.pp,Migrate to v2.0.0 FuelPlugin package version,0
+18,pmlc_neutron/manifests/server/config.pp,Initial commit,1
+19,pmlc_neutron/manifests/server/service.pp,Initial commit,0
+20,fuel-plugin-standalone-ceph/deployment_scripts/hosts.pp,add ssl part2,0
+21,fuel-plugin-standalone-ceph/deployment_scripts/ssl_keys_saving.pp,add ssl part1,0
+22,fuel-plugin-standalone-ceph/deployment_scripts/modules/ceph_override/manifests/ceph/enable_rados.pp,"Plugin refactored to support MOS 9.0
+
+Change-Id: If4bdf9868fd7a3e9a7fc3797ca454912877be179",0
+23,fuel-plugin-standalone-ceph/deployment_scripts/mon.pp,"Development snapshot
+
+  * Change name to standalone-ceph
+  * Deployment groups and their order are correct.
+  * Some issue with ceph/init.pp (hardcoded role name)",1
+24,fuel-plugin-standalone-ceph/deployment_scripts/openstack-haproxy-radosgw.pp,"Added rados gw on ceph mons
+
+Change-Id: Ie0f828a7304ff867562daf986e88ce2a23cab805",1
+25,fuel-plugin-standalone-ceph/deployment_scripts/ceph_client.pp,"Added rados gw on ceph mons
+
+Change-Id: Ie0f828a7304ff867562daf986e88ce2a23cab805",1
+26,fuel-plugin-external-ceph/deployment_scripts/puppet/modules/external_ceph/manifests/volumes_ephemeral.pp,9.0 Port,0
+27,fuel-plugin-external-ceph/deployment_scripts/puppet/modules/external_ceph/manifests/conf.pp,9.0 Port,0
+28,fuel-plugin-external-ceph/deployment_scripts/conf.pp,"Basic integration with cinder, ephemeral
+
+Change-Id: Id3c65aa62d575c7ba698b20ba729a7b3b0303ec0",0
+29,fuel-plugin-external-ceph/deployment_scripts/images.pp,"Added integration with external glance
+
+Change-Id: I4fb1693f25dd01d5108eb70d2f40b9a31ac5b049",0
+30,fuel-plugin-external-ceph/deployment_scripts/radosgw-keystone.pp,"Implemented radosgw deployment
+
+Change-Id: Ia1d9678479ec6b606d4a6fb0d1188541f7875da7",0
+31,fuel-plugin-external-ceph/deployment_scripts/volumes-and-ephemeral-compute.pp,"Basic integration with cinder, ephemeral
+
+Change-Id: Id3c65aa62d575c7ba698b20ba729a7b3b0303ec0",1
+32,puppet-foreman_proxy/manifests/plugin/chef/params.pp,initial commit,0
+33,solar-resources/resources/node_network_puppet/1.0.0/actions/run.pp,"Change resources structure to match repository one
+
+Change-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76",0
+34,fuel-plugin-etckeeper/deployment_scripts/etckeeper_commit.pp,"Add userguide and fix commit task
+
+This change adds the userguide to the plugin. Additionally this change
+fixes deployment failures due to no pendinding changes when the commit
+task is run.",1
+35,fuel-plugin-vxlan-vlan-7/deployment_scripts/configure-ml2-controller.pp,"Refactoring #1
+
+1) Cosmetic metadata changes
+2) Functional fixes for puppet manifests.
+
+This refactoring step provides minimal changes from original version.
+Right way to change values in ml2_conf.ini is to make hiera override.
+This step will be proposed later.
+
+Type: refactor
+Task: MOSS-331Refactoring 1",1

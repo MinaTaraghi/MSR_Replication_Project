@@ -1,0 +1,15 @@
+,name,c2,files,pp_files,forked
+0,nova-scheduler-volume-affinity-filter,0.0,11,0,0
+1,fuelweb-test,0.0,75,0,0
+2,stackalytics,0.0,191,0,0
+3,fuel-docs,0.0,1,0,0
+4,fuel-test,0.06349206349206349,126,8,0
+5,puppet-heat,0.0,52,0,0
+6,puppet-savanna,0.14250614250614252,407,58,0
+7,ruby-openstack,0.0,0,0,1
+8,fuel-main,0.0,1,0,0
+9,rally,0.0,2,0,0
+10,fuel-provision,0.0,1,0,0
+11,magnetodb,0.0,1,0,0
+12,oscp,0.0,100,0,0
+13,lsi-api,0.0,24,0,0

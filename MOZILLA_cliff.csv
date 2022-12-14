@@ -1,0 +1,13 @@
+,delta,size
+URL,0.084,negligible
+File,0.184,small
+Lines_of_code,0.51,large
+Require,0.196,small
+Ensure,0.09,negligible
+Include,0.313,small
+Attribute,0.408,medium
+Hard_coded_string,0.405,medium
+Comment,0.027,negligible
+Command,0.182,small
+File_mode,0.241,small
+SSH_KEY,0.241,small

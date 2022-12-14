@@ -1,0 +1,15 @@
+,name,c2,files,pp_files,forked
+0,openstack-fedora-specs,0.0,53,0,0
+1,gosa-openstack,0.0,4,0,0
+2,openstack-utils,0.0,1,0,0
+3,openstack-dashboard,0.0,272,0,0
+4,keystone,0.0,0,0,1
+5,cloudpipe-image-auto-creation,0.0,4,0,0
+6,osagent,0.0,17,0,0
+7,tempest,0.0,0,0,1
+8,fuelweb,0.0,2,0,0
+9,openstack-lbaas,0.0,127,0,0
+10,puppetlabs-openstack,0.0,0,0,1
+11,puppetlabs-apt,0.0,0,0,1
+12,puppet-concat,0.0,0,0,1
+13,puppet-galera,0.0,0,0,1

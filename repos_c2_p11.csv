@@ -1,0 +1,15 @@
+,name,c2,files,pp_files,forked
+0,mk-pipelines,0.0,115,0,0
+1,mos-updates,0.0,1,0,0
+2,docker-phpldapadmin,0.0,23,0,0
+3,docker-openldap,0.0,96,0,0
+4,docker-jenkins,0.0,47,0,0
+5,docker-gerrit,0.0,15,0,0
+6,telegraf,0.0,750,0,0
+7,k8s-apps,0.0,1086,0,0
+8,rundeck-cis-jobs,0.0,6,0,0
+9,cvp-sanity-checks,0.0,64,0,0
+10,kqueen,0.0,129,0,0
+11,environment-template,0.0,197,0,0
+12,cvp-configuration,0.0,112,0,0
+13,sriov-scheduler,0.0,29,0,0
